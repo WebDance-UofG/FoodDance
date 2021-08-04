@@ -1,0 +1,25 @@
+.container {
+    margin-top: 70px;
+    width: 45%;
+    margin-left: 30%;
+}
+
+.inline-style {
+    display: inline-block;
+}
+
+.font-position-right{
+    text-align: right;
+}
+
+.signup-btn{
+    background-color: #555555;
+    border-radius: 4px;
+    border-color: #555555;
+    color: #FFFFFF;
+}
+
+.register-btn{
+    margin-left: 10%;
+}
+
