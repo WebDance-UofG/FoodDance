@@ -1,3 +1,60 @@
-body{
-
+.login_text{
+    font-size: 14px;
+    color: #ffffff;
+}
+.login_text:hover{
+    color: #ffffff;
+    font-weight:bold;
+    text-decoration: none;
+}
+.login_grid{
+    padding-right: 0px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+.logout_grid{
+    padding-right: 0px;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+.header-block{
+    background-image: url("../images/header_background.jpg");
+}
+.search{
+    width: 350px;
+    box-sizing: border-box;
+    border: 1px solid darkgrey;
+    border-radius: 2px;
+    height:30px;
+}
+.button-search{
+    background-color: #D7D7D7;
+    border-radius:4px;
+    border-color: #D7D7D7;
+    width: 80px;
+    height: 36px;
+    text-align: center;
+}
+.button-search:hover {
+  background-color: darkgrey;
+    color: #ffffff;
+}
+.button-category{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    font-family: Copperplate, Fantasy;
+    color:white;
+    font-size:16px;
+    width:150px;
+    height: 40px;
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px 0px;
+    float: left;
+}
+.button-category:hover{
+    background-color: white;
+    color: #180E09;
+    font-weight:bold;
+    text-decoration: none;
 }
