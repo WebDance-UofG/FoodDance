@@ -21,6 +21,10 @@ class Recipe(models.Model):
     pub_date = models.DateField()
     slug = models.SlugField(unique=True)
 
+    views = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
+    shares = models.IntegerField(default=0)
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         import datetime

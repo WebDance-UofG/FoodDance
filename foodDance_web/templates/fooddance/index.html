@@ -1,27 +1,17 @@
 <!doctype html>
+{% extends 'fooddance/base.html' %}
 {% load staticfiles  %}
 
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="{% static 'css/index.css' %}">
-</head>
-<body>
-<script src="{% static 'js/index.js' %}" type="application/javascript"></script>
-<ul>
-    {% if recipes %}
-        {% for recipe in recipes %}
-            <li>{{ recipe.title }}</li>
-        {% endfor %}
+{% block body_block %}
+    <script src="{% static 'js/index.js' %}" type="application/javascript"></script>
+    <ul>
+        {% if recipes %}
+            {% for recipe in recipes %}
+                <li>{{ recipe.title }}</li>
+            {% endfor %}
 
-    {%  endif %}
-    <li></li>
+        {%  endif %}
 </ul>
 
-</body>
-</html>
+    {% endblock %}
