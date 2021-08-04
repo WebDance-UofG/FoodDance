@@ -7,11 +7,13 @@ import django
 
 django.setup()
 from fooddance.models import *;
+from django.conf import settings
+from django.core.files.images import ImageFile
 
 
 def populate():
     users = [
-        {'username': 'test1', 'password': 'test123', 'email': 'test1@test.com'},
+        {'username': 'test1', 'password': 'test123', 'email': 'test1@test.com', 'image': 'avatars/avatar_test.jpg'},
         {'username': 'test2', 'password': 'test123', 'email': 'test2@test.com'},
         {'username': 'test3', 'password': 'test123', 'email': 'test3@test.com'}
     ]
@@ -19,6 +21,7 @@ def populate():
     recipes = [
         {'title': 'Vegan Cheesecake',
          'author': 'test1',
+         'image': 'recipes/vegan-cheesecake.jpeg',# required!!!!
          'overview':
             "This no-bake vegan cheesecake, with its boozy Black Forest cherry topping, is a luxurious twist on a "
             "retro classic. It's completely delicious and just the thing for celebrations and parties. See the recipe "
@@ -34,7 +37,8 @@ def populate():
              {'ingredient': 'extra-firm silken tofu', 'weight': '400g'},
          ],
          'steps': [
-             {'content': 'Grease a deep 20cm/8in round springform cake tin and line the base and sides with baking paper.'},
+             {'image': 'recipes/vegan-cheesecake_1.jpg',
+                 'content': 'Grease a deep 20cm/8in round springform cake tin and line the base and sides with baking paper.'},
              {'content': 'Mix the crushed biscuits with the melted margarine and 2 pinches of salt, spread evenly over the base of the prepared tin and press down firmly. Place in the fridge for 40 minutes.'},
              {'content': 'Melt the chocolate and cocoa butter (or coconut oil) in a heatproof bowl over a pan of gently simmering water, stirring occasionally, until smooth.'},
              {'content': 'Put the tofu, vanilla, sugar and oat crème fraiche into a blender or food processor and blend until smooth. Add the melted chocolate mixture and blend again, then add a pinch of salt. Spread over the chilled base and smooth the top. Place in the fridge for at least 4 hours or, better still, overnight.'},
@@ -59,39 +63,63 @@ def populate():
     ]
 
     for user in users:
-        user = add_user(user['username'], user['password'], user['email'])
+        image = None
+        if 'image' in user.keys():
+            image = user['image']
+
+        user = add_user(user['username'], user['password'], user['email'], image)
         print(f'- {user}')
 
     for recipe in recipes:
+
+        image = None
+        if 'image' in recipe.keys():
+            image = recipe['image']
+
         add_recipe(recipe['title'], recipe['author'], recipe['overview'], recipe['duration'],
-                   recipe['budget'], recipe['difficulty'], recipe['materials'], recipe['steps'], recipe['comments'])
+                   recipe['budget'], recipe['difficulty'], recipe['materials'], recipe['steps'],
+                   recipe['comments'], image)
 
     for collection in collections:
         u = add_collection(collection['user'], collection['recipe'])
         print(f"- {collection['user']} collect {collection['recipe']}")
 
 
-def add_user(username,password,email):
+def add_user(username, password, email, image=None):
     user = User.objects.get_or_create(username=username, password=password, email=email)[0]
+
     user.save()
     userprofile = UserProfile.objects.get_or_create(user=user)[0]
+    if image:
+        userprofile.image = os.path.join(image)
+        print(f'- add image {image}')
+
     userprofile.save()
     return user
 
 
-def add_recipe(title, author_name, overview, duration, budget, difficulty, materials, steps, comments):
+def add_recipe(title, author_name, overview, duration, budget, difficulty, materials, steps, comments, image=None):
     author = User.objects.get(username=author_name)
-    r = Recipe.objects.get_or_create(title=title, author=author, overview = overview, duration = duration, budget = budget, difficulty = difficulty)[0]
+
+    r = Recipe.objects.get_or_create(title=title, author=author, overview=overview, duration=duration,
+                                     budget=budget, difficulty=difficulty)[0]
+    if image:
+        r.image = os.path.join(image)
+        print(f'- add image {image}')
+
     r.save()
 
     print(f'- {r}')
-
     for material in materials:
         m = add_material(r, material['ingredient'], material['weight'])
         print(f'- {m}')
 
     for step in steps:
-        s = add_step(r, step['content'])
+        image = None
+        if 'image' in step.keys():
+            image = step['image']
+
+        s = add_step(r, step['content'],image)
         print(f'- {s}')
 
     for comment in comments:
@@ -107,8 +135,12 @@ def add_material(recipe, ingredient, weight):
     return m
 
 
-def add_step(recipe, content):
+def add_step(recipe, content, image=None):
     s = RecipeStep.objects.get_or_create(recipe=recipe, content=content)[0]
+    if image:
+        s.image = os.path.join(image)
+        print(f'- add image {image}')
+    s.save()
     time.sleep(0.5)
     return s
 

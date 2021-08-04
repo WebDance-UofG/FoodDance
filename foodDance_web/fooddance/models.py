@@ -12,6 +12,7 @@ class Recipe(models.Model):
     OVERVIEW_MAX_LENGTH = 500
 
     title = models.CharField(max_length=TITLE_MAX_LENGTH)
+    image = models.ImageField(upload_to='recipes')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     overview = models.CharField(max_length=OVERVIEW_MAX_LENGTH)
     duration = models.IntegerField()

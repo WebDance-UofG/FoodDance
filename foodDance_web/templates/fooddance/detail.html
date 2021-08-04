@@ -1,0 +1,13 @@
+<!doctype html>
+
+{% extends 'fooddance/base.html'%}
+{% block title_block %}
+    {{ recipe.title }}
+{% endblock %}
+
+{% block body_block %}
+    <div class=".container">
+        <div class="col-md-2"></div>
+    <img src="{{ MEDIA_URL }}/{{ recipe.image }}">
+    </div>
+{% endblock %}
