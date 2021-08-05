@@ -1,5 +1,5 @@
 <!doctype html>
-{% extends 'fooddance/base.html' %}
+{% extends 'fooddance/b5_base.html' %}
 {% load staticfiles  %}
 
 {% block title_block %}
@@ -9,38 +9,37 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 {% block body_block %}
-        {% if alert_message  %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>{{ alert_message }}</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>`
-    {% endif %}
-    <div class="row">
-        <div class="col-md-6"><p class="todays-top">Today's Top</p></div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 top-recipe-background">
-                <div class="col-md-7 top-recipe-grid">
-                    <p class="top-recipe-title">Scrambled Egg with Tomato</p>
-                    <p class="top-recipe-author">@Author</p>
-                    <div class="top-recipe-comment">
-                        <span class="glyphicon glyphicon-comment"></span>
-                        <p class="top-recipe-comment">"Very tasty and easy to cook !! I love this recipe !!"</p>
-                    </div>
-                    <div class="top-recipe-detail-row">
-                        <span class="glyphicon glyphicon-time top-recipe-icon">  Duration</span>45min
-                    </div>
-                    <div class="top-recipe-detail-row">
-                        <span class="glyphicon glyphicon-play top-recipe-icon">  Difficulty</span>Easy
-                    </div>
-                    <div class="top-recipe-detail-row">
-                        <span class="glyphicon glyphicon-align-justify top-recipe-icon">  Overview</span>A classic fast meal for families....fjkls slkjlkj ssssaaaa
-                    </div>
+    
+    <p class="todays-top">Today's Top</p>
+    <div class="row justify-content-center">
+        <div class="row align-items-center top-recipe-background">
+            <div class="col-md-7 col-sm-12">
+                <p class="top-recipe-title">Scrambled Egg with Tomato</p>
+                <p class="top-recipe-author">@Author</p>
+                <div>
+                    <img src="{% static 'images/ze-comment-o.svg' %}" class="top-recipe-comment-icon"/>
+                    <img src="{% static 'images/comment_stars.png' %}" class="top-recipe-comment-star"/>
+                    <p class="top-recipe-comment">"Very tasty and easy to cook !! I love this recipe !!"</p>
                 </div>
-                <div class="col-md-5 top-recipe-grid">
-                    <img src="{% static 'images/top_recipe_cover_1.png' %}" class="top-recipe-image"/>
+                <div class="top-recipe-detail-div">
+                    <img src="{% static 'images/md-access_time.svg' %}" class="top-recipe-icon"/>
+                    <p class="top-recipe-text">Duration</p>
+                    <p class="top-recipe-text">45mins</p>
+
                 </div>
+                <div class="top-recipe-detail-div">
+                    <img src="{% static 'images/stLine-cup-l Copy.svg' %}" class="top-recipe-icon"/>
+                    <p class="top-recipe-text">Difficulty</p>
+                    <p class="top-recipe-text">Easy</p>
+                </div>
+                <div class="top-recipe-detail-div">
+                    <img src="{% static 'images/ze-notes-o.svg' %}" class="top-recipe-icon"/>
+                    <p class="top-recipe-text">Overview</p>
+                    <p class="top-recipe-text">A kind of classic recipes</p>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <img src="{% static 'images/top_recipe_cover_1.png' %}" class="img-fluid"/>
             </div>
         </div>
     </div>
@@ -52,27 +51,34 @@
         <div class="row">
         {% if recipes %}
             {% for recipe in recipes %}
-                <div class="col-md-3 recom-recipe-bg">
-                    <div class="thumbnail">
-                        <a href="#"><img src="{{ MEDIA_URL }}/{{ recipe.image }}" alt="recipe_1"/></a>
-                    </div>
-                    <div class="caption">
-                        <p class="recom-recipe-title">{{ recipe.title }}</p>
-                    </div>
-                    <div class="row recom-recipe-row">
-                        <div class="col-md-4 recom-recipe-block">
-                            <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"></span>
-                            <b class="recom-recipe-det">{{ recipe.avg }} / 5</b>
+                <div class="col-3 justify-content-center">
+                    <div class="card recom-recipe-bg">
+                        <div class="recom-recipe-block1 align-items-center ">
+                            <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="img-fluid"/>
                         </div>
-                        <div class="col-md-4 recom-recipe-block">
-                            <span class="glyphicon glyphicon-time recom-recipe-icon-red"></span>
-                            <b class="recom-recipe-det">{{ recipe.during }}min</b>
-                        </div>
-                        <div class="col-md-4 recom-recipe-block">
-                            <span class="glyphicon glyphicon-user recom-recipe-icon-blue"></span>
-                            <b class="recom-recipe-det">{{ recipe.author }}</b>
+{#                        <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="card-img-top img-fluid"/>#}
+                        <div class="card-body">
+                            <p class="text-center recom-recipe-title">{{ recipe.title }}</p>
+                            <a href="{% url 'fooddance:detail' recipe.slug %}" class="btn btn-primary">Detail</a>
                         </div>
                     </div>
+{#                    <div class="caption">#}
+{#                        <p class="recom-recipe-title">{{ recipe.title }}</p>#}
+{#                        <div class="row recom-recipe-row">#}
+{#                            <div class="col-md-3 recom-recipe-block">#}
+{#                                <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"></span>#}
+{#                                <b class="recom-recipe-det">{{ recipe.avg }} / 5</b>#}
+{#                            </div>#}
+{#                            <div class="col-md-3 recom-recipe-block">#}
+{#                                <span class="glyphicon glyphicon-time recom-recipe-icon-red"></span>#}
+{#                                <b class="recom-recipe-det">{{ recipe.during }}min</b>#}
+{#                            </div>#}
+{#                            <div class="col-md-5 recom-recipe-block">#}
+{#                                <span class="glyphicon glyphicon-user recom-recipe-icon-blue"></span>#}
+{#                                <b class="recom-recipe-det">{{ recipe.author }}</b>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
                 </div>
             {% endfor %}
         {% endif %}

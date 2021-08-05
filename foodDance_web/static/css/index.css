@@ -3,71 +3,73 @@
     font-size: 24px;
     font-family: Copperplate, Fantasy;
     margin-bottom: 20px;
-    margin-left: 20%;
 }
 .top-recipe-background{
     width: 90%;
-    margin-top: 10px;
     background-color: #F2F2F2;
     height: auto;
     border-radius: 2px;
     box-shadow: 2px 2px 4px #E6E6E6;
-    vertical-align: center;
-    margin:auto;
 }
 .top-recipe-title{
     padding-left: 0px;
     margin-top: 30px;
-    margin-left:20px;
-    font-size: 24px;
+    margin-left:10px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
 .top-recipe-author{
-    margin-left:20px;
+    margin-left:10px;
     text-align: left;
+    font-size: 14px;
+}
+.top-recipe-comment-icon{
+    width:25px;
+    height: auto;
+    margin-right: 5px;
+}
+.top-recipe-comment-star{
+    width: 100px;
+    height:auto;
 }
 .top-recipe-comment{
-    margin-left:20px;
+    margin-left:10px;
     margin-bottom: 30px;
-    line-height:20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size:18px;
+    font-size:16px;
+    margin-top: 10px;
 }
-.top-recipe-detail-row{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+.top-recipe-detail-div{
+    margin-bottom: 10px;
 }
 .top-recipe-icon{
-    margin-right:20px;
-    padding-left:0px;
+    width:20px;
+    height:auto;
+    display:inline;
 }
-.top-recipe-grid{
-    padding: 20px 0;
+.top-recipe-text{
+    font-size: 14px;
+    display:inline;
+    margin-left: 2%;
+    margin-top: 20px;
 }
-.top-recipe-image{
-    display: block;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: auto;
-    margin-bottom:auto;
-    padding: 20px 0px;
-}
+
 .recom-recipe-bg{
-    max-width: 90%;
-    height: auto;
-    padding: 0px 5px;
+    height: 300px;
     background-color: #F2F2F2;
     border-radius: 2px;
     box-shadow: 2px 2px 4px #E6E6E6;
+    margin-bottom: 5px;
+}
+.recom-recipe-block1{
+    height: 60%;
+    background-color: white;
 }
 .recom-recipe-title{
     color: #555555;
     font-weight: bold;
-    text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     text-decoration: none;
 }
 .recom-recipe-det{
