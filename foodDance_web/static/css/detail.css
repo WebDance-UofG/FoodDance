@@ -15,12 +15,15 @@ body{
 .userName{
     margin-top: 2px;
     height: 100%;
+
+
+}
+#userName {
     font-size: 14px;
+    vertical-align: center;
+    margin-top: 11px;
 }
 
-.userName{
-    font-size: 16px;
-}
 .mainArea > .row{
     margin-top: 20px;
 }
@@ -93,7 +96,7 @@ hr{
 }
 
 .stepImg{
-    width: 240px;
+    width: 100%;
 }
 
 .stepTitle{
@@ -104,3 +107,6 @@ hr{
     border: #b8b8b8 1px solid;
     border-radius:10px;
 }
+
+
+

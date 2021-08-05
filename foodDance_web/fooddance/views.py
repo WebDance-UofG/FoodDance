@@ -44,12 +44,15 @@ def detail(request, recipe_title_slug):
 
     try:
         recipe = Recipe.objects.get(slug=recipe_title_slug)
+        recipe.views = recipe.views + 1
+        recipe.save()
         context_dict['recipe'] = recipe
         context_dict['author_profile'] = UserProfile.objects.get(user_id=recipe.author.id)
         context_dict['avg'] = int(Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg'])
         context_dict['collect'] = UserProfile.objects.filter(collections__slug=recipe.slug).count()
         context_dict['steps'] = RecipeStep.objects.filter(recipe_id=recipe.id)
         context_dict['comments'] = Comment.objects.filter(recipe__id=recipe.id)
+        context_dict['materials'] = Materials.objects.filter(recipe__id=recipe.id)
 
     except Recipe.DoesNotExist:
         context_dict['recipe'] = None

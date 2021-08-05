@@ -1,31 +1,33 @@
 <!DOCTYPE html>
+{% extends 'fooddance/b5_base.html' %}
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        FoodDance - {{ recipe.title }}
-    </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
-</head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{% block title_block %}
+    FoodDance - {{ recipe.title }}
+{% endblock %}
 
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+
+{% block body_block %}
     <div class="container-fluid">
         <div class="row justify-content-center">
 
             <!-- main content should display in this div -->
             <div class="col-lg-8 col-md-10 col-sm-12 mainArea" >
-                <div class="row">
+                <div class="row" id="topSmallRow">
                     <div class="col-md-7 col-sm-12 ">
                         <img  src="{{ MEDIA_URL }}{{ recipe.image }}" class="img-fluid" alt="main picture of recipe">
                     </div>
                     <div class="col-md-5 col-sm-12 ">
-                        <div class="row justify-content-left g-0 " id="topSmallRow">
+
+                        <div class="row">
+                            <h3>{{ recipe.title }}</h3>
+                        </div>
+
+
+                        <div class="row justify-content-left g-0 " >
                             <div class="col-1">
                                 {% if author_profile.image  %}
                                  <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}{{ author_profile.image }}" alt="Avatar image">
@@ -34,12 +36,8 @@
                                 {% endif %}
                             </div>
                             <div class="col userName">
-                                <p>@{{ recipe.author.username }}</p>
+                                <p id="userName">{{ recipe.author.username }}</p>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <h3>{{ recipe.title }}</h3>
                         </div>
 
                         <div class="row justify-content-between">
@@ -85,7 +83,7 @@
                                    <img class="middleIcon" src="{% static 'images/budget.svg' %}">
                              </div>
                              <div class="col">
-                                    <p class="clearBottomMargin">Difficulty</p>
+                                    <p class="clearBottomMargin">Budget</p>
                              </div>
                              <div class="col">
                                  <p class="clearBottomMargin">￡ {{ recipe.budget }}</p>
@@ -119,6 +117,20 @@
                 </div>
 
                 <div class="row">
+                    <p class="h3">Materials</p>
+                    {% for material in materials %}
+                        <div class="col-6">
+                            <p>{{ material.ingredient  }}</p>
+                        </div>
+                        <div class="col">
+                            <p>{{ material.weight }} </p>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+
+                <div class="row">
                     <p class="h3">Overview</p>
                     <p>
                       {{ recipe.overview }}
@@ -126,12 +138,12 @@
                 </div>
 
 
-                <div class="row align-items-center">
+                <div class="row  align-items-center">
                     {% for step in steps %}
                       <p class="h4 stepTitle">Step {{ step.index }}</p>
-                           {% if step.image %}
-                          <div class="col-3">
-                              <img class="stepImg" src="{{ MEDIA_URL }}{{ step.image }}">
+                          {% if step.image %}
+                          <div class="col-md-3 col-sm-12">
+                              <img class="stepImg img-fluid"  src="{{ MEDIA_URL }}{{ step.image }}">
                           </div>
                           {% endif %}
                       <div class="col">
@@ -186,5 +198,4 @@
 
     </div>
 
-</body>
-</html>
+{% endblock %}

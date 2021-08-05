@@ -13,7 +13,7 @@ from django.core.files.images import ImageFile
 
 def populate():
     users = [
-        {'username': 'diablo', 'password': 'diablo23', 'email': 'diablo@test.com', 'image': 'avatars/diablo.jpg'},
+        {'username': 'diablo', 'password': 'diablo23', 'email': 'diablo@test.com', 'image': 'avatars/diablo.png'},
         {'username': 'Augenstern', 'password': 'diablo23', 'email': 'Augenstern@test.com', 'image': 'avatars/augenstern.jpg'},
         {'username': 'yuuki', 'password': 'diablo23', 'email': 'yuuki@test.com', 'image': 'avatars/yuuki.jpg'},
         {'username': 'flechazo', 'password': 'diablo23', 'email': 'flechazo@test.com', 'image': 'avatars/flechazo.jpg'},
