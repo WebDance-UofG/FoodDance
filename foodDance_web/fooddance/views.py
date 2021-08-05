@@ -3,6 +3,8 @@ from .models import Recipe, UserProfile, Comment, RecipeStep
 from django.db.models import Avg
 from .forms import *
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
@@ -71,3 +73,22 @@ def detail(request, recipe_title_slug):
     context_dict['form'] = form
 
     return render(request, 'fooddance/detail.html', context=context_dict)
+
+
+def register(request):
+    registered = False
+
+    # if request.method == 'POST':
+
+
+def login(request):
+    
+
+    return render(request, 'fooddance/login.html')
+
+
+
+
+
+
+

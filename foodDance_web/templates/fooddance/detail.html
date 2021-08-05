@@ -11,191 +11,180 @@
 {% endblock %}
 
 {% block body_block %}
-    <div class="container-fluid">
-        <div class="row justify-content-center">
 
-            <!-- main content should display in this div -->
-            <div class="col-lg-8 col-md-10 col-sm-12 mainArea" >
-                <div class="row" id="topSmallRow">
-                    <div class="col-md-7 col-sm-12 ">
-                        <img  src="{{ MEDIA_URL }}{{ recipe.image }}" class="img-fluid" alt="main picture of recipe">
-                    </div>
-                    <div class="col-md-5 col-sm-12 ">
+<div class="row" id="topSmallRow">
+    <div class="col-md-7 col-sm-12 ">
+        <img  src="{{ MEDIA_URL }}{{ recipe.image }}" class="img-fluid" alt="main picture of recipe">
+    </div>
+    <div class="col-md-5 col-sm-12 ">
 
-                        <div class="row">
-                            <h3>{{ recipe.title }}</h3>
-                        </div>
+        <div class="row">
+            <h3>{{ recipe.title }}</h3>
+        </div>
 
 
-                        <div class="row justify-content-left g-0 " >
-                            <div class="col-1">
-                                {% if author_profile.image  %}
-                                 <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}{{ author_profile.image }}" alt="Avatar image">
-                                {% else %}
-                                <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}avatars/default.png" alt="Avatar image">
-                                {% endif %}
-                            </div>
-                            <div class="col userName">
-                                <p id="userName">{{ recipe.author.username }}</p>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-lg-6">
-                                <h6 class="secondary">{{ recipe.pub_date }}</h6>
-                            </div>
-                            <div class="col-lg-6 clear_padding">
-                                 <img class="smallIcon" src="{% static 'images/rating.svg' %}">
-                                 <h6>{{ avg }}/5</h6>
-                            </div>
-                        </div>
-                        <hr />
-                         <div class="row align-items-end justify-content-center">
-                             <div class="col">
-                                   <img class="middleIcon" src="{% static 'images/duration.svg' %}">
-                             </div>
-                             <div class="col">
-                                    <p class="clearBottomMargin">Duration</p>
-                             </div>
-                             <div class="col">
-                                    <p class="clearBottomMargin">{{ recipe.duration }} mins</p>
-                             </div>
-                        </div>
-                        <div class="row align-items-end justify-content-center">
-                             <div class="col">
-                                   <img class="middleIcon" src="{% static 'images/difficulty.svg' %}">
-                             </div>
-                             <div class="col">
-                                    <p class="clearBottomMargin">Difficulty</p>
-                             </div>
-                             <div class="col">
-                                    {% if recipe.difficulty >= 4 %}
-                                        <p class="clearBottomMargin">Difficult</p>
-                                    {% elif recipe.difficulty > 3 %}
-                                        <p class="clearBottomMargin">Medium</p>
-                                    {% else %}
-                                        <p class="clearBottomMargin">Easy</p>
-                                    {% endif %}
-                             </div>
-                        </div>
-                        <div class="row align-items-end justify-content-center">
-                             <div class="col">
-                                   <img class="middleIcon" src="{% static 'images/budget.svg' %}">
-                             </div>
-                             <div class="col">
-                                    <p class="clearBottomMargin">Budget</p>
-                             </div>
-                             <div class="col">
-                                 <p class="clearBottomMargin">￡ {{ recipe.budget }}</p>
-                             </div>
-                        </div>
-                        <hr />
-                        <div class="row justify-content-center area3">
-                            <div class="col">
-                                <img class="area3Icon" src="{% static 'images/views.svg' %}">
-                                <p class="area3Text ">Views</p>
-                                <p class="area3Text">{{ recipe.views }}</p>
-                            </div>
-                            <div class="col">
-                                <img class="area3Icon" src="{% static 'images/likes.svg' %}">
-                                <p class="area3Text ">Likes</p>
-                                <p class="area3Text">{{ recipe.likes }}</p>
-                            </div>
-                            <div class="col">
-                                <img class="area3Icon" src="{% static 'images/collect.svg' %}">
-                                <p class="area3Text ">Collect</p>
-                                <p class="area3Text">{{ collect }}</p>
-                            </div>
-                           <div class="col">
-                                <img class="area3Icon" src="{% static 'images/share.svg' %}">
-                                <p class="area3Text ">Share</p>
-                                <p class="area3Text">{{ recipe.shares }}</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <p class="h3">Materials</p>
-                    {% for material in materials %}
-                        <div class="col-6">
-                            <p>{{ material.ingredient  }}</p>
-                        </div>
-                        <div class="col">
-                            <p>{{ material.weight }} </p>
-                        </div>
-
-                    {% endfor %}
-                </div>
-
-
-                <div class="row">
-                    <p class="h3">Overview</p>
-                    <p>
-                      {{ recipe.overview }}
-                    </p>
-                </div>
-
-
-                <div class="row  align-items-center">
-                    {% for step in steps %}
-                      <p class="h4 stepTitle">Step {{ step.index }}</p>
-                          {% if step.image %}
-                          <div class="col-md-3 col-sm-12">
-                              <img class="stepImg img-fluid"  src="{{ MEDIA_URL }}{{ step.image }}">
-                          </div>
-                          {% endif %}
-                      <div class="col">
-                          <p>{{ step.content }}</p>
-                      </div>
-                    {% endfor %}
-                </div>
-                <hr />
-                {% if user.is_authenticated %}
+        <div class="row justify-content-left g-0 " >
+            <div class="col-1">
+                {% if author_profile.image  %}
+                 <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}{{ author_profile.image }}" alt="Avatar image">
+                {% else %}
+                <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}avatars/default.png" alt="Avatar image">
                 {% endif %}
-                <div class="row align-items-center">
-                    <p class="h4">Write your comment</p>
-                    {#                TODO!!!!#}
-                    <form id="submit_comment" method="post" action="">
-                        {% csrf_token %}
-                        {% for field in form.visible_fields %}
-                            {{ field.errors }}
-                            {{ field.help_text }}
-                            {{ field }}
-                        {% endfor %}
-                    <br/>
-
-                    <input class="btn btn-primary" type="submit" name="submit" value="Comment!" />
-                    </form>
-                </div>
-                <hr />
-                <div class="row align-items-center ">
-                    {% if comments %}
-                        {% for comment in comments %}
-                            <div class="col-1">
-                                {% if not comment.user.image %}
-                                     <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}avatars/default.png" alt="Avatar image">
-                                {% else %}
-                                       <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}{{ comment.user.image }}" alt="Avatar image">
-                                {% endif %}
-                            </div>
-                            <div class="col-1"><p>{{ comment.user.username }}</p></div>
-                                <blockquote class="blockquote commentsArea">
-                                    <p>{{ comment.content }}</p>
-                                </blockquote>
-
-                        {% endfor %}
-                    {% endif %}
-                </div>
-
             </div>
+            <div class="col userName">
+                <p id="userName">{{ recipe.author.username }}</p>
+            </div>
+        </div>
 
-
-
-
+        <div class="row justify-content-between">
+            <div class="col-lg-6">
+                <h6 class="secondary">{{ recipe.pub_date }}</h6>
+            </div>
+            <div class="col-lg-6 clear_padding">
+                 <img class="smallIcon" src="{% static 'images/rating.svg' %}">
+                 <h6>{{ avg }}/5</h6>
+            </div>
+        </div>
+        <hr />
+         <div class="row align-items-end justify-content-center">
+             <div class="col">
+                   <img class="middleIcon" src="{% static 'images/duration.svg' %}">
+             </div>
+             <div class="col">
+                    <p class="clearBottomMargin">Duration</p>
+             </div>
+             <div class="col">
+                    <p class="clearBottomMargin">{{ recipe.duration }} mins</p>
+             </div>
+        </div>
+        <div class="row align-items-end justify-content-center">
+             <div class="col">
+                   <img class="middleIcon" src="{% static 'images/difficulty.svg' %}">
+             </div>
+             <div class="col">
+                    <p class="clearBottomMargin">Difficulty</p>
+             </div>
+             <div class="col">
+                    {% if recipe.difficulty >= 4 %}
+                        <p class="clearBottomMargin">Difficult</p>
+                    {% elif recipe.difficulty > 3 %}
+                        <p class="clearBottomMargin">Medium</p>
+                    {% else %}
+                        <p class="clearBottomMargin">Easy</p>
+                    {% endif %}
+             </div>
+        </div>
+        <div class="row align-items-end justify-content-center">
+             <div class="col">
+                   <img class="middleIcon" src="{% static 'images/budget.svg' %}">
+             </div>
+             <div class="col">
+                    <p class="clearBottomMargin">Budget</p>
+             </div>
+             <div class="col">
+                 <p class="clearBottomMargin">￡ {{ recipe.budget }}</p>
+             </div>
+        </div>
+        <hr />
+        <div class="row justify-content-center area3">
+            <div class="col">
+                <img class="area3Icon" src="{% static 'images/views.svg' %}">
+                <p class="area3Text ">Views</p>
+                <p class="area3Text">{{ recipe.views }}</p>
+            </div>
+            <div class="col">
+                <img class="area3Icon" src="{% static 'images/likes.svg' %}">
+                <p class="area3Text ">Likes</p>
+                <p class="area3Text">{{ recipe.likes }}</p>
+            </div>
+            <div class="col">
+                <img class="area3Icon" src="{% static 'images/collect.svg' %}">
+                <p class="area3Text ">Collect</p>
+                <p class="area3Text">{{ collect }}</p>
+            </div>
+           <div class="col">
+                <img class="area3Icon" src="{% static 'images/share.svg' %}">
+                <p class="area3Text ">Share</p>
+                <p class="area3Text">{{ recipe.shares }}</p>
+            </div>
         </div>
 
     </div>
+</div>
+
+<div class="row">
+    <p class="h3">Materials</p>
+    {% for material in materials %}
+        <div class="col-6">
+            <p>{{ material.ingredient  }}</p>
+        </div>
+        <div class="col">
+            <p>{{ material.weight }} </p>
+        </div>
+
+    {% endfor %}
+</div>
+
+
+<div class="row">
+    <p class="h3">Overview</p>
+    <p>
+      {{ recipe.overview }}
+    </p>
+</div>
+
+
+<div class="row  align-items-center">
+    {% for step in steps %}
+      <p class="h4 stepTitle">Step {{ step.index }}</p>
+          {% if step.image %}
+          <div class="col-md-3 col-sm-12">
+              <img class="stepImg img-fluid"  src="{{ MEDIA_URL }}{{ step.image }}">
+          </div>
+          {% endif %}
+      <div class="col">
+          <p>{{ step.content }}</p>
+      </div>
+    {% endfor %}
+</div>
+<hr />
+{% if user.is_authenticated %}
+{% endif %}
+<div class="row align-items-center">
+    <p class="h4">Write your comment</p>
+    {#                TODO!!!!#}
+    <form id="submit_comment" method="post" action="">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            {{ field.errors }}
+            {{ field.help_text }}
+            {{ field }}
+        {% endfor %}
+    <br/>
+
+    <input class="btn btn-primary" type="submit" name="submit" value="Comment!" />
+    </form>
+</div>
+<hr />
+<div class="row align-items-center ">
+    {% if comments %}
+        {% for comment in comments %}
+            <div class="col-1">
+                {% if not comment.user.image %}
+                     <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}avatars/default.png" alt="Avatar image">
+                {% else %}
+                       <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}{{ comment.user.image }}" alt="Avatar image">
+                {% endif %}
+            </div>
+            <div class="col-1"><p>{{ comment.user.username }}</p></div>
+                <blockquote class="blockquote commentsArea">
+                    <p>{{ comment.content }}</p>
+                </blockquote>
+
+        {% endfor %}
+    {% endif %}
+</div>
+
+
 
 {% endblock %}

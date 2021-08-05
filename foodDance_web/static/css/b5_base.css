@@ -1,0 +1,8 @@
+body{
+    background-color: #f4f4f4;
+    background-image: url("../images/bg.png");
+}
+.mainArea{
+    background-color: white;
+    /*box-shadow: 10px 10px 5px #888888;*/
+}

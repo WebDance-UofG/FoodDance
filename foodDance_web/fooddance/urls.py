@@ -7,5 +7,6 @@ app_name = 'fooddance'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<slug:recipe_title_slug>', views.detail, name="detail")
+    path('detail/<slug:recipe_title_slug>/', views.detail, name="detail"),
+    path('login/', views.login, name="login")
 ]
