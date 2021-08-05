@@ -21,36 +21,72 @@ def populate():
     ]
 
     recipes = [
-        {'title': 'Vegan Cheesecake',
-         'author': 'test1',
-         'image': 'recipes/vegan-cheesecake.jpeg',# required!!!!
+        {'title': 'Floral Yoghurt Biscuits',
+         'author': 'test2',
+         'image': 'recipes/floral-yoghurt-biscuits.jpg',
          'overview':
-            "This no-bake vegan cheesecake, with its boozy Black Forest cherry topping, is a luxurious twist on a "
-            "retro classic. It's completely delicious and just the thing for celebrations and parties. See the recipe "
-            "tips for alternative topping ideas.For this recipe you will need a food processor or blender.",
-         'duration': 30,
-         'budget': 10,
+            "This recipe is a sugar-free version that you can make for your baby, it's melt-in-your-mouth, crispy and tasty and is suitable for all ages. ",
+         'duration': 90,
+         'budget': 5,
          'difficulty': 5,
          'materials': [
-             {'ingredient': 'vegan bourbon biscuits', 'weight': '200g'},
-             {'ingredient': 'dairy-free margarine', 'weight': '75g'},
-             {'ingredient': 'vegan dark chocolate', 'weight': '350g'},
-             {'ingredient': 'cocoa butter', 'weight': '50g'},
-             {'ingredient': 'extra-firm silken tofu', 'weight': '400g'},
+             {'ingredient': 'egg', 'weight': '50g'},
+             {'ingredient': 'Powdered milk (for yolk)', 'weight': '6g'},
+             {'ingredient': 'Powdered milk (for egg white)', 'weight': '10g'},
+             {'ingredient': 'yoghurt', 'weight': '16g'},
+             {'ingredient': 'Cornstarch', 'weight': '6g'},
+             {'ingredient': 'lemon juice', 'weight': '10g'},
          ],
          'steps': [
-             {'image': 'recipes/vegan-cheesecake_1.jpg',
-                 'content': 'Grease a deep 20cm/8in round springform cake tin and line the base and sides with baking paper.'},
-             {'content': 'Mix the crushed biscuits with the melted margarine and 2 pinches of salt, spread evenly over the base of the prepared tin and press down firmly. Place in the fridge for 40 minutes.'},
-             {'content': 'Melt the chocolate and cocoa butter (or coconut oil) in a heatproof bowl over a pan of gently simmering water, stirring occasionally, until smooth.'},
-             {'content': 'Put the tofu, vanilla, sugar and oat crème fraiche into a blender or food processor and blend until smooth. Add the melted chocolate mixture and blend again, then add a pinch of salt. Spread over the chilled base and smooth the top. Place in the fridge for at least 4 hours or, better still, overnight.'},
-             {'content': 'You can make the cherry compôte in advance, but keep it separate until serving. Put the cherries into a saucepan, add the cornflour and stir until all are coated. Pour in 2 tablespoons of the kirsch, the sugar and 100ml/3½fl oz water. Stir over a medium heat for 5–6 minutes, simmering gently until the sauce has thickened and the cherries are soft. Remove from the heat and stir in the remaining tablespoon of kirsch, adding lemon juice to taste. Cool, then place in the fridge if making ahead.'},
-             {'content': 'To serve, carefully remove the cheesecake from the tin, peel away the lining paper and put the cheesecake on a serving plate. Spoon the boozy cherry compôte (warm, or stirred to loosen if chilled) over the cheesecake, letting the syrup and fruit run down the sides'},
+             {'content': 'Separate the egg yolks from the whites. Chill the egg whites in the fridge until ice appears on the side of the bowl, as this will make them easier to whip.'},
+             {'content': 'Whip the egg yolks until they are lighter in colour. Add 6g of milk powder and mix well until there are no particles.'},
+             {'content': 'Put a laminating bag over the cups and use a silicone spatula to put the egg yolks into the bag. Cut out a small slit in the bag and use a spatula to drive the yolk downwards and wrap the bag around your index finger, holding the bag in the palm of your hand.'},
+             {'content': 'Line a baking tray in advance with greaseproof paper and squeeze out pea-sized balls. Be careful to leave enough space so that the egg whites do not stick together when you squeeze them later. Bake in a preheated (100°C) oven for 20 minutes.'},
+             {'content': 'Add 10 g of milk powder to the yoghurt, this is where the milk powder used for the egg white part was written about earlier. Stir well until the yoghurt batter is grain-free and set aside.'},
+             {'image': 'floral-yoghurt-biscuits_1.jpg',
+                 'content': 'Squeeze 2-3 drops of lemon juice into the egg whites and beat to make large fish-eye bubbles. Add 6g of corn starch and continue to beat. Beat stiffly until firm with small sharp hooks.'},
+             {'image': 'floral-yoghurt-biscuits_2.jpg',
+                 'content': 'Add the yoghurt batter to the whipped egg whites, mix well and put into a laminating bag. Remove the baked egg yolks and use the bag containing the egg whites to squeeze 5 balls around the yolks one week to act as petals.'},
+             {'content': 'Bake in the oven at 100°C for about 40 minutes.'},
+                         
          ],
          'comments': [
-             {'user': 'test2', 'rating': 3, 'content': "I’d really like some ca-me:"},
-             {'user': 'test3', 'rating': 2, 'content': "This cake is absolutely perfect it's so soft and delicious wow just wow"},
-             {'user': 'test2', 'rating': 5, 'content': "i could really go for some cake me asf:"},
+             {'user': 'test1', 'rating': 3, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'test4', 'rating': 5, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'test3', 'rating': 4, 'content': "All of my families love it."},
+         ]
+         },
+         
+        {'title': 'Red Bean Jicama',
+         'author': 'test4',
+         'image': 'recipes/red-bean-jicama.jpg',
+         'overview':
+            "Oven free! Soft and creamy Japanese sweet bean jicama, perfect as a snack for kids, super cute!",
+         'duration': 90,
+         'budget': 20,
+         'difficulty': 5,
+         'materials': [
+             {'ingredient': 'milk', 'weight': '160g'},
+             {'ingredient': 'sugar', 'weight': '45g'},
+             {'ingredient': 'corn starch', 'weight': '30g'},
+             {'ingredient': 'glutinous rice flour', 'weight': '100g'},
+             {'ingredient': 'butter', 'weight': '15g'},
+             {'ingredient': 'bean paste', 'weight': '135g'},
+             {'ingredient': 'melted chocolate', 'weight': '20g'},
+             {'ingredient': 'leaves(mine were cherry leaves)', 'weight': '20g'},
+         ],
+         'steps': [
+             {'content': '160g milk mix with 45g sugar, add 100g glutinous rice flour/30g corn starch, mix together.'},
+             {'content': 'Sift the mixture through a sieve and pour into a container.'},
+             {'content': 'Wrap in cling film, make a few holes to vent the air and steam for 25-30 minutes. During the steaming process, fry some flour, divide 135g of bean paste into 9 portions, 15g per portion, and knead into small balls. When the batter is steamed add 15g of butter while it is still hot.'},
+             {'content': 'Toss and mix until not too sticky, then knead into a dough.'},
+             {'content': 'Repeat a few times, divide into 35g portions, 9 portions in total (use the rest for the five senses), roll out into a round cake, put the bean paste on top, fold in half and knead three small balls to make the nose and ears.'},
+             {'content': 'Wrap the leaves, cut off the excess and use the melted chocolate to draw expressions on them.'},            
+         ],
+         'comments': [
+             {'user': 'test2', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'test3', 'rating': 4, 'content': "Love it but it takes too much time."},
          ]
          },
          
@@ -94,6 +130,39 @@ def populate():
              {'user': 'test3', 'rating': 4, 'content':"will do this again!"},
          ]
          },
+    
+        {'title': 'Vegan Cheesecake',
+         'author': 'test1',
+         'image': 'recipes/vegan-cheesecake.jpeg',# required!!!!
+         'overview':
+            "This no-bake vegan cheesecake, with its boozy Black Forest cherry topping, is a luxurious twist on a "
+            "retro classic. It's completely delicious and just the thing for celebrations and parties. See the recipe "
+            "tips for alternative topping ideas.For this recipe you will need a food processor or blender.",
+         'duration': 30,
+         'budget': 10,
+         'difficulty': 5,
+         'materials': [
+             {'ingredient': 'vegan bourbon biscuits', 'weight': '200g'},
+             {'ingredient': 'dairy-free margarine', 'weight': '75g'},
+             {'ingredient': 'vegan dark chocolate', 'weight': '350g'},
+             {'ingredient': 'cocoa butter', 'weight': '50g'},
+             {'ingredient': 'extra-firm silken tofu', 'weight': '400g'},
+         ],
+         'steps': [
+             {'image': 'recipes/vegan-cheesecake_1.jpg',
+                 'content': 'Grease a deep 20cm/8in round springform cake tin and line the base and sides with baking paper.'},
+             {'content': 'Mix the crushed biscuits with the melted margarine and 2 pinches of salt, spread evenly over the base of the prepared tin and press down firmly. Place in the fridge for 40 minutes.'},
+             {'content': 'Melt the chocolate and cocoa butter (or coconut oil) in a heatproof bowl over a pan of gently simmering water, stirring occasionally, until smooth.'},
+             {'content': 'Put the tofu, vanilla, sugar and oat crème fraiche into a blender or food processor and blend until smooth. Add the melted chocolate mixture and blend again, then add a pinch of salt. Spread over the chilled base and smooth the top. Place in the fridge for at least 4 hours or, better still, overnight.'},
+             {'content': 'You can make the cherry compôte in advance, but keep it separate until serving. Put the cherries into a saucepan, add the cornflour and stir until all are coated. Pour in 2 tablespoons of the kirsch, the sugar and 100ml/3½fl oz water. Stir over a medium heat for 5–6 minutes, simmering gently until the sauce has thickened and the cherries are soft. Remove from the heat and stir in the remaining tablespoon of kirsch, adding lemon juice to taste. Cool, then place in the fridge if making ahead.'},
+             {'content': 'To serve, carefully remove the cheesecake from the tin, peel away the lining paper and put the cheesecake on a serving plate. Spoon the boozy cherry compôte (warm, or stirred to loosen if chilled) over the cheesecake, letting the syrup and fruit run down the sides'},
+         ],
+         'comments': [
+             {'user': 'test2', 'rating': 3, 'content': "I’d really like some ca-me:"},
+             {'user': 'test3', 'rating': 2, 'content': "This cake is absolutely perfect it's so soft and delicious wow just wow"},
+             {'user': 'test2', 'rating': 5, 'content': "i could really go for some cake me asf:"},
+         ]
+         },
          
         {'title': 'Ramen noodle',
          'author': 'test2',
@@ -125,182 +194,6 @@ def populate():
          'comments': [
              {'user': 'test1', 'rating': 2, 'content':"It's easy...just not tasty"},
              {'user': 'test5', 'rating': 3, 'content':"40 pounds cheaper than a high street chain wag"},
-         ]
-         },
-         
-        {'title': 'Red Bean Jicama',
-         'author': 'test4',
-         'image': 'recipes/red-bean-jicama.jpg',
-         'overview':
-            "Oven free! Soft and creamy Japanese sweet bean jicama, perfect as a snack for kids, super cute!",
-         'duration': 90,
-         'budget': 20,
-         'difficulty': 5,
-         'materials': [
-             {'ingredient': 'milk', 'weight': '160g'},
-             {'ingredient': 'sugar', 'weight': '45g'},
-             {'ingredient': 'corn starch', 'weight': '30g'},
-             {'ingredient': 'glutinous rice flour', 'weight': '100g'},
-             {'ingredient': 'butter', 'weight': '15g'},
-             {'ingredient': 'bean paste', 'weight': '135g'},
-             {'ingredient': 'melted chocolate', 'weight': '20g'},
-             {'ingredient': 'leaves(mine were cherry leaves)', 'weight': '20g'},
-         ],
-         'steps': [
-             {'content': '160g milk mix with 45g sugar, add 100g glutinous rice flour/30g corn starch, mix together.'},
-             {'content': 'Sift the mixture through a sieve and pour into a container.'},
-             {'content': 'Wrap in cling film, make a few holes to vent the air and steam for 25-30 minutes. During the steaming process, fry some flour, divide 135g of bean paste into 9 portions, 15g per portion, and knead into small balls. When the batter is steamed add 15g of butter while it is still hot.'},
-             {'content': 'Toss and mix until not too sticky, then knead into a dough.'},
-             {'content': 'Repeat a few times, divide into 35g portions, 9 portions in total (use the rest for the five senses), roll out into a round cake, put the bean paste on top, fold in half and knead three small balls to make the nose and ears.'},
-             {'content': 'Wrap the leaves, cut off the excess and use the melted chocolate to draw expressions on them.'},            
-         ],
-         'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test3', 'rating': 4, 'content': "Love it but it takes too much time."},
-         ]
-         },
-         
-        {'title': 'Floral Yoghurt Biscuits',
-         'author': 'test2',
-         'image': 'recipes/floral-yoghurt-biscuits.jpg',
-         'overview':
-            "This recipe is a sugar-free version that you can make for your baby, it's melt-in-your-mouth, crispy and tasty and is suitable for all ages. ",
-         'duration': 90,
-         'budget': 5,
-         'difficulty': 5,
-         'materials': [
-             {'ingredient': 'egg', 'weight': '50g'},
-             {'ingredient': 'Powdered milk (for yolk)', 'weight': '6g'},
-             {'ingredient': 'Powdered milk (for egg white)', 'weight': '10g'},
-             {'ingredient': 'yoghurt', 'weight': '16g'},
-             {'ingredient': 'Cornstarch', 'weight': '6g'},
-             {'ingredient': 'lemon juice', 'weight': '10g'},
-         ],
-         'steps': [
-             {'content': 'Separate the egg yolks from the whites. Chill the egg whites in the fridge until ice appears on the side of the bowl, as this will make them easier to whip.'},
-             {'content': 'Whip the egg yolks until they are lighter in colour. Add 6g of milk powder and mix well until there are no particles.'},
-             {'content': 'Put a laminating bag over the cups and use a silicone spatula to put the egg yolks into the bag. Cut out a small slit in the bag and use a spatula to drive the yolk downwards and wrap the bag around your index finger, holding the bag in the palm of your hand.'},
-             {'content': 'Line a baking tray in advance with greaseproof paper and squeeze out pea-sized balls. Be careful to leave enough space so that the egg whites do not stick together when you squeeze them later. Bake in a preheated (100°C) oven for 20 minutes.'},
-             {'content': 'Add 10 g of milk powder to the yoghurt, this is where the milk powder used for the egg white part was written about earlier. Stir well until the yoghurt batter is grain-free and set aside.'},
-             {'image': 'floral-yoghurt-biscuits_1.jpg',
-                 'content': 'Squeeze 2-3 drops of lemon juice into the egg whites and beat to make large fish-eye bubbles. Add 6g of corn starch and continue to beat. Beat stiffly until firm with small sharp hooks.'},
-             {'image': 'floral-yoghurt-biscuits_2.jpg',
-                 'content': 'Add the yoghurt batter to the whipped egg whites, mix well and put into a laminating bag. Remove the baked egg yolks and use the bag containing the egg whites to squeeze 5 balls around the yolks one week to act as petals.'},
-             {'content': 'Bake in the oven at 100°C for about 40 minutes.'},
-                         
-         ],
-         'comments': [
-             {'user': 'test1', 'rating': 3, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test4', 'rating': 5, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test3', 'rating': 4, 'content': "All of my families love it."},
-         ]
-         },
-         
-        {'title': 'Roast chicken',
-         'author': 'test3',
-         'image': 'recipes/roast-chicken.jpg',
-         'overview':
-            "What more can we say? A classic roast chicken recipe should be in everyone's repertoire, and it can always save the day.",
-         'duration': 90,
-         'budget': 30,
-         'difficulty': 4,
-         'materials': [
-             {'ingredient': 'onion', 'weight': '50g'},
-             {'ingredient': 'carrots', 'weight': '120g'},
-             {'ingredient': 'chicken', 'weight': '1500g'},
-             {'ingredient': 'lemon', 'weight': '30g'},
-             {'ingredient': 'butter', 'weight': '25g'},
-             {'ingredient': 'chicken stock', 'weight': '250g'},
-         ],
-         'steps': [
-             {'content': 'Heat oven to 190C/fan 170C/gas 5. Have a shelf ready in the middle of the oven without any shelves above it.'},
-             {'content': 'Scatter 1 roughly chopped onion and 2 roughly chopped carrots over the base of a roasting tin that fits the whole chicken, but doesn’t swamp it.'},
-             {'content': 'Season the cavity of the chicken liberally with salt and pepper, then stuff with 2 lemon halves and a small bunch of thyme, if using.'},
-             {'content': 'Sit the chicken on the vegetables, smother the breast and legs all over with 25g softened butter, then season the outside with salt and pepper.'},
-             {'content': 'Place in the oven and leave, undisturbed, for 1 hr 20 mins – this will give you a perfectly roasted chicken.'},
-             {'content': 'Carefully remove the tin from the oven and, using a pair of tongs, lift the chicken to a dish or board to rest for 15-20 mins. As you lift the dish, let any juices from the chicken pour out of the cavity into the roasting tin.'},
-             {'content': 'While the chicken is resting, make the gravy. Place the roasting tin over a low flame, then stir in 1 tbsp flour and sizzle until you have a light brown, sandy paste.'},
-             {'content': 'Gradually pour in 250ml chicken stock, stirring all the time, until you have a thickened sauce.'},
-             {'content': 'Simmer for 2 mins, using a wooden spoon to stir, scraping any sticky bits from the tin.'},
-             {'content': 'Strain the gravy into a small saucepan, then simmer and season to taste. When you carve the bird, add any extra juices to the gravy.'},
-         ],
-         'comments': [
-             {'user': 'test2', 'rating': 4, 'content':"Super easy to follow! Thanks for sharing!"},
-             {'user': 'test5', 'rating': 3, 'content':"Winter smell, got hugry already ;-)"},
-             {'user': 'test1', 'rating': 2, 'content':"Got roasted..."},
-             {'user': 'test2', 'rating': 4, 'content':"I made this for my dinner. will do it again!"},
-         ]
-         },
-          
-        {'title': 'Tortilla pizza',
-         'author': 'test2',
-         'image': 'recipes/tortilla-pizza.jpg',
-         'overview':
-            "Make homemade sourdough pizza with a wonderfully chewy crust."
-            "Try our margherita recipe, then customise with your favourite toppings.",
-         'duration': 25,
-         'budget': 13,
-         'difficulty': 4,
-         'materials': [
-             {'ingredient': 'passata', 'weight': '400g'},
-             {'ingredient': 'garlic', 'weight': '50g'},
-             {'ingredient': 'olive oil', 'weight': '20g'},
-             {'ingredient': 'dried herbs', 'weight': '30g'},
-             {'ingredient': 'plain tortillas', 'weight': '20g'},
-             {'ingredient': 'grated mozzarella', 'weight': '50g'},
-             {'ingredient': 'pepperoni', 'weight': '80g'},
-             {'ingredient': ' jalapeño', 'weight': '100g'},
-         ],
-         'steps': [
-             {'content': 'Heat the oven to 220C/200C fan/gas 7. Mix the passata, garlic, olive oil, herbs and season well.'},
-             {'content': 'Put the tortillas onto one large baking sheet, or two smaller ones.'},
-             {'content': 'Spread over the tomato sauce leaving a 1cm border around the edges.'},  
-             {'content': 'Scatter with the mozzarella, add the pepperoni and jalapenos. '},
-             {'content': 'Bake for 6-8 minutes until the edges of the tortillas are crisp and golden, and the cheese has melted and is bubbling.'},
-         ],
-         'comments': [
-             {'user': 'test3', 'rating': 3, 'content': "love this recipe! helps me alot"},
-             {'user': 'test4', 'rating': 2, 'content': "Why do I got a half-raw pasta? I followed all the steps"},
-             {'user': 'test4', 'rating': 1, 'content': "Waste my time, juice of tomatoes makes it super wet..."},
-             {'user': 'test1', 'rating': 4, 'content': "Good recipe, add tomatoes making it even delicious"},
-         ]
-         },
-         
-        {'title': 'Sponge pudding',
-         'author': 'test1',
-         'image': 'recipes/sponge-pudding.jpg',
-         'overview':
-            "Transform a classic lemon drizzle cake into a self-saucing pud for a cheap, comforting dessert. Serve with cream or custard.",
-         'duration': 65,
-         'budget': 15,
-         'difficulty': 4,
-         'materials': [
-             {'ingredient': 'soft butter', 'weight': '250g'},
-             {'ingredient': 'caster sugar', 'weight': '380g'},
-             {'ingredient': 'eggs', 'weight': '200g'},
-             {'ingredient': 'self-raising flour', 'weight': '250g'},
-             {'ingredient': 'baking powder', 'weight': '5g'},
-             {'ingredient': 'lemons', 'weight': '180g'},
-             {'ingredient': 'cornflour', 'weight': '180g'},
-             {'ingredient': 'cream', 'weight': '200g'},
-             {'ingredient': 'icing sugar', 'weight': '50g'},
-         ],
-         'steps': [
-             {'content': 'Heat the oven to 180C/160C fan/gas 4. Butter a 30 x 20cm deep baking dish.'},
-             {'content': 'Put the butter and 250g caster sugar in a bowl and beat for 5 mins until pale and fluffy.'},
-             {'content': ' Whisk in the eggs, then sieve over the flour and baking powder and fold in until you have a batter. Stir in the lemon zest, reserving a little for decoration.'},
-             {'content': 'Spoon the sponge batter into the dish and smooth over the top.'},
-             {'content': 'Mix the lemon juice with the cornflour in a heatproof bowl to make a smooth paste. Mix the remaining 130g caster sugar with 300ml boiling water in a jug, pour over the cornflour mix and whisk until smooth. Pour this over the sponge. '},
-             {'content': 'Bake for 45-50 mins until golden and set, and the sponge springs back when touched.'},
-             {'content': 'While the pudding is baking, make the lemon drizzle. Mix the icing sugar with enough lemon juice (about half of it) to create a loose consistency. Drizzle over the sponge while it’s still warm and decorate with the reserved lemon zest. '},
-             {'content': 'Serve straightaway with cream or custard.'},
-         ],
-         'comments': [
-             {'user': 'test1', 'rating': 1, 'content':"Too much steps"},
-             {'user': 'test4', 'rating': 2, 'content':"Very sour, is it just me..."},
-             {'user': 'test9', 'rating': 4, 'content':"Yummy!"},
-             {'user': 'test8', 'rating': 1, 'content':"Should not mix it directly"},                
          ]
          },
          
@@ -378,6 +271,79 @@ def populate():
          ]
          },
          
+        {'title': 'Roast chicken',
+         'author': 'test3',
+         'image': 'recipes/roast-chicken.jpg',
+         'overview':
+            "What more can we say? A classic roast chicken recipe should be in everyone's repertoire, and it can always save the day.",
+         'duration': 90,
+         'budget': 30,
+         'difficulty': 4,
+         'materials': [
+             {'ingredient': 'onion', 'weight': '50g'},
+             {'ingredient': 'carrots', 'weight': '120g'},
+             {'ingredient': 'chicken', 'weight': '1500g'},
+             {'ingredient': 'lemon', 'weight': '30g'},
+             {'ingredient': 'butter', 'weight': '25g'},
+             {'ingredient': 'chicken stock', 'weight': '250g'},
+         ],
+         'steps': [
+             {'content': 'Heat oven to 190C/fan 170C/gas 5. Have a shelf ready in the middle of the oven without any shelves above it.'},
+             {'content': 'Scatter 1 roughly chopped onion and 2 roughly chopped carrots over the base of a roasting tin that fits the whole chicken, but doesn’t swamp it.'},
+             {'content': 'Season the cavity of the chicken liberally with salt and pepper, then stuff with 2 lemon halves and a small bunch of thyme, if using.'},
+             {'content': 'Sit the chicken on the vegetables, smother the breast and legs all over with 25g softened butter, then season the outside with salt and pepper.'},
+             {'content': 'Place in the oven and leave, undisturbed, for 1 hr 20 mins – this will give you a perfectly roasted chicken.'},
+             {'content': 'Carefully remove the tin from the oven and, using a pair of tongs, lift the chicken to a dish or board to rest for 15-20 mins. As you lift the dish, let any juices from the chicken pour out of the cavity into the roasting tin.'},
+             {'content': 'While the chicken is resting, make the gravy. Place the roasting tin over a low flame, then stir in 1 tbsp flour and sizzle until you have a light brown, sandy paste.'},
+             {'content': 'Gradually pour in 250ml chicken stock, stirring all the time, until you have a thickened sauce.'},
+             {'content': 'Simmer for 2 mins, using a wooden spoon to stir, scraping any sticky bits from the tin.'},
+             {'content': 'Strain the gravy into a small saucepan, then simmer and season to taste. When you carve the bird, add any extra juices to the gravy.'},
+         ],
+         'comments': [
+             {'user': 'test2', 'rating': 4, 'content':"Super easy to follow! Thanks for sharing!"},
+             {'user': 'test5', 'rating': 3, 'content':"Winter smell, got hugry already ;-)"},
+             {'user': 'test1', 'rating': 2, 'content':"Got roasted..."},
+             {'user': 'test2', 'rating': 4, 'content':"I made this for my dinner. will do it again!"},
+         ]
+         },
+         
+        {'title': 'Sponge pudding',
+         'author': 'test1',
+         'image': 'recipes/sponge-pudding.jpg',
+         'overview':
+            "Transform a classic lemon drizzle cake into a self-saucing pud for a cheap, comforting dessert. Serve with cream or custard.",
+         'duration': 65,
+         'budget': 15,
+         'difficulty': 4,
+         'materials': [
+             {'ingredient': 'soft butter', 'weight': '250g'},
+             {'ingredient': 'caster sugar', 'weight': '380g'},
+             {'ingredient': 'eggs', 'weight': '200g'},
+             {'ingredient': 'self-raising flour', 'weight': '250g'},
+             {'ingredient': 'baking powder', 'weight': '5g'},
+             {'ingredient': 'lemons', 'weight': '180g'},
+             {'ingredient': 'cornflour', 'weight': '180g'},
+             {'ingredient': 'cream', 'weight': '200g'},
+             {'ingredient': 'icing sugar', 'weight': '50g'},
+         ],
+         'steps': [
+             {'content': 'Heat the oven to 180C/160C fan/gas 4. Butter a 30 x 20cm deep baking dish.'},
+             {'content': 'Put the butter and 250g caster sugar in a bowl and beat for 5 mins until pale and fluffy.'},
+             {'content': ' Whisk in the eggs, then sieve over the flour and baking powder and fold in until you have a batter. Stir in the lemon zest, reserving a little for decoration.'},
+             {'content': 'Spoon the sponge batter into the dish and smooth over the top.'},
+             {'content': 'Mix the lemon juice with the cornflour in a heatproof bowl to make a smooth paste. Mix the remaining 130g caster sugar with 300ml boiling water in a jug, pour over the cornflour mix and whisk until smooth. Pour this over the sponge. '},
+             {'content': 'Bake for 45-50 mins until golden and set, and the sponge springs back when touched.'},
+             {'content': 'While the pudding is baking, make the lemon drizzle. Mix the icing sugar with enough lemon juice (about half of it) to create a loose consistency. Drizzle over the sponge while it’s still warm and decorate with the reserved lemon zest. '},
+             {'content': 'Serve straightaway with cream or custard.'},
+         ],
+         'comments': [
+             {'user': 'test1', 'rating': 1, 'content':"Too much steps"},
+             {'user': 'test4', 'rating': 2, 'content':"Very sour, is it just me..."},
+             {'user': 'test9', 'rating': 4, 'content':"Yummy!"},
+             {'user': 'test8', 'rating': 1, 'content':"Should not mix it directly"},                
+         ]
+         },
+              
         {'title': 'Sauteed Cauliflower with Mushrooms',
          'author': 'test2',
          'image': 'recipes/sauteed-cauliflower-with-mushrooms.jpg',
@@ -408,74 +374,39 @@ def populate():
              {'user': 'test4', 'rating': 5, 'content': "I follow this recipe and cook for my parents last week, they said it's over imagine!"},
              {'user': 'test5', 'rating': 4, 'content': "I've fall in love with it, it's very decilious."},
          ]
-         }, 
-         
-        {'title': 'Chocolate cake',
-         'author': 'test1',
-         'image': 'recipes/chocolate-cake.jpg',
-         'overview':
-            "Need a guaranteed crowd-pleasing cake that's easy to make?"
-            "This super-squidgy chocolate fudge cake with smooth icing is an instant baking win.",
-         'duration': 45,
-         'budget': 25,
-         'difficulty': 3,
-         'materials': [
-             {'ingredient': 'sunflower oil', 'weight': '150g'},
-             {'ingredient': 'self-raising flour', 'weight': '170g'},
-             {'ingredient': 'cooca powder', 'weight': '10g'},
-             {'ingredient': 'icarbonate of soda', 'weight': '5g'},
-             {'ingredient': 'caster sugar', 'weight': '150g'},
-             {'ingredient': 'golden syrup', 'weight': '5g'},
-             {'ingredient': 'large eggs', 'weight': '120g'},
-             {'ingredient': 'semi-skimmed milk', 'weight': '150g'},
-             {'ingredient': 'unsalted butter', 'weight': '100g'},
-             {'ingredient': 'icing sugar', 'weight': '225g'},
-         ],
-         'steps': [
-             {'content': 'Heat the oven to 180C/160C fan/gas 4. Oil and line the base of two 18cm sandwich tins. '},
-             {'content': 'Sieve the flour, cocoa powder and bicarbonate of soda into a bowl. Add the caster sugar and mix well.'},
-             {'content': 'Make a well in the centre and add the golden syrup, eggs, sunflower oil and milk. Beat well with an electric whisk until smooth.'},
-             {'content': 'Pour the mixture into the two tins and bake for 25-30 mins until risen and firm to the touch.'},
-             {'content': 'Remove from oven, leave to cool for 10 mins before turning out onto a cooling rack.'},
-             {'content': 'To make the icing, beat the unsalted butter in a bowl until soft. Gradually sieve and beat in the icing sugar and cocoa powder, then add enough of the milk to make the icing fluffy and spreadable.'},                
-         ],
-         'comments': [
-             {'user': 'test2', 'rating': 5, 'content':"Cannot wait to have one"},
-             {'user': 'test3', 'rating': 2, 'content':"My daughter really loves it! Fab recipe"},
-             {'user': 'test5', 'rating': 1, 'content':"Hard to follow..."},
-         ]
          },
-         
-        {'title': 'Seafood pasta',
+
+        {'title': 'Tortilla pizza',
          'author': 'test2',
-         'image': 'recipes/seafood-pasta.jpg',
+         'image': 'recipes/tortilla-pizza.jpg',
          'overview':
-            "Make a low in fat, satisfying dish in minutes – ideal for Friday nights",
-         'duration': 15,
-         'budget': 10,
-         'difficulty': 3,
+            "Make homemade sourdough pizza with a wonderfully chewy crust."
+            "Try our margherita recipe, then customise with your favourite toppings.",
+         'duration': 25,
+         'budget': 13,
+         'difficulty': 4,
          'materials': [
-             {'ingredient': 'olive oil', 'weight': '25g'},
-             {'ingredient': 'onion', 'weight': '50g'},
-             {'ingredient': 'garlic clove', 'weight': '50g'},
-             {'ingredient': 'paprika', 'weight': '20g'},
-             {'ingredient': 'tomatoes', 'weight': '40g'},
-             {'ingredient': 'chicken stock', 'weight': '1000g'},
-             {'ingredient': 'spaghetti', 'weight': '300g'},
-             {'ingredient': 'frozen sedfood', 'weight': '240g'},
+             {'ingredient': 'passata', 'weight': '400g'},
+             {'ingredient': 'garlic', 'weight': '50g'},
+             {'ingredient': 'olive oil', 'weight': '20g'},
+             {'ingredient': 'dried herbs', 'weight': '30g'},
+             {'ingredient': 'plain tortillas', 'weight': '20g'},
+             {'ingredient': 'grated mozzarella', 'weight': '50g'},
+             {'ingredient': 'pepperoni', 'weight': '80g'},
+             {'ingredient': ' jalapeño', 'weight': '100g'},
          ],
          'steps': [
-             {'content': 'Heat the oil in a wok or large frying pan, then cook the onion and garlic over a medium heat for 5 mins until soft.'},
-             {'content': 'Add the paprika, tomatoes and stock, then bring to the boil.'},
-             {'content': 'Turn down the heat to a simmer, stir in the pasta and cook for 7 mins, stirring occasionally to stop the pasta from sticking.'},
-             {'content': 'Stir in the seafood, cook for 3 mins more until it’s all heated through and the pasta is cooked, then season to taste.'},
+             {'content': 'Heat the oven to 220C/200C fan/gas 7. Mix the passata, garlic, olive oil, herbs and season well.'},
+             {'content': 'Put the tortillas onto one large baking sheet, or two smaller ones.'},
+             {'content': 'Spread over the tomato sauce leaving a 1cm border around the edges.'},  
+             {'content': 'Scatter with the mozzarella, add the pepperoni and jalapenos. '},
+             {'content': 'Bake for 6-8 minutes until the edges of the tortillas are crisp and golden, and the cheese has melted and is bubbling.'},
          ],
          'comments': [
-             {'user': 'test1', 'rating': 5, 'content':"Really liked this , made it for the family, kids loved it"},
-             {'user': 'test3', 'rating': 3, 'content':"Cooked perfectly. Will definitely do this again!"},
-             {'user': 'test4', 'rating': 4, 'content':"Quick,healthy and delicious! Fab recipe!"},
-             {'user': 'test4', 'rating': 4, 'content':"Can you add cream, or creme fraiche to make it a creamy sauce?"},
-             {'user': 'test5', 'rating': 1, 'content':"Worst thing I’ve ever spent my time and money on."},
+             {'user': 'test3', 'rating': 3, 'content': "love this recipe! helps me alot"},
+             {'user': 'test4', 'rating': 2, 'content': "Why do I got a half-raw pasta? I followed all the steps"},
+             {'user': 'test4', 'rating': 1, 'content': "Waste my time, juice of tomatoes makes it super wet..."},
+             {'user': 'test1', 'rating': 4, 'content': "Good recipe, add tomatoes making it even delicious"},
          ]
          },
          
@@ -516,6 +447,42 @@ def populate():
          ]
          },
          
+        {'title': 'Chocolate cake',
+         'author': 'test1',
+         'image': 'recipes/chocolate-cake.jpg',
+         'overview':
+            "Need a guaranteed crowd-pleasing cake that's easy to make?"
+            "This super-squidgy chocolate fudge cake with smooth icing is an instant baking win.",
+         'duration': 45,
+         'budget': 25,
+         'difficulty': 3,
+         'materials': [
+             {'ingredient': 'sunflower oil', 'weight': '150g'},
+             {'ingredient': 'self-raising flour', 'weight': '170g'},
+             {'ingredient': 'cooca powder', 'weight': '10g'},
+             {'ingredient': 'icarbonate of soda', 'weight': '5g'},
+             {'ingredient': 'caster sugar', 'weight': '150g'},
+             {'ingredient': 'golden syrup', 'weight': '5g'},
+             {'ingredient': 'large eggs', 'weight': '120g'},
+             {'ingredient': 'semi-skimmed milk', 'weight': '150g'},
+             {'ingredient': 'unsalted butter', 'weight': '100g'},
+             {'ingredient': 'icing sugar', 'weight': '225g'},
+         ],
+         'steps': [
+             {'content': 'Heat the oven to 180C/160C fan/gas 4. Oil and line the base of two 18cm sandwich tins. '},
+             {'content': 'Sieve the flour, cocoa powder and bicarbonate of soda into a bowl. Add the caster sugar and mix well.'},
+             {'content': 'Make a well in the centre and add the golden syrup, eggs, sunflower oil and milk. Beat well with an electric whisk until smooth.'},
+             {'content': 'Pour the mixture into the two tins and bake for 25-30 mins until risen and firm to the touch.'},
+             {'content': 'Remove from oven, leave to cool for 10 mins before turning out onto a cooling rack.'},
+             {'content': 'To make the icing, beat the unsalted butter in a bowl until soft. Gradually sieve and beat in the icing sugar and cocoa powder, then add enough of the milk to make the icing fluffy and spreadable.'},                
+         ],
+         'comments': [
+             {'user': 'test2', 'rating': 5, 'content':"Cannot wait to have one"},
+             {'user': 'test3', 'rating': 2, 'content':"My daughter really loves it! Fab recipe"},
+             {'user': 'test5', 'rating': 1, 'content':"Hard to follow..."},
+         ]
+         },
+         
         {'title': 'Poke Bowl',
          'author': 'test3',
          'image': 'recipes/poke-bowl.jpg',
@@ -549,40 +516,69 @@ def populate():
              {'user': 'test2', 'rating': 4, 'content': "Have tried, great."},
          ]
          },
-
-        {'title': 'Steamed Buns',
-         'author': 'test1',
-         'image': 'recipes/steamed-buns.jpg',
+         
+        {'title': 'Seafood pasta',
+         'author': 'test2',
+         'image': 'recipes/seafood-pasta.jpg',
          'overview':
-            "A very simple and easy to prepare steamed bun, suitable for children.",
-         'duration': 20,
-         'budget': 5,
+            "Make a low in fat, satisfying dish in minutes – ideal for Friday nights",
+         'duration': 15,
+         'budget': 10,
+         'difficulty': 3,
+         'materials': [
+             {'ingredient': 'olive oil', 'weight': '25g'},
+             {'ingredient': 'onion', 'weight': '50g'},
+             {'ingredient': 'garlic clove', 'weight': '50g'},
+             {'ingredient': 'paprika', 'weight': '20g'},
+             {'ingredient': 'tomatoes', 'weight': '40g'},
+             {'ingredient': 'chicken stock', 'weight': '1000g'},
+             {'ingredient': 'spaghetti', 'weight': '300g'},
+             {'ingredient': 'frozen sedfood', 'weight': '240g'},
+         ],
+         'steps': [
+             {'content': 'Heat the oil in a wok or large frying pan, then cook the onion and garlic over a medium heat for 5 mins until soft.'},
+             {'content': 'Add the paprika, tomatoes and stock, then bring to the boil.'},
+             {'content': 'Turn down the heat to a simmer, stir in the pasta and cook for 7 mins, stirring occasionally to stop the pasta from sticking.'},
+             {'content': 'Stir in the seafood, cook for 3 mins more until it’s all heated through and the pasta is cooked, then season to taste.'},
+         ],
+         'comments': [
+             {'user': 'test1', 'rating': 5, 'content':"Really liked this , made it for the family, kids loved it"},
+             {'user': 'test3', 'rating': 3, 'content':"Cooked perfectly. Will definitely do this again!"},
+             {'user': 'test4', 'rating': 4, 'content':"Quick,healthy and delicious! Fab recipe!"},
+             {'user': 'test4', 'rating': 4, 'content':"Can you add cream, or creme fraiche to make it a creamy sauce?"},
+             {'user': 'test5', 'rating': 1, 'content':"Worst thing I’ve ever spent my time and money on."},
+         ]
+         },
+
+        {'title': 'Volcanic Lava Egg',
+         'author': 'test1',
+         'image': 'recipes/volcanic-lava-egg.jpg',
+         'overview':
+            "Today I'm giving you a volcano that will erupt with deliciousness and fill your stomach.",
+         'duration': 45,
+         'budget': 7,
          'difficulty': 2,
          'materials': [
              {'ingredient': 'potato', 'weight': '100g'},
-             {'ingredient': 'carrot', 'weight': '100g'},
-             {'ingredient': 'green pepper', 'weight': '75g'},
-             {'ingredient': 'ham sausage', 'weight': '150g'},
-             {'ingredient': 'eggs', 'weight': '75g'},
-             {'ingredient': 'Dumpling skin', 'weight': '100g'},
+             {'ingredient': 'bacon', 'weight': '135g'},
+             {'ingredient': 'cheese', 'weight': '150g'},
+             {'ingredient': 'egg', 'weight': '75g'},
+             {'ingredient': 'chopped green onion', 'weight': '30g'},
          ],
          'steps': [
-             {'image': 'recipes/steamed-buns_1.jpg',
-                 'content': 'Shredded carrots and shredded potatoes. Add the shredded potatoes, carrots and peppers to a pot of boiling water, blanch for 30 seconds and then remove from the pot.'},
-             {'image': 'recipes/steamed-buns_2.jpg',
-                 'content': 'Mix the shredded potatoes, shredded carrots, shredded green pepper, shredded ham, egg, salt and soy sauce.'},
-             {'image': 'recipes/steamed-buns_3.jpg',
-                 'content': 'Roll out the dumpling skin thinly. Put the filling into the dumpling skin, apply a layer of water around the skin and pinch tightly.'},
-             {'image': 'recipes/steamed-buns_4.jpg',
-                 'content': 'Place in a steamer and steam for 8 minutes on high heat. After 8 minutes, you can enjoy it beautifully.'},
+             {'image': 'volcanic-lava-egg_1.jpg',
+                 'content': 'Peel the medium potatoes and hollow them out with a ball peeler to create the shape of a "volcano".'},
+             {'image': 'volcanic-lava-egg_2.jpg',
+                 'content': 'Roll the potatoes in bacon, secure with a toothpick and bake in an oven at 200°C for 40 minutes.'},
+             {'content': 'Remove the potatoes from the oven and leave until they are not too hot. Add half a slice of cheese, 1 egg (I used a sterile langoustine egg) and chopped spring onion in the middle of the potatoes, in order of preference. Bake in a 170°C oven for 10 minutes, or longer to 15 minutes if you like the eggs fully cooked.'},                 
          ],
          'comments': [
-             {'user': 'test4', 'rating': 3, 'content': "It seems interesting, I will try it later."},
-             {'user': 'test3', 'rating': 1, 'content': "I don't really like it."},
-             {'user': 'test2', 'rating': 5, 'content': "I've fall in love with it, it's simple and also very decilious"},
+             {'user': 'test2', 'rating': 5, 'content': "It's so yummy! I've tried many times, with great success, every time."},
+             {'user': 'test5', 'rating': 5, 'content': "Love it! If you don't want to carve the potatoes you can just put the ingredients together."},
+             {'user': 'test4', 'rating': 4, 'content': "Shap the potatoes is too hard! But it's really tasty."},
          ]
          },
-  
+         
         {'title': 'Low Fat North African Egg',
          'author': 'test5',
          'image': 'recipes/low-fat-north-african-egg.jpg',
@@ -615,35 +611,6 @@ def populate():
              {'user': 'test4', 'rating': 3, 'content': "Love it but it takes too much time to prepare the materials."},
              {'user': 'test3', 'rating': 1, 'content': "I don's like the taste of mushroom."},
              {'user': 'test1', 'rating': 5, 'content': "It's really easy and tasty!."},
-         ]
-         }, 
-
-        {'title': 'Volcanic Lava Egg',
-         'author': 'test1',
-         'image': 'recipes/volcanic-lava-egg.jpg',
-         'overview':
-            "Today I'm giving you a volcano that will erupt with deliciousness and fill your stomach.",
-         'duration': 45,
-         'budget': 7,
-         'difficulty': 2,
-         'materials': [
-             {'ingredient': 'potato', 'weight': '100g'},
-             {'ingredient': 'bacon', 'weight': '135g'},
-             {'ingredient': 'cheese', 'weight': '150g'},
-             {'ingredient': 'egg', 'weight': '75g'},
-             {'ingredient': 'chopped green onion', 'weight': '30g'},
-         ],
-         'steps': [
-             {'image': 'volcanic-lava-egg_1.jpg',
-                 'content': 'Peel the medium potatoes and hollow them out with a ball peeler to create the shape of a "volcano".'},
-             {'image': 'volcanic-lava-egg_2.jpg',
-                 'content': 'Roll the potatoes in bacon, secure with a toothpick and bake in an oven at 200°C for 40 minutes.'},
-             {'content': 'Remove the potatoes from the oven and leave until they are not too hot. Add half a slice of cheese, 1 egg (I used a sterile langoustine egg) and chopped spring onion in the middle of the potatoes, in order of preference. Bake in a 170°C oven for 10 minutes, or longer to 15 minutes if you like the eggs fully cooked.'},                 
-         ],
-         'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's so yummy! I've tried many times, with great success, every time."},
-             {'user': 'test5', 'rating': 5, 'content': "Love it! If you don't want to carve the potatoes you can just put the ingredients together."},
-             {'user': 'test4', 'rating': 4, 'content': "Shap the potatoes is too hard! But it's really tasty."},
          ]
          },
 
@@ -717,6 +684,39 @@ def populate():
          ]
          },
          
+        {'title': 'Steamed Buns',
+         'author': 'test1',
+         'image': 'recipes/steamed-buns.jpg',
+         'overview':
+            "A very simple and easy to prepare steamed bun, suitable for children.",
+         'duration': 20,
+         'budget': 5,
+         'difficulty': 2,
+         'materials': [
+             {'ingredient': 'potato', 'weight': '100g'},
+             {'ingredient': 'carrot', 'weight': '100g'},
+             {'ingredient': 'green pepper', 'weight': '75g'},
+             {'ingredient': 'ham sausage', 'weight': '150g'},
+             {'ingredient': 'eggs', 'weight': '75g'},
+             {'ingredient': 'Dumpling skin', 'weight': '100g'},
+         ],
+         'steps': [
+             {'image': 'recipes/steamed-buns_1.jpg',
+                 'content': 'Shredded carrots and shredded potatoes. Add the shredded potatoes, carrots and peppers to a pot of boiling water, blanch for 30 seconds and then remove from the pot.'},
+             {'image': 'recipes/steamed-buns_2.jpg',
+                 'content': 'Mix the shredded potatoes, shredded carrots, shredded green pepper, shredded ham, egg, salt and soy sauce.'},
+             {'image': 'recipes/steamed-buns_3.jpg',
+                 'content': 'Roll out the dumpling skin thinly. Put the filling into the dumpling skin, apply a layer of water around the skin and pinch tightly.'},
+             {'image': 'recipes/steamed-buns_4.jpg',
+                 'content': 'Place in a steamer and steam for 8 minutes on high heat. After 8 minutes, you can enjoy it beautifully.'},
+         ],
+         'comments': [
+             {'user': 'test4', 'rating': 3, 'content': "It seems interesting, I will try it later."},
+             {'user': 'test3', 'rating': 1, 'content': "I don't really like it."},
+             {'user': 'test2', 'rating': 5, 'content': "I've fall in love with it, it's simple and also very decilious"},
+         ]
+         }, 
+         
         {'title': 'Rice pudding',
          'author': 'test1',
          'image': 'recipes/rice-pudding.jpg',
@@ -770,36 +770,6 @@ def populate():
          ]
          },
 
-        {'title': 'Oatmeal and Avocado Tart',
-         'author': 'test5',
-         'image': 'recipes/oatmeal-and-avocado-tart.jpg',
-         'overview':
-            "A zero-difficulty, high-value, super-fast fat-reducing dessert is here! No oil and no sugar to eat without the burden.",
-         'duration': 15,
-         'budget': 10,
-         'difficulty': 1,
-         'materials': [
-             {'ingredient': 'avocado', 'weight': '75g'},
-             {'ingredient': 'milk', 'weight': '200g'},
-             {'ingredient': 'instant oats', 'weight': '120g'},
-             {'ingredient': 'banana', 'weight': '100g'},
-             {'ingredient': 'giletine flake', 'weight': '5g'},
-         ],
-         'steps': [
-             {'content': 'Mash the bananas and mix well with the oats. Leave to stand for a while to allow the oats to absorb all the water from the bananas.'},
-             {'image': 'oatmeal-and-avocado-tart_1.jpg',
-                 'content': 'Grease a tart pan (8 inch tart pan) and spread the oats into the mixture. Bake in the preheated oven at 180°C for 10 minutes to set.'},
-             {'content': 'Puree the avocado with the milk and add the softened giardiniera slices to the pan and mix well.'},
-             {'image': 'oatmeal-and-avocado-tart_2.jpg',
-                 'content': 'Pour through a sieve into the oatmeal tart shell and chill in the fridge overnight.'},       
-         ],
-         'comments': [
-             {'user': 'test1', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test3', 'rating': 4, 'content': "It's really easy and don't need much time."},
-             {'user': 'test4', 'rating': 4, 'content': "Yummy!"},
-         ]
-         },
-
         {'title': 'Avocado and Shrimp Sandwich with Egg Cream',
          'author': 'test3',
          'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream.jpg',
@@ -827,6 +797,36 @@ def populate():
              {'user': 'test2', 'rating': 5, 'content': "It's easy and yummy!"},
              {'user': 'test5', 'rating': 3, 'content': "Prety good."},
              {'user': 'test4', 'rating': 4, 'content': "Love it! It's more suitable to serve with milk."},
+         ]
+         },
+         
+        {'title': 'Oatmeal and Avocado Tart',
+         'author': 'test5',
+         'image': 'recipes/oatmeal-and-avocado-tart.jpg',
+         'overview':
+            "A zero-difficulty, high-value, super-fast fat-reducing dessert is here! No oil and no sugar to eat without the burden.",
+         'duration': 15,
+         'budget': 10,
+         'difficulty': 1,
+         'materials': [
+             {'ingredient': 'avocado', 'weight': '75g'},
+             {'ingredient': 'milk', 'weight': '200g'},
+             {'ingredient': 'instant oats', 'weight': '120g'},
+             {'ingredient': 'banana', 'weight': '100g'},
+             {'ingredient': 'giletine flake', 'weight': '5g'},
+         ],
+         'steps': [
+             {'content': 'Mash the bananas and mix well with the oats. Leave to stand for a while to allow the oats to absorb all the water from the bananas.'},
+             {'image': 'oatmeal-and-avocado-tart_1.jpg',
+                 'content': 'Grease a tart pan (8 inch tart pan) and spread the oats into the mixture. Bake in the preheated oven at 180°C for 10 minutes to set.'},
+             {'content': 'Puree the avocado with the milk and add the softened giardiniera slices to the pan and mix well.'},
+             {'image': 'oatmeal-and-avocado-tart_2.jpg',
+                 'content': 'Pour through a sieve into the oatmeal tart shell and chill in the fridge overnight.'},       
+         ],
+         'comments': [
+             {'user': 'test1', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'test3', 'rating': 4, 'content': "It's really easy and don't need much time."},
+             {'user': 'test4', 'rating': 4, 'content': "Yummy!"},
          ]
          },         
     ]
