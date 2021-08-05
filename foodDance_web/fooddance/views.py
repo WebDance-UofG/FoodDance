@@ -7,8 +7,10 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
 def dict2obj(args):
+    """
+    transfer a dict to a obj
+    """
     class obj(object):
         def __init__(self, d):
             for a, b in d.items():
@@ -19,8 +21,7 @@ def dict2obj(args):
     return obj(args)
 
 
-def index(request):
-
+def category_allrecipes(request):
     recipes = []
 
     def takeAverage(ele):
@@ -30,15 +31,66 @@ def index(request):
         recipes.append(
             dict2obj({
                 "title": recipe.title,
-                "avg": Comment.objects.filter(recipe__id=recipe.id)
-                    .aggregate(Avg('rating'))
+                "avg": "{:.1f}".format(
+                    Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                "image": recipe.image,
+                "during": recipe.duration,
+                "author": recipe.author
             })
         )
-
     recipes.sort(key=takeAverage)
-
     context_dict = {'recipes': recipes}
+    return render(request, 'fooddance/category_allrecipes.html', context_dict)
+
+def index(request):
+    recipes = []
+
+    def takeAverage(ele):
+        return ele.avg
+
+    for recipe in Recipe.objects.all():
+        recipes.append(
+            dict2obj({
+                "title": recipe.title,
+                "avg": "{:.1f}".format(Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                "image": recipe.image,
+                "during": recipe.duration,
+                "author": recipe.author
+            })
+        )
+    recipes.sort(key=takeAverage)
+    context_dict = {'recipes': recipes[:12]}
     return render(request, 'fooddance/index.html', context_dict)
+
+
+def search(request):
+    recipes = []
+
+    def takeAverage(ele):
+        return ele.avg
+
+    if request.method == 'GET' and request.GET:
+        keyword = request.GET.get("search").lower()
+        # keywordlist = recivedKey.title.split(" ")
+        for recipe in Recipe.objects.all():
+            titleList = recipe.title.lower().split(" ")
+            # titleList = titleLower.split(" ")
+            if keyword in titleList:
+                recipes.append(
+                    dict2obj({
+                        "title": recipe.title,
+                        "avg": "{:.1f}".format(
+                            Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                        "image": recipe.image,
+                        "author": recipe.author,
+                        "overview": recipe.overview,
+                        "comments": len(Comment.objects.filter(recipe__id=recipe.id)),
+                        "likes": recipe.likes,
+                        "views": recipe.views,
+                    })
+                )
+    context_dict = {'recipes': recipes}
+    return render(request, 'fooddance/search.html',context_dict)
 
 
 def detail(request, recipe_title_slug):
@@ -82,13 +134,6 @@ def register(request):
 
 
 def login(request):
-    
 
     return render(request, 'fooddance/login.html')
-
-
-
-
-
-
 

@@ -1,0 +1,47 @@
+<!doctype html>
+{% extends 'fooddance/base.html' %}
+{% load staticfiles  %}
+
+{% block title_block %}
+    All Recipes
+{% endblock %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/all_recipes.css' %}">
+{% endblock %}
+
+{% block body_block %}
+    <div class="row">
+        <div class="col-md-6"><p class="all-recipes">All Recipes</p></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% if recipes %}
+                {% for recipe in recipes %}
+                    <div class="col-md-3 recom-recipe-bg">
+                        <div class="thumbnail">
+                            <a href="#"><img src="{{ MEDIA_URL }}/{{ recipe.image }}" alt="recipe_1"/></a>
+                        </div>
+                        <div class="caption">
+                            <p class="recom-recipe-title">{{ recipe.title }}</p>
+                        </div>
+                        <div class="row recom-recipe-row">
+                            <div class="col-md-4 recom-recipe-block">
+                                <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"></span>
+                                <b class="recom-recipe-det">{{ recipe.avg }} / 5</b>
+                            </div>
+                            <div class="col-md-4 recom-recipe-block">
+                                <span class="glyphicon glyphicon-time recom-recipe-icon-red"></span>
+                                <b class="recom-recipe-det">{{ recipe.during }}min</b>
+                            </div>
+                            <div class="col-md-4 recom-recipe-block">
+                                <span class="glyphicon glyphicon-user recom-recipe-icon-blue"></span>
+                                <b class="recom-recipe-det">{{ recipe.author }}</b>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+

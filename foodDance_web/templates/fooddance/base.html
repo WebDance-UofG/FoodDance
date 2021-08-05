@@ -11,13 +11,16 @@
         {% block title_block %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-</head>
-<body>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css_block %}
+    {% endblock %}
+</head>
+<body>
     <div class="header-block">
     <div class="row">
         {% if user.is_authenticated %}
@@ -31,20 +34,21 @@
         {% endif %}
     </div>
     <div class="row">
-        <div class="cod-md-4 col-md-offset-1"><img src="{% static 'images/logo_white.png' %}" alt="Logo" width="600" style="margin: 5px 0px"/><br/></div>
+        <div class="col-md-4 col-md-offset-1"><img src="{% static 'images/logo_white.png' %}" alt="Logo" width="600" style="margin: 5px 0px"/><br/></div>
     </div>
     <div class="row">
         <div class="col-md-3 col-md-offset-3"><h4><b style="color:#ffffff">COOK WITH WORLD</b></h4></div>
         <div class="col-md-5 col-md-offset-1">
-            <form>
+            <form method="get" action="{% url 'fooddance:search' %}">
+                {% csrf_token%}
                 <input type="text" name="search" class="search">
-                <input type="button" name="searchbutton" value="search" class="button-search">
+                <input type="submit" name="searchbutton" value="search" class="button-search">
             </form>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-2 col-md-offset-1"><a href="" class="button-category">Home</a></div>
-        <div class="col-md-2"><a href="" class="button-category">All Recipe</a></div>
+        <div class="col-md-2 col-md-offset-1"><a href="{% url 'fooddance:index' %}" class="button-category">Home</a></div>
+        <div class="col-md-2"><a href="{% url 'fooddance:all_recipes' %}" class="button-category">All Recipe</a></div>
         <div class="col-md-2"><a href="" class="button-category">Difficulty</a></div>
         <div class="col-md-2"><a href="" class="button-category">Time</a></div>
         <div class="col-md-2"><a href="" class="button-category">About</a></div>

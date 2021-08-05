@@ -2,16 +2,77 @@
 {% extends 'fooddance/base.html' %}
 {% load staticfiles  %}
 
-
+{% block title_block %}
+    Homepage
+{% endblock %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 {% block body_block %}
-    <script src="{% static 'js/index.js' %}" type="application/javascript"></script>
-    <ul>
+    <div class="row">
+        <div class="col-md-6"><p class="todays-top">Today's Top</p></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 top-recipe-background">
+                <div class="col-md-7 top-recipe-grid">
+                    <p class="top-recipe-title">Scrambled Egg with Tomato</p>
+                    <p class="top-recipe-author">@Author</p>
+                    <div class="top-recipe-comment">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        <p class="top-recipe-comment">"Very tasty and easy to cook !! I love this recipe !!"</p>
+                    </div>
+                    <div class="top-recipe-detail-row">
+                        <span class="glyphicon glyphicon-time top-recipe-icon">  Duration</span>45min
+                    </div>
+                    <div class="top-recipe-detail-row">
+                        <span class="glyphicon glyphicon-play top-recipe-icon">  Difficulty</span>Easy
+                    </div>
+                    <div class="top-recipe-detail-row">
+                        <span class="glyphicon glyphicon-align-justify top-recipe-icon">  Overview</span>A classic fast meal for families....fjkls slkjlkj ssssaaaa
+                    </div>
+                </div>
+                <div class="col-md-5 top-recipe-grid">
+                    <img src="{% static 'images/top_recipe_cover_1.png' %}" class="top-recipe-image"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+        <div class="col-md-6"><p class="todays-top">Recommendation</p></div>
+    </div>
+    <div class="container">
+        <div class="row">
         {% if recipes %}
             {% for recipe in recipes %}
-                <li>{{ recipe.title }}</li>
+                <div class="col-md-3 recom-recipe-bg">
+                    <div class="thumbnail">
+                        <a href="#"><img src="{{ MEDIA_URL }}/{{ recipe.image }}" alt="recipe_1"/></a>
+                    </div>
+                    <div class="caption">
+                        <p class="recom-recipe-title">{{ recipe.title }}</p>
+                    </div>
+                    <div class="row recom-recipe-row">
+                        <div class="col-md-4 recom-recipe-block">
+                            <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"></span>
+                            <b class="recom-recipe-det">{{ recipe.avg }} / 5</b>
+                        </div>
+                        <div class="col-md-4 recom-recipe-block">
+                            <span class="glyphicon glyphicon-time recom-recipe-icon-red"></span>
+                            <b class="recom-recipe-det">{{ recipe.during }}min</b>
+                        </div>
+                        <div class="col-md-4 recom-recipe-block">
+                            <span class="glyphicon glyphicon-user recom-recipe-icon-blue"></span>
+                            <b class="recom-recipe-det">{{ recipe.author }}</b>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-
-        {%  endif %}
-</ul>
-
-    {% endblock %}
+        {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1"> <a class="btn btn-default others-findall" href="{% url 'fooddance:all_recipes' %}" role="button">Click Here, Find More Recipes!</a></div>
+    </div>
+{% endblock %}
