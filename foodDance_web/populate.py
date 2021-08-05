@@ -13,11 +13,11 @@ from django.core.files.images import ImageFile
 
 def populate():
     users = [
-        {'username': 'diablo', 'password': 'diablo23', 'email': 'diablo@test.com', 'image': 'avatars/diablo.png'},
-        {'username': 'Augenstern', 'password': 'diablo23', 'email': 'Augenstern@test.com', 'image': 'avatars/augenstern.jpg'},
-        {'username': 'yuuki', 'password': 'diablo23', 'email': 'yuuki@test.com', 'image': 'avatars/yuuki.jpg'},
-        {'username': 'flechazo', 'password': 'diablo23', 'email': 'flechazo@test.com', 'image': 'avatars/flechazo.jpg'},
-        {'username': 'espoir', 'password': 'diablo23', 'email': 'espoir@test.com', 'image': 'avatars/espoir.jpg'},
+        {'username': 'diablo', 'password': 'test123', 'email': 'diablo@test.com', 'image': 'avatars/diablo.png'},
+        {'username': 'Augenstern', 'password': 'test123', 'email': 'Augenstern@test.com', 'image': 'avatars/augenstern.jpg'},
+        {'username': 'yuuki', 'password': 'test123', 'email': 'yuuki@test.com', 'image': 'avatars/yuuki.jpg'},
+        {'username': 'flechazo', 'password': 'test123', 'email': 'flechazo@test.com', 'image': 'avatars/flechazo.jpg'},
+        {'username': 'espoir', 'password': 'test123', 'email': 'espoir@test.com', 'image': 'avatars/espoir.jpg'},
     ]
 
     recipes = [
@@ -878,7 +878,8 @@ def populate():
 
 
 def add_user(username, password, email, image=None):
-    user = User.objects.get_or_create(username=username, password=password, email=email)[0]
+    user = User.objects.get_or_create(username=username, email=email)[0]
+    user.set_password(password)
 
     user.save()
     userprofile = UserProfile.objects.get_or_create(user=user)[0]

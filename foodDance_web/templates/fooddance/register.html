@@ -3,53 +3,63 @@
 {% load staticfiles %}
 
 {% block title_block %}
-    FoodDance - Login
+    FoodDance - SignUp
 {% endblock %}
 
-{% block css_block %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-{% endblock %}
 
 {% block body_block %}
 	<section class="h-100">
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
-				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-8">
+				<div class=col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-8">
 					<div class="text-center my-5">
-						<img class=" shadow-lg" src="{% static 'images/logo_pink.png' %}" alt="logo" width="100">
+						<img src="{% static 'images/logo_pink.png' %}" alt="logo" width="100">
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-							<form method="POST" action="{% url 'fooddance:user_login' %}" class="needs-validation" novalidate="" autocomplete="off">
+							<h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
+							<form method="POST" action="{% url 'fooddance:user_register' %}" class="needs-validation" novalidate="" autocomplete="off">
 								{% csrf_token %}
                                 <div class="mb-3">
 									<label class="mb-2 text-muted" for="username">Username</label>
 									<input id="username" type="text" class="form-control" name="username" value="" required autofocus>
 									<div class="invalid-feedback">
-										Username is required
+										username is required
 									</div>
 								</div>
 
 								<div class="mb-3">
-									<div class="mb-2 w-100">
-										<label class="text-muted" for="password">Password</label>
+									<label class="mb-2 text-muted" for="email">E-Mail Address</label>
+									<input id="email" type="email" class="form-control" name="email" value="" required>
+									<div class="invalid-feedback">
+										Email is invalid
 									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="password">Password</label>
 									<input id="password" type="password" class="form-control" name="password" required>
 								    <div class="invalid-feedback">
 								    	Password is required
 							    	</div>
 								</div>
-                                <div class="d-flex  justify-content-center">
+
+{#								<p class="form-text text-muted mb-3">#}
+{#									By registering you agree with our terms and condition.#}
+{#								</p>#}
+
+								<div class="align-items-center">
 									<button type="submit" class="btn btn-primary">
-										Login
+										Register
 									</button>
 								</div>
 							</form>
 						</div>
-                        {% if login_error %}
+
+
+                        {% if error %}
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                              {{ login_error }}
+                              {{ error }}
                               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         {% endif %}
@@ -57,7 +67,7 @@
 
 						<div class="card-footer py-3 border-0">
 							<div class="text-center">
-								Don't have an account? <a href="{% url 'fooddance:user_register' %}" class="text-dark">Create One</a>
+								Already have an account? <a href="{% url 'fooddance:user_login' %}" class="text-dark">Login</a>
 							</div>
 						</div>
 					</div>
@@ -68,6 +78,7 @@
 			</div>
 		</div>
 	</section>
+
     <script src="{% static 'js/login.js' %}"></script>
 
 {% endblock %}

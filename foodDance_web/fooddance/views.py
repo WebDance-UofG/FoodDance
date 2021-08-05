@@ -4,6 +4,9 @@ from django.db.models import Avg
 from .forms import *
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -42,7 +45,8 @@ def category_allrecipes(request):
     context_dict = {'recipes': recipes}
     return render(request, 'fooddance/category_allrecipes.html', context_dict)
 
-def index(request):
+
+def index(request, message=None):
     recipes = []
 
     def takeAverage(ele):
@@ -60,6 +64,9 @@ def index(request):
         )
     recipes.sort(key=takeAverage)
     context_dict = {'recipes': recipes[:12]}
+    message=get_message_session_handler(request)
+    if message:
+        context_dict['alert_message'] = message
     return render(request, 'fooddance/index.html', context_dict)
 
 
@@ -93,7 +100,7 @@ def search(request):
     return render(request, 'fooddance/search.html',context_dict)
 
 
-def detail(request, recipe_title_slug):
+def detail(request, recipe_title_slug, message=None):
     context_dict = {}
 
     try:
@@ -123,17 +130,75 @@ def detail(request, recipe_title_slug):
             print(form.errors)
 
     context_dict['form'] = form
+    if message:
+        context_dict['alert_message'] = message
 
     return render(request, 'fooddance/detail.html', context=context_dict)
 
 
-def register(request):
-    registered = False
+def user_register(request):
+    context_dict = {}
 
-    # if request.method == 'POST':
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+
+        userTuple = User.objects.get_or_create(username=username)
+        print(userTuple)
+        if not userTuple[1]:
+            context_dict['error'] = 'The user is already exist!'
+        else:
+            user = userTuple[0]
+            user.set_password(password)
+            user.email = email
+            user.save()
+            update_message_session_handler(request,'successfully register!')
+            return redirect(reverse('fooddance:index'))
+
+    return render(request, 'fooddance/register.html',context_dict)
 
 
-def login(request):
+def user_login(request):
+    """
+    login view
+    """
+    context_dict = {}
 
-    return render(request, 'fooddance/login.html')
+    if request.user.is_authenticated:
+        update_message_session_handler(request, "You are logged in.")
+        return redirect(reverse("fooddance:index"))
 
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        print(password)
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                update_message_session_handler(request, "successful login")
+                login(request, user)
+                return redirect(reverse('fooddance:index'))
+            else:
+                context_dict['login_error'] = "Your account is disabled."
+        else:
+            context_dict['login_error'] = "Check your username or password."
+
+    return render(request, 'fooddance/login.html', context=context_dict)
+
+
+# get message from server session
+def get_message_session_handler(request):
+    message = request.session.get('message')
+    if message:
+        del request.session['message']
+        return message
+    return None
+
+
+# update message in server session
+def update_message_session_handler(request, message):
+    request.session['message'] = message
+    print(f'- add message session {message}')
