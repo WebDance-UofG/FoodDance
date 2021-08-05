@@ -128,39 +128,72 @@ def populate():
          ]
          },
          
-        {'title': 'Chocolate cake',
-         'author': 'test1',
-         'image': 'recipes/chocolate-cake.jpg',
+        {'title': 'Red Bean Jicama',
+         'author': 'test4',
+         'image': 'recipes/red-bean-jicama.jpg',
          'overview':
-            "Need a guaranteed crowd-pleasing cake that's easy to make?"
-            "This super-squidgy chocolate fudge cake with smooth icing is an instant baking win.",
-         'duration': 45,
-         'budget': 25,
-         'difficulty': 3,
+            "Oven free! Soft and creamy Japanese sweet bean jicama, perfect as a snack for kids, super cute!",
+         'duration': 90,
+         'budget': 20,
+         'difficulty': 5,
          'materials': [
-             {'ingredient': 'sunflower oil', 'weight': '150g'},
-             {'ingredient': 'self-raising flour', 'weight': '170g'},
-             {'ingredient': 'cooca powder', 'weight': '10g'},
-             {'ingredient': 'icarbonate of soda', 'weight': '5g'},
-             {'ingredient': 'caster sugar', 'weight': '150g'},
-             {'ingredient': 'golden syrup', 'weight': '5g'},
-             {'ingredient': 'large eggs', 'weight': '120g'},
-             {'ingredient': 'semi-skimmed milk', 'weight': '150g'},
-             {'ingredient': 'unsalted butter', 'weight': '100g'},
-             {'ingredient': 'icing sugar', 'weight': '225g'},
+             {'ingredient': 'milk', 'weight': '160g'},
+             {'ingredient': 'sugar', 'weight': '45g'},
+             {'ingredient': 'corn starch', 'weight': '30g'},
+             {'ingredient': 'glutinous rice flour', 'weight': '100g'},
+             {'ingredient': 'butter', 'weight': '15g'},
+             {'ingredient': 'bean paste', 'weight': '135g'},
+             {'ingredient': 'melted chocolate', 'weight': '20g'},
+             {'ingredient': 'leaves(mine were cherry leaves)', 'weight': '20g'},
          ],
          'steps': [
-             {'content': 'Heat the oven to 180C/160C fan/gas 4. Oil and line the base of two 18cm sandwich tins. '},
-             {'content': 'Sieve the flour, cocoa powder and bicarbonate of soda into a bowl. Add the caster sugar and mix well.'},
-             {'content': 'Make a well in the centre and add the golden syrup, eggs, sunflower oil and milk. Beat well with an electric whisk until smooth.'},
-             {'content': 'Pour the mixture into the two tins and bake for 25-30 mins until risen and firm to the touch.'},
-             {'content': 'Remove from oven, leave to cool for 10 mins before turning out onto a cooling rack.'},
-             {'content': 'To make the icing, beat the unsalted butter in a bowl until soft. Gradually sieve and beat in the icing sugar and cocoa powder, then add enough of the milk to make the icing fluffy and spreadable.'},                
+             {'content': '160g milk mix with 45g sugar, add 100g glutinous rice flour/30g corn starch, mix together.'},
+             {'content': 'Sift the mixture through a sieve and pour into a container.'},
+             {'content': 'Wrap in cling film, make a few holes to vent the air and steam for 25-30 minutes. During the steaming process, fry some flour, divide 135g of bean paste into 9 portions, 15g per portion, and knead into small balls. When the batter is steamed add 15g of butter while it is still hot.'},
+             {'content': 'Toss and mix until not too sticky, then knead into a dough.'},
+             {'content': 'Repeat a few times, divide into 35g portions, 9 portions in total (use the rest for the five senses), roll out into a round cake, put the bean paste on top, fold in half and knead three small balls to make the nose and ears.'},
+             {'content': 'Wrap the leaves, cut off the excess and use the melted chocolate to draw expressions on them.'},            
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content':"Cannot wait to have one"},
-             {'user': 'test3', 'rating': 2, 'content':"My daughter really loves it! Fab recipe"},
-             {'user': 'test5', 'rating': 1, 'content':"Hard to follow..."},
+             {'user': 'test2', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'test3', 'rating': 4, 'content': "Love it but it takes too much time."},
+         ]
+         },
+         
+        {'title': 'Floral Yoghurt Biscuits',
+         'author': 'test2',
+         'image': 'recipes/floral-yoghurt-biscuits.jpg',
+         'overview':
+            "This recipe is a sugar-free version that you can make for your baby, it's melt-in-your-mouth, crispy and tasty and is suitable for all ages. ",
+         'duration': 90,
+         'budget': 5,
+         'difficulty': 5,
+         'materials': [
+             {'ingredient': 'egg', 'weight': '50g'},
+             {'ingredient': 'Powdered milk (for yolk)', 'weight': '6g'},
+             {'ingredient': 'Powdered milk (for egg white)', 'weight': '10g'},
+             {'ingredient': 'yoghurt', 'weight': '16g'},
+             {'ingredient': 'Cornstarch', 'weight': '6g'},
+             {'ingredient': 'lemon juice', 'weight': '10g'},
+         ],
+         'steps': [
+             {'content': 'Separate the egg yolks from the whites. Chill the egg whites in the fridge until ice appears on the side of the bowl, as this will make them easier to whip.'},
+             {'content': 'Whip the egg yolks until they are lighter in colour. Add 6g of milk powder and mix well until there are no particles.'},
+             {'content': 'Put a laminating bag over the cups and use a silicone spatula to put the egg yolks into the bag. Cut out a small slit in the bag and use a spatula to drive the yolk downwards and wrap the bag around your index finger, holding the bag in the palm of your hand.'},
+             {'content': 'Line a baking tray in advance with greaseproof paper and squeeze out pea-sized balls. Be careful to leave enough space so that the egg whites do not stick together when you squeeze them later. Bake in a preheated (100°C) oven for 20 minutes.'},
+             {'content': 'Add 10 g of milk powder to the yoghurt, this is where the milk powder used for the egg white part was written about earlier. Stir well until the yoghurt batter is grain-free and set aside.'},
+             {'image': 'floral-yoghurt-biscuits_1.jpg',
+                 'content': 'Squeeze 2-3 drops of lemon juice into the egg whites and beat to make large fish-eye bubbles. Add 6g of corn starch and continue to beat. Beat stiffly until firm with small sharp hooks.'},
+             {'image': 'floral-yoghurt-biscuits_2.jpg',
+                 'content': 'Add the yoghurt batter to the whipped egg whites, mix well and put into a laminating bag. Remove the baked egg yolks and use the bag containing the egg whites to squeeze 5 balls around the yolks one week to act as petals.'},
+             {'content': 'Bake in the oven at 100°C for about 40 minutes.'},
+                         
+         ],
+         'comments': [
+             {'user': 'test1', 'rating': 3, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'test4', 'rating': 5, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'test3', 'rating': 4, 'content': "All of my families love it."},
          ]
          },
          
@@ -199,7 +232,7 @@ def populate():
              {'user': 'test2', 'rating': 4, 'content':"I made this for my dinner. will do it again!"},
          ]
          },
-         
+          
         {'title': 'Tortilla pizza',
          'author': 'test2',
          'image': 'recipes/tortilla-pizza.jpg',
@@ -311,6 +344,108 @@ def populate():
          ]
          },
          
+        {'title': 'Chicken Casserole',
+         'author': 'test1',
+         'image': 'recipes/chicken-casserole.jpg',
+         'overview':
+            "An easy chicken casserole recipe should be in every cook's little black book and this one will go down well with all of the family. Serve with mashed or boiled potatoes, or rice."
+            "Each serving provides 425 kcal, 48g protein, 13g carbohydrates (of which 7.5g sugars), 19g fat (of which 5g saturates), 5g fibre and 2.4g salt.",
+         'duration': 90,
+         'budget': 20,
+         'difficulty': 4,
+         'materials': [
+             {'ingredient': 'chicken thighs ', 'weight': '850g'},
+             {'ingredient': 'olive or sunflower oil', 'weight': '50g'},
+             {'ingredient': ' onion', 'weight': '70g'},
+             {'ingredient': 'rashers smoked back bacon', 'weight': '100g'},
+             {'ingredient': 'mushroom', 'weight': '150g'},
+             {'ingredient': 'carrots', 'weight': '135g'},
+             {'ingredient': 'plain flour', 'weight': '20g'},
+             {'ingredient': 'fresh thyme leaves', 'weight': '50g'},
+             {'ingredient': ' hot chicken stock', 'weight': '500g'},
+         ],
+         'steps': [
+             {'content': 'Preheat the oven 190C/170C Fan/Gas 5. Season the chicken thighs all over with a little salt and lots of black pepper.'},
+             {'content': 'Heat the oil in a large non-stick frying pan over a medium heat and fry the chicken for 7–8 minutes, skin-side down, or until the skin is nicely browned. Turn and cook on the other side for 3 minutes more. Transfer to a plate.'},
+             {'content': 'Return the pan to the heat and add the onion, bacon and mushrooms. Fry over a medium-high heat for 4–5 minutes, or until lightly browned, stirring regularly. Tip into a medium, lidded oven-safe pan or casserole. Add the carrots and flour and toss together well.'},
+             {'content': 'Sprinkle with the thyme, then pour in the stock, a little at a time, stirring well between each addition. Add the chicken pieces back to the pan and bring to a gentle simmer. Cover the pan with a lid.'},
+             {'content': 'Place in the oven and cook for 45 minutes. Take out of the oven and stir in the leeks. Return to the oven for a further 15 minutes, or until the chicken and leeks are tender and the sauce has thickened. Serve.'},              
+         ],
+         'comments': [
+             {'user': 'test2', 'rating': 5, 'content': "It's tasty."},
+             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'test4', 'rating': 4, 'content': "Love it, it's really suitable for a family party."},
+         ]
+         },
+         
+        {'title': 'Sauteed Cauliflower with Mushrooms',
+         'author': 'test2',
+         'image': 'recipes/sauteed-cauliflower-with-mushrooms.jpg',
+         'overview':
+            "Sauteed cauliflower with mushroom is rich in flavour, nutritious and delicious, perfect for family dinners.",
+         'duration': 30,
+         'budget': 7,
+         'difficulty': 4,
+         'materials': [
+             {'ingredient': 'unsalted butter', 'weight': '60g'},
+             {'ingredient': 'onion', 'weight': '75g'},
+             {'ingredient': 'cauliflower', 'weight': '300g'},
+             {'ingredient': 'mushrooms', 'weight': '500g'},
+             {'ingredient': 'parsley', 'weight': '50g'},
+             {'ingredient': 'Garlic', 'weight': '50g'},
+         ],
+         'steps': [
+             {'image': 'sauteed-cauliflower-with-mushrooms_1.jpg',
+                 'content': 'Melt the butter over medium-low heat, add the olive oil; add the chopped onion and soften, about 2-3 minutes; add the mushrooms and fry for 3-4 minutes.'},
+             {'image': 'sauteed-cauliflower-with-mushrooms_2.jpg',
+                 'content': 'Add the head of cauliflower (process the cauliflower by cutting off the stem part) and sauté until the edges of the cauliflower begin to turn golden brown, about 8 minutes.'},
+             {'image': 'sauteed-cauliflower-with-mushrooms_3.jpg',
+                 'content': 'Pour in the stock and cook for 2 minutes, then add the garlic, thyme and parsley and stir-fry for about 1 minute.'},
+             {'content': 'Taste before serving and add salt or no salt to taste, as some stock may have salt in it; pepper and serve with aromas.'},
+         ],
+         'comments': [
+             {'user': 'test3', 'rating': 3, 'content': "It seems interesting, I will try it later."},
+             {'user': 'test4', 'rating': 5, 'content': "I follow this recipe and cook for my parents last week, they said it's over imagine!"},
+             {'user': 'test5', 'rating': 4, 'content': "I've fall in love with it, it's very decilious."},
+         ]
+         }, 
+         
+        {'title': 'Chocolate cake',
+         'author': 'test1',
+         'image': 'recipes/chocolate-cake.jpg',
+         'overview':
+            "Need a guaranteed crowd-pleasing cake that's easy to make?"
+            "This super-squidgy chocolate fudge cake with smooth icing is an instant baking win.",
+         'duration': 45,
+         'budget': 25,
+         'difficulty': 3,
+         'materials': [
+             {'ingredient': 'sunflower oil', 'weight': '150g'},
+             {'ingredient': 'self-raising flour', 'weight': '170g'},
+             {'ingredient': 'cooca powder', 'weight': '10g'},
+             {'ingredient': 'icarbonate of soda', 'weight': '5g'},
+             {'ingredient': 'caster sugar', 'weight': '150g'},
+             {'ingredient': 'golden syrup', 'weight': '5g'},
+             {'ingredient': 'large eggs', 'weight': '120g'},
+             {'ingredient': 'semi-skimmed milk', 'weight': '150g'},
+             {'ingredient': 'unsalted butter', 'weight': '100g'},
+             {'ingredient': 'icing sugar', 'weight': '225g'},
+         ],
+         'steps': [
+             {'content': 'Heat the oven to 180C/160C fan/gas 4. Oil and line the base of two 18cm sandwich tins. '},
+             {'content': 'Sieve the flour, cocoa powder and bicarbonate of soda into a bowl. Add the caster sugar and mix well.'},
+             {'content': 'Make a well in the centre and add the golden syrup, eggs, sunflower oil and milk. Beat well with an electric whisk until smooth.'},
+             {'content': 'Pour the mixture into the two tins and bake for 25-30 mins until risen and firm to the touch.'},
+             {'content': 'Remove from oven, leave to cool for 10 mins before turning out onto a cooling rack.'},
+             {'content': 'To make the icing, beat the unsalted butter in a bowl until soft. Gradually sieve and beat in the icing sugar and cocoa powder, then add enough of the milk to make the icing fluffy and spreadable.'},                
+         ],
+         'comments': [
+             {'user': 'test2', 'rating': 5, 'content':"Cannot wait to have one"},
+             {'user': 'test3', 'rating': 2, 'content':"My daughter really loves it! Fab recipe"},
+             {'user': 'test5', 'rating': 1, 'content':"Hard to follow..."},
+         ]
+         },
+         
         {'title': 'Seafood pasta',
          'author': 'test2',
          'image': 'recipes/seafood-pasta.jpg',
@@ -381,98 +516,6 @@ def populate():
          ]
          },
          
-        {'title': 'Rice pudding',
-         'author': 'test1',
-         'image': 'recipes/rice-pudding.jpg',
-         'overview':
-            "Try our recipe for a gorgeously creamy, yet low in fat rice pudding. Serve this comforting dessert with jam or fruit.",
-         'duration': 70,
-         'budget': 3,
-         'difficulty': 1,
-         'materials': [
-             {'ingredient': 'pudding rices', 'weight': '100g'},
-             {'ingredient': 'butter', 'weight': '80g'},
-             {'ingredient': 'sugar', 'weight': '50g'},
-             {'ingredient': 'milk', 'weight': '700g'},
-             {'ingredient': 'lemon zest', 'weight': '5g'},
-             {'ingredient': 'leaf', 'weight': '5g'},
-         ],
-         'steps': [
-             {'content': 'Heat the oven to 150C/130C fan/gas 2. Wash and drain the rice.'},
-             {'content': 'Butter a 850ml baking dish, then tip in the rice and sugar and stir through the milk. Sprinkle in the nutmeg and top with the bay leaf or lemon zest.'},
-             {'content': 'Cook for 2 hrs or until the pudding wobbles ever so slightly when shaken.'},
-         ],
-         'comments': [
-             {'user': 'test5', 'rating': 4, 'content':"Easy and yummy!"},
-             {'user': 'test3', 'rating': 3, 'content':"best dinner disert"},
-         ]
-         }, 
-
-        {'title': 'Steamed Buns',
-         'author': 'test1',
-         'image': 'recipes/steamed-buns.jpg',
-         'overview':
-            "A very simple and easy to prepare steamed bun, suitable for children.",
-         'duration': 20,
-         'budget': 5,
-         'difficulty': 2,
-         'materials': [
-             {'ingredient': 'potato', 'weight': '100g'},
-             {'ingredient': 'carrot', 'weight': '100g'},
-             {'ingredient': 'green pepper', 'weight': '75g'},
-             {'ingredient': 'ham sausage', 'weight': '150g'},
-             {'ingredient': 'eggs', 'weight': '75g'},
-             {'ingredient': 'Dumpling skin', 'weight': '100g'},
-         ],
-         'steps': [
-             {'image': 'recipes/steamed-buns_1.jpg',
-                 'content': 'Shredded carrots and shredded potatoes. Add the shredded potatoes, carrots and peppers to a pot of boiling water, blanch for 30 seconds and then remove from the pot.'},
-             {'image': 'recipes/steamed-buns_2.jpg',
-                 'content': 'Mix the shredded potatoes, shredded carrots, shredded green pepper, shredded ham, egg, salt and soy sauce.'},
-             {'image': 'recipes/steamed-buns_3.jpg',
-                 'content': 'Roll out the dumpling skin thinly. Put the filling into the dumpling skin, apply a layer of water around the skin and pinch tightly.'},
-             {'image': 'recipes/steamed-buns_4.jpg',
-                 'content': 'Place in a steamer and steam for 8 minutes on high heat. After 8 minutes, you can enjoy it beautifully.'},
-         ],
-         'comments': [
-             {'user': 'test4', 'rating': 3, 'content': "It seems interesting, I will try it later."},
-             {'user': 'test3', 'rating': 1, 'content': "I don't really like it."},
-             {'user': 'test2', 'rating': 5, 'content': "I've fall in love with it, it's simple and also very decilious"},
-         ]
-         },
-
-        {'title': 'Sauteed Cauliflower with Mushrooms',
-         'author': 'test2',
-         'image': 'recipes/sauteed-cauliflower-with-mushrooms.jpg',
-         'overview':
-            "Sauteed cauliflower with mushroom is rich in flavour, nutritious and delicious, perfect for family dinners.",
-         'duration': 30,
-         'budget': 7,
-         'difficulty': 4,
-         'materials': [
-             {'ingredient': 'unsalted butter', 'weight': '60g'},
-             {'ingredient': 'onion', 'weight': '75g'},
-             {'ingredient': 'cauliflower', 'weight': '300g'},
-             {'ingredient': 'mushrooms', 'weight': '500g'},
-             {'ingredient': 'parsley', 'weight': '50g'},
-             {'ingredient': 'Garlic', 'weight': '50g'},
-         ],
-         'steps': [
-             {'image': 'sauteed-cauliflower-with-mushrooms_1.jpg',
-                 'content': 'Melt the butter over medium-low heat, add the olive oil; add the chopped onion and soften, about 2-3 minutes; add the mushrooms and fry for 3-4 minutes.'},
-             {'image': 'sauteed-cauliflower-with-mushrooms_2.jpg',
-                 'content': 'Add the head of cauliflower (process the cauliflower by cutting off the stem part) and sauté until the edges of the cauliflower begin to turn golden brown, about 8 minutes.'},
-             {'image': 'sauteed-cauliflower-with-mushrooms_3.jpg',
-                 'content': 'Pour in the stock and cook for 2 minutes, then add the garlic, thyme and parsley and stir-fry for about 1 minute.'},
-             {'content': 'Taste before serving and add salt or no salt to taste, as some stock may have salt in it; pepper and serve with aromas.'},
-         ],
-         'comments': [
-             {'user': 'test3', 'rating': 3, 'content': "It seems interesting, I will try it later."},
-             {'user': 'test4', 'rating': 5, 'content': "I follow this recipe and cook for my parents last week, they said it's over imagine!"},
-             {'user': 'test5', 'rating': 4, 'content': "I've fall in love with it, it's very decilious."},
-         ]
-         }, 
-
         {'title': 'Poke Bowl',
          'author': 'test3',
          'image': 'recipes/poke-bowl.jpg',
@@ -507,39 +550,39 @@ def populate():
          ]
          },
 
-        {'title': 'Red Bean Jicama',
-         'author': 'test4',
-         'image': 'recipes/red-bean-jicama.jpg',
+        {'title': 'Steamed Buns',
+         'author': 'test1',
+         'image': 'recipes/steamed-buns.jpg',
          'overview':
-            "Oven free! Soft and creamy Japanese sweet bean jicama, perfect as a snack for kids, super cute!",
-         'duration': 90,
-         'budget': 20,
-         'difficulty': 5,
+            "A very simple and easy to prepare steamed bun, suitable for children.",
+         'duration': 20,
+         'budget': 5,
+         'difficulty': 2,
          'materials': [
-             {'ingredient': 'milk', 'weight': '160g'},
-             {'ingredient': 'sugar', 'weight': '45g'},
-             {'ingredient': 'corn starch', 'weight': '30g'},
-             {'ingredient': 'glutinous rice flour', 'weight': '100g'},
-             {'ingredient': 'butter', 'weight': '15g'},
-             {'ingredient': 'bean paste', 'weight': '135g'},
-             {'ingredient': 'melted chocolate', 'weight': '20g'},
-             {'ingredient': 'leaves(mine were cherry leaves)', 'weight': '20g'},
+             {'ingredient': 'potato', 'weight': '100g'},
+             {'ingredient': 'carrot', 'weight': '100g'},
+             {'ingredient': 'green pepper', 'weight': '75g'},
+             {'ingredient': 'ham sausage', 'weight': '150g'},
+             {'ingredient': 'eggs', 'weight': '75g'},
+             {'ingredient': 'Dumpling skin', 'weight': '100g'},
          ],
          'steps': [
-             {'content': '160g milk mix with 45g sugar, add 100g glutinous rice flour/30g corn starch, mix together.'},
-             {'content': 'Sift the mixture through a sieve and pour into a container.'},
-             {'content': 'Wrap in cling film, make a few holes to vent the air and steam for 25-30 minutes. During the steaming process, fry some flour, divide 135g of bean paste into 9 portions, 15g per portion, and knead into small balls. When the batter is steamed add 15g of butter while it is still hot.'},
-             {'content': 'Toss and mix until not too sticky, then knead into a dough.'},
-             {'content': 'Repeat a few times, divide into 35g portions, 9 portions in total (use the rest for the five senses), roll out into a round cake, put the bean paste on top, fold in half and knead three small balls to make the nose and ears.'},
-             {'content': 'Wrap the leaves, cut off the excess and use the melted chocolate to draw expressions on them.'},            
+             {'image': 'recipes/steamed-buns_1.jpg',
+                 'content': 'Shredded carrots and shredded potatoes. Add the shredded potatoes, carrots and peppers to a pot of boiling water, blanch for 30 seconds and then remove from the pot.'},
+             {'image': 'recipes/steamed-buns_2.jpg',
+                 'content': 'Mix the shredded potatoes, shredded carrots, shredded green pepper, shredded ham, egg, salt and soy sauce.'},
+             {'image': 'recipes/steamed-buns_3.jpg',
+                 'content': 'Roll out the dumpling skin thinly. Put the filling into the dumpling skin, apply a layer of water around the skin and pinch tightly.'},
+             {'image': 'recipes/steamed-buns_4.jpg',
+                 'content': 'Place in a steamer and steam for 8 minutes on high heat. After 8 minutes, you can enjoy it beautifully.'},
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test3', 'rating': 4, 'content': "Love it but it takes too much time."},
+             {'user': 'test4', 'rating': 3, 'content': "It seems interesting, I will try it later."},
+             {'user': 'test3', 'rating': 1, 'content': "I don't really like it."},
+             {'user': 'test2', 'rating': 5, 'content': "I've fall in love with it, it's simple and also very decilious"},
          ]
-         },  
-
+         },
+  
         {'title': 'Low Fat North African Egg',
          'author': 'test5',
          'image': 'recipes/low-fat-north-african-egg.jpg',
@@ -604,72 +647,6 @@ def populate():
          ]
          },
 
-        {'title': 'Floral Yoghurt Biscuits',
-         'author': 'test2',
-         'image': 'recipes/floral-yoghurt-biscuits.jpg',
-         'overview':
-            "This recipe is a sugar-free version that you can make for your baby, it's melt-in-your-mouth, crispy and tasty and is suitable for all ages. ",
-         'duration': 90,
-         'budget': 5,
-         'difficulty': 5,
-         'materials': [
-             {'ingredient': 'egg', 'weight': '50g'},
-             {'ingredient': 'Powdered milk (for yolk)', 'weight': '6g'},
-             {'ingredient': 'Powdered milk (for egg white)', 'weight': '10g'},
-             {'ingredient': 'yoghurt', 'weight': '16g'},
-             {'ingredient': 'Cornstarch', 'weight': '6g'},
-             {'ingredient': 'lemon juice', 'weight': '10g'},
-         ],
-         'steps': [
-             {'content': 'Separate the egg yolks from the whites. Chill the egg whites in the fridge until ice appears on the side of the bowl, as this will make them easier to whip.'},
-             {'content': 'Whip the egg yolks until they are lighter in colour. Add 6g of milk powder and mix well until there are no particles.'},
-             {'content': 'Put a laminating bag over the cups and use a silicone spatula to put the egg yolks into the bag. Cut out a small slit in the bag and use a spatula to drive the yolk downwards and wrap the bag around your index finger, holding the bag in the palm of your hand.'},
-             {'content': 'Line a baking tray in advance with greaseproof paper and squeeze out pea-sized balls. Be careful to leave enough space so that the egg whites do not stick together when you squeeze them later. Bake in a preheated (100°C) oven for 20 minutes.'},
-             {'content': 'Add 10 g of milk powder to the yoghurt, this is where the milk powder used for the egg white part was written about earlier. Stir well until the yoghurt batter is grain-free and set aside.'},
-             {'image': 'floral-yoghurt-biscuits_1.jpg',
-                 'content': 'Squeeze 2-3 drops of lemon juice into the egg whites and beat to make large fish-eye bubbles. Add 6g of corn starch and continue to beat. Beat stiffly until firm with small sharp hooks.'},
-             {'image': 'floral-yoghurt-biscuits_2.jpg',
-                 'content': 'Add the yoghurt batter to the whipped egg whites, mix well and put into a laminating bag. Remove the baked egg yolks and use the bag containing the egg whites to squeeze 5 balls around the yolks one week to act as petals.'},
-             {'content': 'Bake in the oven at 100°C for about 40 minutes.'},
-                         
-         ],
-         'comments': [
-             {'user': 'test1', 'rating': 3, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test4', 'rating': 5, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test3', 'rating': 4, 'content': "All of my families love it."},
-         ]
-         },
-
-        {'title': 'Avocado and Shrimp Sandwich with Egg Cream',
-         'author': 'test3',
-         'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream.jpg',
-         'overview':
-            "A breakfast classic, served with coffee, you can't get enough of it!",
-         'duration': 20,
-         'budget': 12,
-         'difficulty': 1,
-         'materials': [
-             {'ingredient': 'avocado', 'weight': '60g'},
-             {'ingredient': 'egg', 'weight': '75g'},
-             {'ingredient': 'toast', 'weight': '100g'},
-             {'ingredient': 'shrimp', 'weight': '70g'},
-             {'ingredient': 'lemon juice', 'weight': '5g'},
-             {'ingredient': 'black pepper', 'weight': '5g'},
-         ],
-         'steps': [
-             {'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream_1.jpg',
-                 'content': 'Scoop out the flesh of the avocado, add black pepper and lemon juice and press into an avocado puree.'},
-             {'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream_2.jpg',
-                 'content': 'Fry the shrimps, beat the eggs with black pepper and a pinch of salt and make a smooth egg.'},
-             {'content': 'Spread the toast with the mashed avocado, the egg and the shrimps and finish with a sprinkling of chopped parsley.'},            
-         ],
-         'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's easy and yummy!"},
-             {'user': 'test5', 'rating': 3, 'content': "Prety good."},
-             {'user': 'test4', 'rating': 4, 'content': "Love it! It's more suitable to serve with milk."},
-         ]
-         },
-
         {'title': 'Beef Donburi',
          'author': 'test4',
          'image': 'recipes/beef-donburi.jpg',
@@ -700,70 +677,6 @@ def populate():
              {'user': 'test2', 'rating': 5, 'content': "It's much easier than i thouht and very tasty"},
              {'user': 'test5', 'rating': 4, 'content': "Very tasty, just hard to get the timing right for the omelette."},
              {'user': 'test1', 'rating': 4, 'content': "Love it!"},
-         ]
-         },
-
-        {'title': 'Oatmeal and Avocado Tart',
-         'author': 'test5',
-         'image': 'recipes/oatmeal-and-avocado-tart.jpg',
-         'overview':
-            "A zero-difficulty, high-value, super-fast fat-reducing dessert is here! No oil and no sugar to eat without the burden.",
-         'duration': 15,
-         'budget': 10,
-         'difficulty': 1,
-         'materials': [
-             {'ingredient': 'avocado', 'weight': '75g'},
-             {'ingredient': 'milk', 'weight': '200g'},
-             {'ingredient': 'instant oats', 'weight': '120g'},
-             {'ingredient': 'banana', 'weight': '100g'},
-             {'ingredient': 'giletine flake', 'weight': '5g'},
-         ],
-         'steps': [
-             {'content': 'Mash the bananas and mix well with the oats. Leave to stand for a while to allow the oats to absorb all the water from the bananas.'},
-             {'image': 'oatmeal-and-avocado-tart_1.jpg',
-                 'content': 'Grease a tart pan (8 inch tart pan) and spread the oats into the mixture. Bake in the preheated oven at 180°C for 10 minutes to set.'},
-             {'content': 'Puree the avocado with the milk and add the softened giardiniera slices to the pan and mix well.'},
-             {'image': 'oatmeal-and-avocado-tart_2.jpg',
-                 'content': 'Pour through a sieve into the oatmeal tart shell and chill in the fridge overnight.'},       
-         ],
-         'comments': [
-             {'user': 'test1', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test3', 'rating': 4, 'content': "It's really easy and don't need much time."},
-             {'user': 'test4', 'rating': 4, 'content': "Yummy!"},
-         ]
-         },
-
-        {'title': 'Chicken Casserole',
-         'author': 'test1',
-         'image': 'recipes/chicken-casserole.jpg',
-         'overview':
-            "An easy chicken casserole recipe should be in every cook's little black book and this one will go down well with all of the family. Serve with mashed or boiled potatoes, or rice."
-            "Each serving provides 425 kcal, 48g protein, 13g carbohydrates (of which 7.5g sugars), 19g fat (of which 5g saturates), 5g fibre and 2.4g salt.",
-         'duration': 90,
-         'budget': 20,
-         'difficulty': 4,
-         'materials': [
-             {'ingredient': 'chicken thighs ', 'weight': '850g'},
-             {'ingredient': 'olive or sunflower oil', 'weight': '50g'},
-             {'ingredient': ' onion', 'weight': '70g'},
-             {'ingredient': 'rashers smoked back bacon', 'weight': '100g'},
-             {'ingredient': 'mushroom', 'weight': '150g'},
-             {'ingredient': 'carrots', 'weight': '135g'},
-             {'ingredient': 'plain flour', 'weight': '20g'},
-             {'ingredient': 'fresh thyme leaves', 'weight': '50g'},
-             {'ingredient': ' hot chicken stock', 'weight': '500g'},
-         ],
-         'steps': [
-             {'content': 'Preheat the oven 190C/170C Fan/Gas 5. Season the chicken thighs all over with a little salt and lots of black pepper.'},
-             {'content': 'Heat the oil in a large non-stick frying pan over a medium heat and fry the chicken for 7–8 minutes, skin-side down, or until the skin is nicely browned. Turn and cook on the other side for 3 minutes more. Transfer to a plate.'},
-             {'content': 'Return the pan to the heat and add the onion, bacon and mushrooms. Fry over a medium-high heat for 4–5 minutes, or until lightly browned, stirring regularly. Tip into a medium, lidded oven-safe pan or casserole. Add the carrots and flour and toss together well.'},
-             {'content': 'Sprinkle with the thyme, then pour in the stock, a little at a time, stirring well between each addition. Add the chicken pieces back to the pan and bring to a gentle simmer. Cover the pan with a lid.'},
-             {'content': 'Place in the oven and cook for 45 minutes. Take out of the oven and stir in the leeks. Return to the oven for a further 15 minutes, or until the chicken and leeks are tender and the sauce has thickened. Serve.'},              
-         ],
-         'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's tasty."},
-             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test4', 'rating': 4, 'content': "Love it, it's really suitable for a family party."},
          ]
          },
 
@@ -803,7 +716,34 @@ def populate():
              {'user': 'test4', 'rating': 4, 'content': "Love it!"},
          ]
          },
-
+         
+        {'title': 'Rice pudding',
+         'author': 'test1',
+         'image': 'recipes/rice-pudding.jpg',
+         'overview':
+            "Try our recipe for a gorgeously creamy, yet low in fat rice pudding. Serve this comforting dessert with jam or fruit.",
+         'duration': 70,
+         'budget': 3,
+         'difficulty': 1,
+         'materials': [
+             {'ingredient': 'pudding rices', 'weight': '100g'},
+             {'ingredient': 'butter', 'weight': '80g'},
+             {'ingredient': 'sugar', 'weight': '50g'},
+             {'ingredient': 'milk', 'weight': '700g'},
+             {'ingredient': 'lemon zest', 'weight': '5g'},
+             {'ingredient': 'leaf', 'weight': '5g'},
+         ],
+         'steps': [
+             {'content': 'Heat the oven to 150C/130C fan/gas 2. Wash and drain the rice.'},
+             {'content': 'Butter a 850ml baking dish, then tip in the rice and sugar and stir through the milk. Sprinkle in the nutmeg and top with the bay leaf or lemon zest.'},
+             {'content': 'Cook for 2 hrs or until the pudding wobbles ever so slightly when shaken.'},
+         ],
+         'comments': [
+             {'user': 'test5', 'rating': 4, 'content':"Easy and yummy!"},
+             {'user': 'test3', 'rating': 3, 'content':"best dinner disert"},
+         ]
+         }, 
+         
         {'title': 'Americano',
          'author': 'test3',
          'image': 'recipes/americano.jpg',
@@ -828,7 +768,67 @@ def populate():
              {'user': 'test5', 'rating': 3, 'content': "Prety good"},
              {'user': 'test4', 'rating': 4, 'content': "I like it, it's very easy."},
          ]
-         },       
+         },
+
+        {'title': 'Oatmeal and Avocado Tart',
+         'author': 'test5',
+         'image': 'recipes/oatmeal-and-avocado-tart.jpg',
+         'overview':
+            "A zero-difficulty, high-value, super-fast fat-reducing dessert is here! No oil and no sugar to eat without the burden.",
+         'duration': 15,
+         'budget': 10,
+         'difficulty': 1,
+         'materials': [
+             {'ingredient': 'avocado', 'weight': '75g'},
+             {'ingredient': 'milk', 'weight': '200g'},
+             {'ingredient': 'instant oats', 'weight': '120g'},
+             {'ingredient': 'banana', 'weight': '100g'},
+             {'ingredient': 'giletine flake', 'weight': '5g'},
+         ],
+         'steps': [
+             {'content': 'Mash the bananas and mix well with the oats. Leave to stand for a while to allow the oats to absorb all the water from the bananas.'},
+             {'image': 'oatmeal-and-avocado-tart_1.jpg',
+                 'content': 'Grease a tart pan (8 inch tart pan) and spread the oats into the mixture. Bake in the preheated oven at 180°C for 10 minutes to set.'},
+             {'content': 'Puree the avocado with the milk and add the softened giardiniera slices to the pan and mix well.'},
+             {'image': 'oatmeal-and-avocado-tart_2.jpg',
+                 'content': 'Pour through a sieve into the oatmeal tart shell and chill in the fridge overnight.'},       
+         ],
+         'comments': [
+             {'user': 'test1', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'test3', 'rating': 4, 'content': "It's really easy and don't need much time."},
+             {'user': 'test4', 'rating': 4, 'content': "Yummy!"},
+         ]
+         },
+
+        {'title': 'Avocado and Shrimp Sandwich with Egg Cream',
+         'author': 'test3',
+         'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream.jpg',
+         'overview':
+            "A breakfast classic, served with coffee, you can't get enough of it!",
+         'duration': 20,
+         'budget': 12,
+         'difficulty': 1,
+         'materials': [
+             {'ingredient': 'avocado', 'weight': '60g'},
+             {'ingredient': 'egg', 'weight': '75g'},
+             {'ingredient': 'toast', 'weight': '100g'},
+             {'ingredient': 'shrimp', 'weight': '70g'},
+             {'ingredient': 'lemon juice', 'weight': '5g'},
+             {'ingredient': 'black pepper', 'weight': '5g'},
+         ],
+         'steps': [
+             {'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream_1.jpg',
+                 'content': 'Scoop out the flesh of the avocado, add black pepper and lemon juice and press into an avocado puree.'},
+             {'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream_2.jpg',
+                 'content': 'Fry the shrimps, beat the eggs with black pepper and a pinch of salt and make a smooth egg.'},
+             {'content': 'Spread the toast with the mashed avocado, the egg and the shrimps and finish with a sprinkling of chopped parsley.'},            
+         ],
+         'comments': [
+             {'user': 'test2', 'rating': 5, 'content': "It's easy and yummy!"},
+             {'user': 'test5', 'rating': 3, 'content': "Prety good."},
+             {'user': 'test4', 'rating': 4, 'content': "Love it! It's more suitable to serve with milk."},
+         ]
+         },         
     ]
 
     collections = [
@@ -836,37 +836,29 @@ def populate():
             'user': 'test1', 'recipe': 'Paella mixta',
             'user': 'test1', 'recipe': 'Beef curry',
             'user': 'test1', 'recipe': 'Seafood pasta',
-            'user': 'test1', 'recipe': 'Sauteed Cauliflower with Mushrooms',
-            'user': 'test1', 'recipe': 'Poke Bowl',
-            'user': 'test1', 'recipe': 'Red Bean Jicama',
+            'user': 'test1', 'recipe': 'Poke Bowl',
+            'user': 'test1', 'recipe': 'Red Bean Jicama',
         },
         {
             'user': 'test2', 'recipe': 'Vegan Cheesecake',
-            'user': 'test2', 'recipe': 'Seafood pasta',
-            'user': 'test2', 'recipe': 'Low Fat North African Egg',
-            'user': 'test2', 'recipe': 'Volcanic Lava Egg',
-            'user': 'test2', 'recipe': 'Avocado and Shrimp Sandwich with Egg Cream',
+            'user': 'test2', 'recipe': 'Low Fat North African Egg',
+            'user': 'test2', 'recipe': 'Volcanic Lava Egg',
+            'user': 'test2', 'recipe': 'Avocado and Shrimp Sandwich with Egg Cream',
         },
         {
             'user': 'test3', 'recipe': 'Roast chicken',
-            'user': 'test3', 'recipe': 'Floral Yoghurt Biscuits',
-            'user': 'test3', 'recipe': 'Beef Donburi',
-            'user': 'test3', 'recipe': 'Oatmeal and Avocado Tart',
-            'user': 'test3', 'recipe': 'Steamed Buns',
+            'user': 'test3', 'recipe': 'Floral Yoghurt Biscuits',
+            'user': 'test3', 'recipe': 'Beef Donburi',
+            'user': 'test3', 'recipe': 'Steamed Buns',
         },
         {
             'user': 'test4', 'recipe': 'Vegan Cheesecake',
             'user': 'test4', 'recipe': 'Beef Stew',
-            'user': 'test4', 'recipe': 'Paella mixta',
-            'user': 'test4', 'recipe': 'Ramen noodle',
-            'user': 'test4', 'recipe': 'Chicken Casserole',
         },
         {
             'user': 'test5', 'recipe': 'Sponge pudding',
             'user': 'test5', 'recipe': 'Chocolate cake',
             'user': 'test5', 'recipe': 'Rice pudding',
-            'user': 'test5', 'recipe': 'Aloo chaat',
-            'user': 'test5', 'recipe': 'Americano',
         },
     ]
 
