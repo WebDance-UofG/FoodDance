@@ -3,7 +3,6 @@ from .models import Recipe, UserProfile, Comment, RecipeStep
 from django.db.models import Avg
 from .forms import *
 from django.shortcuts import redirect
->>>>>>> b_1
 # Create your views here.
 
 
