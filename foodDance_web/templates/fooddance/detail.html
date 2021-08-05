@@ -27,7 +27,11 @@
                     <div class="col-md-5 col-sm-12 ">
                         <div class="row justify-content-left g-0 " id="topSmallRow">
                             <div class="col-1">
+                                {% if author_profile.image  %}
                                  <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}{{ author_profile.image }}" alt="Avatar image">
+                                {% else %}
+                                <img id="avatar" class="avatar rounded-circle" src="{{ MEDIA_URL }}avatars/default.png" alt="Avatar image">
+                                {% endif %}
                             </div>
                             <div class="col userName">
                                 <p>@{{ recipe.author.username }}</p>

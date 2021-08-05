@@ -13,16 +13,16 @@ from django.core.files.images import ImageFile
 
 def populate():
     users = [
-        {'username': 'test1', 'password': 'test123', 'email': 'test1@test.com', 'image': 'avatars/avatar_test.jpg'},
-        {'username': 'test2', 'password': 'test123', 'email': 'test2@test.com', 'image': 'avatars/avatar_test2.jpg'},
-        {'username': 'test3', 'password': 'test123', 'email': 'test3@test.com', 'image': 'avatars/avatar_test3.jpg'},
-        {'username': 'test4', 'passowrd': 'test123', 'email': 'test4@test.com', 'image': 'avatars/avatar_test4.jpg'},
-        {'username': 'test5', 'password': 'test123', 'email': 'test5@test.com', 'image': 'avatars/avatar_test5.jpg'},
+        {'username': 'diablo', 'password': 'diablo23', 'email': 'diablo@test.com', 'image': 'avatars/diablo.jpg'},
+        {'username': 'Augenstern', 'password': 'diablo23', 'email': 'Augenstern@test.com', 'image': 'avatars/augenstern.jpg'},
+        {'username': 'yuuki', 'password': 'diablo23', 'email': 'yuuki@test.com', 'image': 'avatars/yuuki.jpg'},
+        {'username': 'flechazo', 'password': 'diablo23', 'email': 'flechazo@test.com', 'image': 'avatars/flechazo.jpg'},
+        {'username': 'espoir', 'password': 'diablo23', 'email': 'espoir@test.com', 'image': 'avatars/espoir.jpg'},
     ]
 
     recipes = [
         {'title': 'Floral Yoghurt Biscuits',
-         'author': 'test2',
+         'author': 'Augenstern',
          'image': 'recipes/floral-yoghurt-biscuits.jpg',
          'overview':
             "This recipe is a sugar-free version that you can make for your baby, it's melt-in-your-mouth, crispy and tasty and is suitable for all ages. ",
@@ -51,14 +51,14 @@ def populate():
                          
          ],
          'comments': [
-             {'user': 'test1', 'rating': 3, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test4', 'rating': 5, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test3', 'rating': 4, 'content': "All of my families love it."},
+             {'user': 'diablo', 'rating': 3, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'flechazo', 'rating': 5, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'yuuki', 'rating': 4, 'content': "All of my families love it."},
          ]
          },
          
         {'title': 'Red Bean Jicama',
-         'author': 'test4',
+         'author': 'flechazo',
          'image': 'recipes/red-bean-jicama.jpg',
          'overview':
             "Oven free! Soft and creamy Japanese sweet bean jicama, perfect as a snack for kids, super cute!",
@@ -84,21 +84,21 @@ def populate():
              {'content': 'Wrap the leaves, cut off the excess and use the melted chocolate to draw expressions on them.'},            
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test3', 'rating': 4, 'content': "Love it but it takes too much time."},
+             {'user': 'Augenstern', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'espoir', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'yuuki', 'rating': 4, 'content': "Love it but it takes too much time."},
          ]
          },
          
         {'title': 'Paella mixta',
-         'author': 'test2',
+         'author': 'Augenstern',
          'image': 'recipes/paella-mixta.jpg',
          'overview':
             "Try our version of paella, made with a combination of meat and seafood. With king prawns, mussels, chorizo" 
             "and chicken, every forkful is a treat that's reminiscent of Spanish holidays",
          'duration': 75,
          'budget': 20,
-         'diffcutly': 5,
+         'difficulty': 5,
          'materials':[
              {'ingredient': 'chopped tomatoes', 'weight': '400g'},
              {'ingredient': 'chicken stock', 'weight': '600g'},
@@ -124,15 +124,15 @@ def populate():
              {'content' : 'Bake for 5-10 mins more until the rice, chicken and prawns are cooked, and the mussels have opened (discard any that stay shut). Check for seasoning, and serve.'},
          ],
          'comments': [
-             {'user': 'test4', 'rating': 2, 'content':"It costs too much time"},
-             {'user': 'test5', 'rating': 1, 'content':"It is tooooo diffcult! give a easy vesion plz"},
-             {'user': 'test1', 'rating': 5, 'content':"Super yummy! totally worth my time"},
-             {'user': 'test3', 'rating': 4, 'content':"will do this again!"},
+             {'user': 'flechazo', 'rating': 2, 'content':"It costs too much time"},
+             {'user': 'espoir', 'rating': 1, 'content':"It is tooooo diffcult! give a easy vesion plz"},
+             {'user': 'diablo', 'rating': 5, 'content':"Super yummy! totally worth my time"},
+             {'user': 'yuuki', 'rating': 4, 'content':"will do this again!"},
          ]
          },
     
         {'title': 'Vegan Cheesecake',
-         'author': 'test1',
+         'author': 'diablo',
          'image': 'recipes/vegan-cheesecake.jpeg',# required!!!!
          'overview':
             "This no-bake vegan cheesecake, with its boozy Black Forest cherry topping, is a luxurious twist on a "
@@ -158,14 +158,14 @@ def populate():
              {'content': 'To serve, carefully remove the cheesecake from the tin, peel away the lining paper and put the cheesecake on a serving plate. Spoon the boozy cherry compôte (warm, or stirred to loosen if chilled) over the cheesecake, letting the syrup and fruit run down the sides'},
          ],
          'comments': [
-             {'user': 'test2', 'rating': 3, 'content': "I’d really like some ca-me:"},
-             {'user': 'test3', 'rating': 2, 'content': "This cake is absolutely perfect it's so soft and delicious wow just wow"},
-             {'user': 'test2', 'rating': 5, 'content': "i could really go for some cake me asf:"},
+             {'user': 'Augenstern', 'rating': 3, 'content': "I’d really like some ca-me:"},
+             {'user': 'yuuki', 'rating': 2, 'content': "This cake is absolutely perfect it's so soft and delicious wow just wow"},
+             {'user': 'Augenstern', 'rating': 5, 'content': "i could really go for some cake me asf:"},
          ]
          },
          
         {'title': 'Ramen noodle',
-         'author': 'test2',
+         'author': 'Augenstern',
          'image': 'recipes/ramen-noodle.jpg',
          'overview':
             "Use chicken, noodles, spinach, sweetcorn and eggs to make this moreish Japanese noodle soup, for when you crave something comforting yet light and wholesome.",
@@ -192,13 +192,13 @@ def populate():
              {'content': 'Divide the noodles between four bowls.'},
          ],
          'comments': [
-             {'user': 'test1', 'rating': 2, 'content':"It's easy...just not tasty"},
-             {'user': 'test5', 'rating': 3, 'content':"40 pounds cheaper than a high street chain wag"},
+             {'user': 'diablo', 'rating': 2, 'content':"It's easy...just not tasty"},
+             {'user': 'espoir', 'rating': 3, 'content':"40 pounds cheaper than a high street chain wag"},
          ]
          },
          
         {'title': 'Beef curry',
-         'author': 'test3',
+         'author': 'yuuki',
          'image': 'recipes/beef-curry.jpg',
          'overview':
             "Make our easy beef curry and serve with a hunk of naan bread to mop up the delicious juices. If you prefer it less spicy, simply add less chilli powder.",
@@ -231,14 +231,14 @@ def populate():
              {'content': 'Stir through the garam masala and cream (if using) and season to taste. Scatter over the coriander and serve with naan breads or rice.'},    
          ],
          'comments': [
-             {'user': 'test2', 'rating':3 , 'content':"Looks great but what do you season the beef with please?"},
-             {'user': 'test5', 'rating':4 , 'content':"I've made this three times in the last couple of months. It's delicious and everyone ate it."},
-             {'user': 'test4', 'rating':1 , 'content':"Cooked with chicken, really horrible..."},
+             {'user': 'Augenstern', 'rating':3 , 'content':"Looks great but what do you season the beef with please?"},
+             {'user': 'espoir', 'rating':4 , 'content':"I've made this three times in the last couple of months. It's delicious and everyone ate it."},
+             {'user': 'flechazo', 'rating':1 , 'content':"Cooked with chicken, really horrible..."},
          ]
          },
          
         {'title': 'Chicken Casserole',
-         'author': 'test1',
+         'author': 'diablo',
          'image': 'recipes/chicken-casserole.jpg',
          'overview':
             "An easy chicken casserole recipe should be in every cook's little black book and this one will go down well with all of the family. Serve with mashed or boiled potatoes, or rice."
@@ -265,14 +265,14 @@ def populate():
              {'content': 'Place in the oven and cook for 45 minutes. Take out of the oven and stir in the leeks. Return to the oven for a further 15 minutes, or until the chicken and leeks are tender and the sauce has thickened. Serve.'},              
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's tasty."},
-             {'user': 'test5', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
-             {'user': 'test4', 'rating': 4, 'content': "Love it, it's really suitable for a family party."},
+             {'user': 'Augenstern', 'rating': 5, 'content': "It's tasty."},
+             {'user': 'espoir', 'rating': 3, 'content': "It's cute but it's a little bit hard for me."},
+             {'user': 'flechazo', 'rating': 4, 'content': "Love it, it's really suitable for a family party."},
          ]
          },
          
         {'title': 'Roast chicken',
-         'author': 'test3',
+         'author': 'yuuki',
          'image': 'recipes/roast-chicken.jpg',
          'overview':
             "What more can we say? A classic roast chicken recipe should be in everyone's repertoire, and it can always save the day.",
@@ -300,15 +300,15 @@ def populate():
              {'content': 'Strain the gravy into a small saucepan, then simmer and season to taste. When you carve the bird, add any extra juices to the gravy.'},
          ],
          'comments': [
-             {'user': 'test2', 'rating': 4, 'content':"Super easy to follow! Thanks for sharing!"},
-             {'user': 'test5', 'rating': 3, 'content':"Winter smell, got hugry already ;-)"},
-             {'user': 'test1', 'rating': 2, 'content':"Got roasted..."},
-             {'user': 'test2', 'rating': 4, 'content':"I made this for my dinner. will do it again!"},
+             {'user': 'Augenstern', 'rating': 4, 'content':"Super easy to follow! Thanks for sharing!"},
+             {'user': 'espoir', 'rating': 3, 'content':"Winter smell, got hugry already ;-)"},
+             {'user': 'diablo', 'rating': 2, 'content':"Got roasted..."},
+             {'user': 'Augenstern', 'rating': 4, 'content':"I made this for my dinner. will do it again!"},
          ]
          },
          
         {'title': 'Sponge pudding',
-         'author': 'test1',
+         'author': 'diablo',
          'image': 'recipes/sponge-pudding.jpg',
          'overview':
             "Transform a classic lemon drizzle cake into a self-saucing pud for a cheap, comforting dessert. Serve with cream or custard.",
@@ -337,15 +337,15 @@ def populate():
              {'content': 'Serve straightaway with cream or custard.'},
          ],
          'comments': [
-             {'user': 'test1', 'rating': 1, 'content':"Too much steps"},
-             {'user': 'test4', 'rating': 2, 'content':"Very sour, is it just me..."},
-             {'user': 'test9', 'rating': 4, 'content':"Yummy!"},
-             {'user': 'test8', 'rating': 1, 'content':"Should not mix it directly"},                
+             {'user': 'diablo', 'rating': 1, 'content':"Too much steps"},
+             {'user': 'flechazo', 'rating': 2, 'content':"Very sour, is it just me..."},
+             {'user': 'yuuki', 'rating': 4, 'content':"Yummy!"},
+             {'user': 'Augenstern', 'rating': 1, 'content':"Should not mix it directly"},
          ]
          },
               
         {'title': 'Sauteed Cauliflower with Mushrooms',
-         'author': 'test2',
+         'author': 'Augenstern',
          'image': 'recipes/sauteed-cauliflower-with-mushrooms.jpg',
          'overview':
             "Sauteed cauliflower with mushroom is rich in flavour, nutritious and delicious, perfect for family dinners.",
@@ -370,14 +370,14 @@ def populate():
              {'content': 'Taste before serving and add salt or no salt to taste, as some stock may have salt in it; pepper and serve with aromas.'},
          ],
          'comments': [
-             {'user': 'test3', 'rating': 3, 'content': "It seems interesting, I will try it later."},
-             {'user': 'test4', 'rating': 5, 'content': "I follow this recipe and cook for my parents last week, they said it's over imagine!"},
-             {'user': 'test5', 'rating': 4, 'content': "I've fall in love with it, it's very decilious."},
+             {'user': 'yuuki', 'rating': 3, 'content': "It seems interesting, I will try it later."},
+             {'user': 'flechazo', 'rating': 5, 'content': "I follow this recipe and cook for my parents last week, they said it's over imagine!"},
+             {'user': 'espoir', 'rating': 4, 'content': "I've fall in love with it, it's very decilious."},
          ]
          },
 
         {'title': 'Tortilla pizza',
-         'author': 'test2',
+         'author': 'Augenstern',
          'image': 'recipes/tortilla-pizza.jpg',
          'overview':
             "Make homemade sourdough pizza with a wonderfully chewy crust."
@@ -403,15 +403,15 @@ def populate():
              {'content': 'Bake for 6-8 minutes until the edges of the tortillas are crisp and golden, and the cheese has melted and is bubbling.'},
          ],
          'comments': [
-             {'user': 'test3', 'rating': 3, 'content': "love this recipe! helps me alot"},
-             {'user': 'test4', 'rating': 2, 'content': "Why do I got a half-raw pasta? I followed all the steps"},
-             {'user': 'test4', 'rating': 1, 'content': "Waste my time, juice of tomatoes makes it super wet..."},
-             {'user': 'test1', 'rating': 4, 'content': "Good recipe, add tomatoes making it even delicious"},
+             {'user': 'yuuki', 'rating': 3, 'content': "love this recipe! helps me alot"},
+             {'user': 'flechazo', 'rating': 2, 'content': "Why do I got a half-raw pasta? I followed all the steps"},
+             {'user': 'flechazo', 'rating': 1, 'content': "Waste my time, juice of tomatoes makes it super wet..."},
+             {'user': 'diablo', 'rating': 4, 'content': "Good recipe, add tomatoes making it even delicious"},
          ]
          },
          
         {'title': 'Beef stew',
-         'author': 'test3',
+         'author': 'yuuki',
          'image': 'recipes/beef-stew.jpg',
          'overview':
             "Cook beef stew in a slow cooker for really tender meat. Add button mushrooms or smoked paprika for extra flavour – it will be an instant family favourite.",
@@ -441,14 +441,14 @@ def populate():
              {'content': 'Tip back into the slow cooker, stir and cook for a further 30 mins on high. Stir in the parsley and season again to taste.'},
          ],
          'comments': [
-             {'user': 'test4', 'rating': 5, 'content':"Absolutely delicious! So easy to make and everyone loves it."},
-             {'user': 'test2', 'rating': 1, 'content':"Too time consuming to make it second time"},
-             {'user': 'test5', 'rating': 5, 'content':"It's my first time cooking beef and I followed this recipe. Too delicious to believe it's my own work!"},
+             {'user': 'flechazo', 'rating': 5, 'content':"Absolutely delicious! So easy to make and everyone loves it."},
+             {'user': 'Augenstern', 'rating': 1, 'content':"Too time consuming to make it second time"},
+             {'user': 'espoir', 'rating': 5, 'content':"It's my first time cooking beef and I followed this recipe. Too delicious to believe it's my own work!"},
          ]
          },
          
         {'title': 'Chocolate cake',
-         'author': 'test1',
+         'author': 'diablo',
          'image': 'recipes/chocolate-cake.jpg',
          'overview':
             "Need a guaranteed crowd-pleasing cake that's easy to make?"
@@ -477,14 +477,14 @@ def populate():
              {'content': 'To make the icing, beat the unsalted butter in a bowl until soft. Gradually sieve and beat in the icing sugar and cocoa powder, then add enough of the milk to make the icing fluffy and spreadable.'},                
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content':"Cannot wait to have one"},
-             {'user': 'test3', 'rating': 2, 'content':"My daughter really loves it! Fab recipe"},
-             {'user': 'test5', 'rating': 1, 'content':"Hard to follow..."},
+             {'user': 'Augenstern', 'rating': 5, 'content':"Cannot wait to have one"},
+             {'user': 'yuuki', 'rating': 2, 'content':"My daughter really loves it! Fab recipe"},
+             {'user': 'espoir', 'rating': 1, 'content':"Hard to follow..."},
          ]
          },
          
         {'title': 'Poke Bowl',
-         'author': 'test3',
+         'author': 'yuuki',
          'image': 'recipes/poke-bowl.jpg',
          'overview':
             "Poke bowl is healthy, low fat and delicious. Recommended for those who are in the process of fat loss or fitness."
@@ -511,14 +511,14 @@ def populate():
                  'content': 'Cut the ingredients into small pieces and spread them on top of the quinoa rice, add a poached egg in the middle, poke the poached egg before eating, pour the sauce in and mix it well into the rice, a bowl of high protein, low fat poached rice is ready, you definitely deserve it!'},
          ],
          'comments': [
-             {'user': 'test1', 'rating': 4, 'content': "It's really easy and yummy, I have already recommend this to all my friends."},
-             {'user': 'test4', 'rating': 5, 'content': "I have tries poke bowl before, but this pairing was so much better than the ones I've tried before and the sauce was really tasty."},
-             {'user': 'test2', 'rating': 4, 'content': "Have tried, great."},
+             {'user': 'diablo', 'rating': 4, 'content': "It's really easy and yummy, I have already recommend this to all my friends."},
+             {'user': 'flechazo', 'rating': 5, 'content': "I have tries poke bowl before, but this pairing was so much better than the ones I've tried before and the sauce was really tasty."},
+             {'user': 'Augenstern', 'rating': 4, 'content': "Have tried, great."},
          ]
          },
          
         {'title': 'Seafood pasta',
-         'author': 'test2',
+         'author': 'Augenstern',
          'image': 'recipes/seafood-pasta.jpg',
          'overview':
             "Make a low in fat, satisfying dish in minutes – ideal for Friday nights",
@@ -542,16 +542,16 @@ def populate():
              {'content': 'Stir in the seafood, cook for 3 mins more until it’s all heated through and the pasta is cooked, then season to taste.'},
          ],
          'comments': [
-             {'user': 'test1', 'rating': 5, 'content':"Really liked this , made it for the family, kids loved it"},
-             {'user': 'test3', 'rating': 3, 'content':"Cooked perfectly. Will definitely do this again!"},
-             {'user': 'test4', 'rating': 4, 'content':"Quick,healthy and delicious! Fab recipe!"},
-             {'user': 'test4', 'rating': 4, 'content':"Can you add cream, or creme fraiche to make it a creamy sauce?"},
-             {'user': 'test5', 'rating': 1, 'content':"Worst thing I’ve ever spent my time and money on."},
+             {'user': 'diablo', 'rating': 5, 'content':"Really liked this , made it for the family, kids loved it"},
+             {'user': 'yuuki', 'rating': 3, 'content':"Cooked perfectly. Will definitely do this again!"},
+             {'user': 'flechazo', 'rating': 4, 'content':"Quick,healthy and delicious! Fab recipe!"},
+             {'user': 'flechazo', 'rating': 4, 'content':"Can you add cream, or creme fraiche to make it a creamy sauce?"},
+             {'user': 'espoir', 'rating': 1, 'content':"Worst thing I’ve ever spent my time and money on."},
          ]
          },
 
         {'title': 'Volcanic Lava Egg',
-         'author': 'test1',
+         'author': 'diablo',
          'image': 'recipes/volcanic-lava-egg.jpg',
          'overview':
             "Today I'm giving you a volcano that will erupt with deliciousness and fill your stomach.",
@@ -573,14 +573,14 @@ def populate():
              {'content': 'Remove the potatoes from the oven and leave until they are not too hot. Add half a slice of cheese, 1 egg (I used a sterile langoustine egg) and chopped spring onion in the middle of the potatoes, in order of preference. Bake in a 170°C oven for 10 minutes, or longer to 15 minutes if you like the eggs fully cooked.'},                 
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's so yummy! I've tried many times, with great success, every time."},
-             {'user': 'test5', 'rating': 5, 'content': "Love it! If you don't want to carve the potatoes you can just put the ingredients together."},
-             {'user': 'test4', 'rating': 4, 'content': "Shap the potatoes is too hard! But it's really tasty."},
+             {'user': 'Augenstern', 'rating': 5, 'content': "It's so yummy! I've tried many times, with great success, every time."},
+             {'user': 'espoir', 'rating': 5, 'content': "Love it! If you don't want to carve the potatoes you can just put the ingredients together."},
+             {'user': 'flechazo', 'rating': 4, 'content': "Shap the potatoes is too hard! But it's really tasty."},
          ]
          },
          
         {'title': 'Low Fat North African Egg',
-         'author': 'test5',
+         'author': 'espoir',
          'image': 'recipes/low-fat-north-african-egg.jpg',
          'overview':
             "Originating in the Mediterranean, the North African egg is an exotic dish with a special flavour, rich in nutrients and low in fat and calories ~ it can be served for any meal, breakfast, lunch or dinner.",
@@ -608,14 +608,14 @@ def populate():
                  'content': 'Done!'},           
          ],
          'comments': [
-             {'user': 'test4', 'rating': 3, 'content': "Love it but it takes too much time to prepare the materials."},
-             {'user': 'test3', 'rating': 1, 'content': "I don's like the taste of mushroom."},
-             {'user': 'test1', 'rating': 5, 'content': "It's really easy and tasty!."},
+             {'user': 'flechazo', 'rating': 3, 'content': "Love it but it takes too much time to prepare the materials."},
+             {'user': 'yuuki', 'rating': 1, 'content': "I don's like the taste of mushroom."},
+             {'user': 'diablo', 'rating': 5, 'content': "It's really easy and tasty!."},
          ]
          },
 
         {'title': 'Beef Donburi',
-         'author': 'test4',
+         'author': 'flechazo',
          'image': 'recipes/beef-donburi.jpg',
          'overview':
             "Tender beef in a rich sauce, served with a raw egg. Serve with a drizzle of Japanese soy sauce and you've got a delicious bowl of beef donburi! Super healing!",
@@ -641,14 +641,14 @@ def populate():
                          
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's much easier than i thouht and very tasty"},
-             {'user': 'test5', 'rating': 4, 'content': "Very tasty, just hard to get the timing right for the omelette."},
-             {'user': 'test1', 'rating': 4, 'content': "Love it!"},
+             {'user': 'Augenstern', 'rating': 5, 'content': "It's much easier than i thouht and very tasty"},
+             {'user': 'espoir', 'rating': 4, 'content': "Very tasty, just hard to get the timing right for the omelette."},
+             {'user': 'diablo', 'rating': 4, 'content': "Love it!"},
          ]
          },
 
         {'title': 'Aloo chaat',
-         'author': 'test2',
+         'author': 'Augenstern',
          'image': 'recipes/aloo-chaat.jpg',
          'overview':
             "Aloo chaat is a combination of different flavours all in one dish. It reminds me of childhood with my friends and is a great sharing dish.",
@@ -678,14 +678,14 @@ def populate():
              {'content':'Place the potato mixture on a large serving plate. Spoon the yoghurt mixture over the potatoes. Top with 4 teaspoons of tamarind chutney and 4 teaspoons of mint and coriander chutney. Sprinkle with the bhujia, remaining pomegranate seeds and fresh coriander, then spoon over 1 teaspoon of mint and coriander chutney and 2 teaspoons of tamarind chutney. Serve for everyone to share.'},            
          ],
          'comments': [
-             {'user': 'test3', 'rating': 3, 'content': "It's good."},
-             {'user': 'test1', 'rating': 3, 'content': "I've tried but i'm not that like it."},
-             {'user': 'test4', 'rating': 4, 'content': "Love it!"},
+             {'user': 'yuuki', 'rating': 3, 'content': "It's good."},
+             {'user': 'diablo', 'rating': 3, 'content': "I've tried but i'm not that like it."},
+             {'user': 'flechazo', 'rating': 4, 'content': "Love it!"},
          ]
          },
          
         {'title': 'Steamed Buns',
-         'author': 'test1',
+         'author': 'diablo',
          'image': 'recipes/steamed-buns.jpg',
          'overview':
             "A very simple and easy to prepare steamed bun, suitable for children.",
@@ -711,14 +711,14 @@ def populate():
                  'content': 'Place in a steamer and steam for 8 minutes on high heat. After 8 minutes, you can enjoy it beautifully.'},
          ],
          'comments': [
-             {'user': 'test4', 'rating': 3, 'content': "It seems interesting, I will try it later."},
-             {'user': 'test3', 'rating': 1, 'content': "I don't really like it."},
-             {'user': 'test2', 'rating': 5, 'content': "I've fall in love with it, it's simple and also very decilious"},
+             {'user': 'flechazo', 'rating': 3, 'content': "It seems interesting, I will try it later."},
+             {'user': 'yuuki', 'rating': 1, 'content': "I don't really like it."},
+             {'user': 'Augenstern', 'rating': 5, 'content': "I've fall in love with it, it's simple and also very decilious"},
          ]
          }, 
          
         {'title': 'Rice pudding',
-         'author': 'test1',
+         'author': 'diablo',
          'image': 'recipes/rice-pudding.jpg',
          'overview':
             "Try our recipe for a gorgeously creamy, yet low in fat rice pudding. Serve this comforting dessert with jam or fruit.",
@@ -739,13 +739,13 @@ def populate():
              {'content': 'Cook for 2 hrs or until the pudding wobbles ever so slightly when shaken.'},
          ],
          'comments': [
-             {'user': 'test5', 'rating': 4, 'content':"Easy and yummy!"},
-             {'user': 'test3', 'rating': 3, 'content':"best dinner disert"},
+             {'user': 'espoir', 'rating': 4, 'content':"Easy and yummy!"},
+             {'user': 'yuuki', 'rating': 3, 'content':"best dinner disert"},
          ]
          }, 
          
         {'title': 'Americano',
-         'author': 'test3',
+         'author': 'yuuki',
          'image': 'recipes/americano.jpg',
          'overview':
             "An Americano mixes Campari and sweet red vermouth, topped up with soda water. It makes a refreshing aperitif, perfect for a hot summer’s day.",
@@ -764,14 +764,14 @@ def populate():
              {'content': 'Top the mixture with soda water and give it a gentle little stir to combine all the ingredients. Garnish with an orange slice or two if using.'},             
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "Yummy!"},
-             {'user': 'test5', 'rating': 3, 'content': "Prety good"},
-             {'user': 'test4', 'rating': 4, 'content': "I like it, it's very easy."},
+             {'user': 'Augenstern', 'rating': 5, 'content': "Yummy!"},
+             {'user': 'espoir', 'rating': 3, 'content': "Prety good"},
+             {'user': 'flechazo', 'rating': 4, 'content': "I like it, it's very easy."},
          ]
          },
 
         {'title': 'Avocado and Shrimp Sandwich with Egg Cream',
-         'author': 'test3',
+         'author': 'yuuki',
          'image': 'recipes/avocado-and-shrimp-sandwich-with-egg-cream.jpg',
          'overview':
             "A breakfast classic, served with coffee, you can't get enough of it!",
@@ -794,14 +794,14 @@ def populate():
              {'content': 'Spread the toast with the mashed avocado, the egg and the shrimps and finish with a sprinkling of chopped parsley.'},            
          ],
          'comments': [
-             {'user': 'test2', 'rating': 5, 'content': "It's easy and yummy!"},
-             {'user': 'test5', 'rating': 3, 'content': "Prety good."},
-             {'user': 'test4', 'rating': 4, 'content': "Love it! It's more suitable to serve with milk."},
+             {'user': 'Augenstern', 'rating': 5, 'content': "It's easy and yummy!"},
+             {'user': 'espoir', 'rating': 3, 'content': "Prety good."},
+             {'user': 'flechazo', 'rating': 4, 'content': "Love it! It's more suitable to serve with milk."},
          ]
          },
          
         {'title': 'Oatmeal and Avocado Tart',
-         'author': 'test5',
+         'author': 'espoir',
          'image': 'recipes/oatmeal-and-avocado-tart.jpg',
          'overview':
             "A zero-difficulty, high-value, super-fast fat-reducing dessert is here! No oil and no sugar to eat without the burden.",
@@ -824,41 +824,32 @@ def populate():
                  'content': 'Pour through a sieve into the oatmeal tart shell and chill in the fridge overnight.'},       
          ],
          'comments': [
-             {'user': 'test1', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
-             {'user': 'test3', 'rating': 4, 'content': "It's really easy and don't need much time."},
-             {'user': 'test4', 'rating': 4, 'content': "Yummy!"},
+             {'user': 'diablo', 'rating': 5, 'content': "It's so cute, I can't even bear to eat it."},
+             {'user': 'yuuki', 'rating': 4, 'content': "It's really easy and don't need much time."},
+             {'user': 'flechazo', 'rating': 4, 'content': "Yummy!"},
          ]
          },         
     ]
 
     collections = [
         {
-            'user': 'test1', 'recipe': 'Paella mixta',
-            'user': 'test1', 'recipe': 'Beef curry',
-            'user': 'test1', 'recipe': 'Seafood pasta',
-            'user': 'test1', 'recipe': 'Poke Bowl',
-            'user': 'test1', 'recipe': 'Red Bean Jicama',
+            'user': 'diablo',
+                'recipes': ['Paella mixta', 'Beef curry', 'Seafood pasta',
+                            'Poke Bowl', 'Red Bean Jicama'],
         },
         {
-            'user': 'test2', 'recipe': 'Vegan Cheesecake',
-            'user': 'test2', 'recipe': 'Low Fat North African Egg',
-            'user': 'test2', 'recipe': 'Volcanic Lava Egg',
-            'user': 'test2', 'recipe': 'Avocado and Shrimp Sandwich with Egg Cream',
+            'user': 'Augenstern', 'recipes': ['Vegan Cheesecake', 'Low Fat North African Egg',
+                                              'Volcanic Lava Egg', 'Avocado and Shrimp Sandwich with Egg Cream' ]
+
         },
         {
-            'user': 'test3', 'recipe': 'Roast chicken',
-            'user': 'test3', 'recipe': 'Floral Yoghurt Biscuits',
-            'user': 'test3', 'recipe': 'Beef Donburi',
-            'user': 'test3', 'recipe': 'Steamed Buns',
+            'user': 'yuuki', 'recipes': ['Roast chicken', 'Floral Yoghurt Biscuits', 'Beef Donburi', 'Steamed Buns']
         },
         {
-            'user': 'test4', 'recipe': 'Vegan Cheesecake',
-            'user': 'test4', 'recipe': 'Beef Stew',
+            'user': 'flechazo', 'recipes': ['Vegan Cheesecake', 'Beef stew']
         },
         {
-            'user': 'test5', 'recipe': 'Sponge pudding',
-            'user': 'test5', 'recipe': 'Chocolate cake',
-            'user': 'test5', 'recipe': 'Rice pudding',
+            'user': 'espoir', 'recipes': ['Sponge pudding', 'Chocolate cake', 'Rice pudding']
         },
     ]
 
@@ -881,8 +872,9 @@ def populate():
                    recipe['comments'], image)
 
     for collection in collections:
-        u = add_collection(collection['user'], collection['recipe'])
-        print(f"- {collection['user']} collect {collection['recipe']}")
+        for recipe in collection['recipes']:
+            u = add_collection(collection['user'], recipe)
+            print(f"- {collection['user']} collect {recipe}")
 
 
 def add_user(username, password, email, image=None):
@@ -941,7 +933,7 @@ def add_step(recipe, content, image=None):
         s.image = os.path.join(image)
         print(f'- add image {image}')
     s.save()
-    time.sleep(0.5)
+    time.sleep(0.2)
     return s
 
 
