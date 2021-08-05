@@ -15,9 +15,44 @@
     {% block css_block %}
     {% endblock %}
     <link href="{% static 'css/b5_base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <div class="header-block">
+            <div class="row">
+                {% if user.is_authenticated %}
+                    <div class="col-md-2 col-md-offset-7 logout_grid login_text" >Welcome, Author</div>
+                    <div class="col-md-1 logout_grid"><a href="" class="login_text">My Profile</a></div>
+                    <div class="col-md-1 logout_grid"><a href="" class="login_text">Add Recipe</a></div>
+                    <div class="col-md-1" style="margin-top: 10px"><a href="" class="login_text">Log Out</a></div>
+                {% else %}
+                    <div class="col-md-1 col-md-offset-10 login_grid"><a href="" class="login_text">Login</a></div>
+                    <div class="col-md-1" style="margin-top: 10px"><a href="" class="login_text">Sign Up</a></div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1"><img src="{% static 'images/logo_white.png' %}" alt="Logo" width="600" style="margin: 5px 0px"/><br/></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-3"><h4><b style="color:#ffffff">COOK WITH WORLD</b></h4></div>
+                <div class="col-md-5 col-md-offset-1">
+                    <form method="get" action="{% url 'fooddance:search' %}">
+                        {% csrf_token%}
+                        <input type="text" name="search" class="search">
+                        <input type="submit" name="searchbutton" value="search" class="button-search">
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1"><a href="{% url 'fooddance:index' %}" class="button-category">Home</a></div>
+                <div class="col-md-2"><a href="{% url 'fooddance:all_recipes' %}" class="button-category">All Recipe</a></div>
+                <div class="col-md-2"><a href="" class="button-category">Difficulty</a></div>
+                <div class="col-md-2"><a href="" class="button-category">Time</a></div>
+                <div class="col-md-2"><a href="" class="button-category">About</a></div>
+            </div>
+        </div>
+
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <!-- main content should display in this div -->

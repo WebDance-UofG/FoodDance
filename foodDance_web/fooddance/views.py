@@ -55,7 +55,8 @@ def index(request):
                 "avg": "{:.1f}".format(Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
                 "image": recipe.image,
                 "during": recipe.duration,
-                "author": recipe.author
+                "author": recipe.author,
+                "slug": recipe.slug,
             })
         )
     recipes.sort(key=takeAverage)

@@ -1,5 +1,5 @@
 <!doctype html>
-{% extends 'fooddance/base.html' %}
+{% extends 'fooddance/b5_base.html' %}
 {% load staticfiles  %}
 
 {% block title_block %}
@@ -14,34 +14,25 @@
         <div class="col-md-6"><p class="all-recipes">All Recipes</p></div>
     </div>
     <div class="container">
-        <div class="row">
             {% if recipes %}
                 {% for recipe in recipes %}
                     <div class="col-md-3 recom-recipe-bg">
                         <div class="thumbnail">
-                            <a href="#"><img src="{{ MEDIA_URL }}/{{ recipe.image }}" alt="recipe_1"/></a>
+                            <a href="#"><img src="{{ MEDIA_URL }}/{{ recipe.image }}" alt="recipe_1" class="recipe-image"/></a>
                         </div>
                         <div class="caption">
                             <p class="recom-recipe-title">{{ recipe.title }}</p>
-                        </div>
-                        <div class="row recom-recipe-row">
-                            <div class="col-md-4 recom-recipe-block">
-                                <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"></span>
-                                <b class="recom-recipe-det">{{ recipe.avg }} / 5</b>
-                            </div>
-                            <div class="col-md-4 recom-recipe-block">
-                                <span class="glyphicon glyphicon-time recom-recipe-icon-red"></span>
-                                <b class="recom-recipe-det">{{ recipe.during }}min</b>
-                            </div>
-                            <div class="col-md-4 recom-recipe-block">
-                                <span class="glyphicon glyphicon-user recom-recipe-icon-blue"></span>
-                                <b class="recom-recipe-det">{{ recipe.author }}</b>
+                            <div>
+                                <div class="recipe-block3">
+                                    <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"><p class="recom-recipe-det">{{ recipe.avg }}</p></span>
+                                    <span class="glyphicon glyphicon-time recom-recipe-icon-red"><p class="recom-recipe-det">{{ recipe.during }}min</p></span>
+                                    <span class="glyphicon glyphicon-user recom-recipe-icon-blue"><p class="recom-recipe-det">{{ recipe.author }}</p></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
             {% endif %}
-        </div>
     </div>
 {% endblock %}
 
