@@ -1,0 +1,60 @@
+.search-result{
+    margin-top: 30px;
+    font-size: 24px;
+    font-family: Copperplate, Fantasy;
+    margin-bottom: 20px;
+    margin-left: 20%;
+}
+
+.search-detail-background{
+    width: 100%;
+    background-color: #F2F2F2;
+    height: 130px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #E6E6E6;
+    vertical-align: center;
+    margin:auto;
+}
+.search-detail-
+.search-detail-image{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.search-detail-title{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    color: #180E09;
+}
+
+.search-detail-overview{
+    font-size: 14px;
+    margin-top: 10px;
+    color: #555555;
+    margin-left: 20px;
+    width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+}
+
+.search-detail-score{
+    margin-bottom: 0px;
+}
+.search-detail-score-text{
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding-right:5px;
+    display:inline;
+}
+.search-detail-block2 {
+    margin: auto;
+}
+.search-detail-author{
+
+}

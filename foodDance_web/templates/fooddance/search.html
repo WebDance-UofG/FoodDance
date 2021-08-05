@@ -1,0 +1,40 @@
+<!doctype html>
+{% extends 'fooddance/base.html' %}
+{% load staticfiles  %}
+
+{% block title_block %}
+    Search Results
+{% endblock %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
+
+{% block body_block %}
+    <div class="row">
+        <div class="col-md-6"><p class="search-result">Search Results</p></div>
+    </div>
+    {% if recipes %}
+        {% for recipe in recipes %}
+            <div class="container">
+            <div class="col-md-10 search-detail-background">
+                <div class="col-md-2">
+                    <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="search-detail-image"/>
+                </div>
+                <div class="col-md-7">
+                    <p class="search-detail-title">{{ recipe.title }}</p>
+                    <p class="search-detail-overview">{{ recipe.overview }}</p>
+                    <div class="search-detail-score">
+                        <p class="search-detail-score-text">Rate: {{ recipe.avg }}</p>
+                        <p class="search-detail-score-text">Comments: {{ recipe.comments }}</p>
+                        <p class="search-detail-score-text">Likes: {{ recipe.likes }}</p>
+                        <p class="search-detail-score-text">Views: {{ recipe.views }}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 search-detail-block3">
+                    <p>{{ recipe.author }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}
