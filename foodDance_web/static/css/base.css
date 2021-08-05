@@ -65,3 +65,15 @@
     font-weight:bold;
     text-decoration: none;
 }
+
+.tail-block{
+    /*background-image: url("../images/header_background.jpg");*/
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    background-color: #180E09;
+    height: 300px;
+}
+

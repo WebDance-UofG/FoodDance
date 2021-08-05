@@ -35,7 +35,8 @@ def category_allrecipes(request):
                     Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
                 "image": recipe.image,
                 "during": recipe.duration,
-                "author": recipe.author
+                "author": recipe.author,
+                "slug": recipe.slug,
             })
         )
     recipes.sort(key=takeAverage)
@@ -60,7 +61,8 @@ def index(request):
             })
         )
     recipes.sort(key=takeAverage)
-    context_dict = {'recipes': recipes[:12]}
+    recipes.reverse()
+    context_dict = {'recipes': recipes[:9]}
     return render(request, 'fooddance/index.html', context_dict)
 
 
@@ -88,6 +90,8 @@ def search(request):
                         "comments": len(Comment.objects.filter(recipe__id=recipe.id)),
                         "likes": recipe.likes,
                         "views": recipe.views,
+                        "slug": recipe.slug,
+                        "author_profile": UserProfile.objects.get(user_id=recipe.author.id),
                     })
                 )
     context_dict = {'recipes': recipes}

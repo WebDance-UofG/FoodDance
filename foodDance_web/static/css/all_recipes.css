@@ -3,51 +3,62 @@
     font-size: 24px;
     font-family: Copperplate, Fantasy;
     margin-bottom: 20px;
-    margin-left: 20%;
 }
 
-.recom-recipe-bg{
-    max-width: 80%;
-    height: 300px;
-    padding: 0px 5px;
+.recipe-bg{
+    height: 350px;
     background-color: #F2F2F2;
     border-radius: 2px;
     box-shadow: 2px 2px 4px #E6E6E6;
-    margin: 5px;
-}
-.recom-recipe-title{
-    color: #555555;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 10px;
     text-decoration: none;
 }
-.recipe-block3-div{
-    white-space: nowrap;
-    margin-bottom: 20px;
-    margin-right:0px;
+.recipe-block1{
+    height: 70%;
+    background-color: white;
+    align-items: center;
+    text-align: center;
 }
-.recom-recipe-det{
-    text-decoration-color: #F2F2F2;
-    font-size: 12px;
-    display: inline;
-    padding-left: 5px;
+.recipe-pic{
+    display: block;
+    max-height: 100%;
+    width: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.recipe-block2{
+    padding-top: 10px;
+    height: 15%;
+    text-align: center;
+}
+.recipe-title{
+    color: #555555;
     font-weight: bold;
-    margin-right:10px;
+    margin-bottom: 18px;
+    font-size: 14px;
 }
-.recom-recipe-icon-yellow{
-    padding-left:0px;
-    color: orange;
+.recipe-block3{
+    height: 15%;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
 }
-.recom-recipe-icon-red{
-    padding-left:0px;
-    color:red;
+
+.recipe-icon{
+    width: 16px;
+    margin-right:3px;
+    height: auto;
 }
-.recom-recipe-icon-blue{
-    padding-left:0px;
-    color:dodgerblue;
+.recipe-text{
+    text-decoration: none;
+    color:#7F7F7F;
+    font-size: 12px;
+    font-weight: bold;
 }
-.recom-recipe-row{
-    margin-bottom: 10px;
-    position:absolute;
+.others-findall{
+    margin-top: 30px;
+    width: 100%;
+    align-content: center;
+    text-align: center;
+    text-decoration-color: #7F7F7F;
 }

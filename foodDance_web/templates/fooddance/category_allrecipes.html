@@ -10,29 +10,40 @@
 {% endblock %}
 
 {% block body_block %}
-    <div class="row">
-        <div class="col-md-6"><p class="all-recipes">All Recipes</p></div>
-    </div>
+    <p class="all-recipes">All Recipes</p>
     <div class="container">
-            {% if recipes %}
-                {% for recipe in recipes %}
-                    <div class="col-md-3 recom-recipe-bg">
-                        <div class="thumbnail">
-                            <a href="#"><img src="{{ MEDIA_URL }}/{{ recipe.image }}" alt="recipe_1" class="recipe-image"/></a>
+        <div class="row">
+        {% if recipes %}
+            {% for recipe in recipes %}
+                <div class="col-4">
+                    <a href="{% url 'fooddance:detail' recipe.slug %}" class="card recipe-bg">
+                        <div class="card recipe-block1">
+                            <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="card-img-center recipe-pic" alt="recipe-img"/>
                         </div>
-                        <div class="caption">
-                            <p class="recom-recipe-title">{{ recipe.title }}</p>
-                            <div>
-                                <div class="recipe-block3">
-                                    <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"><p class="recom-recipe-det">{{ recipe.avg }}</p></span>
-                                    <span class="glyphicon glyphicon-time recom-recipe-icon-red"><p class="recom-recipe-det">{{ recipe.during }}min</p></span>
-                                    <span class="glyphicon glyphicon-user recom-recipe-icon-blue"><p class="recom-recipe-det">{{ recipe.author }}</p></span>
+                        <div class="recipe-block2">
+                            <p class="text-center recipe-title">{{ recipe.title }}</p>
+                        </div>
+                        <div class="recipe-block3">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 col-sm-12">
+                                    <img src="{% static 'images/riFill-star-fill.svg' %}" class="recipe-icon" alt="rate-icon"/>
+                                    <p class="recipe-text">{{ recipe.avg }}</p>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <img src="{% static 'images/md-access_time.svg' %}" class="recipe-icon" alt="time-icon"/>
+                                    <p class="recipe-text">{{ recipe.during }} min</p>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <img src="{% static 'images/user-icon.svg' %}" class="recipe-icon" alt="user-icon"/>
+                                    <p class="recipe-text">{{ recipe.author }}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
     </div>
 {% endblock %}
 
