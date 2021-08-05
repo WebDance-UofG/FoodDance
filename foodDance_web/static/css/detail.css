@@ -1,0 +1,106 @@
+body{
+    background-color: #f4f4f4;
+    background-image: url("../images/bg.png");
+}
+.mainArea{
+    background-color: white;
+    /*box-shadow: 10px 10px 5px #888888;*/
+}
+
+#avatar{
+    width: 100%;
+    border:  #dcd7d7 1px solid;
+}
+
+.userName{
+    margin-top: 2px;
+    height: 100%;
+    font-size: 14px;
+}
+
+.userName{
+    font-size: 16px;
+}
+.mainArea > .row{
+    margin-top: 20px;
+}
+
+#topSmallRow{
+    margin-top: 20px;
+}
+
+.smallIcon{
+    width: 30px;
+    padding: 0px;
+    margin-left: -5px;
+}
+
+.smallIcon + h6 {
+    width: 2rem;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    display: inline;
+
+}
+
+.secondary{
+    color: #555555;
+    margin-bottom: 0;
+    height: 100%;
+    float: left;
+    line-height: 30px;
+    vertical-align: bottom;
+    padding-bottom: 0;
+}
+
+.middleIcon{
+    width: 35px;
+    margin-top: 10px;
+
+
+}
+
+.middleIcon + p{
+    width: 100px;
+    height: 25px;
+
+}
+
+hr{
+    margin: 0;
+}
+
+.clearBottomMargin{
+    margin-bottom: 10px;
+}
+
+.area3{
+    padding-left: 10px;
+}
+
+.area3Icon{
+    margin-top: 10px;
+    width: 35px;
+}
+
+.area3Text{
+    width: 35px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.stepImg{
+    width: 240px;
+}
+
+.stepTitle{
+    margin-top: 20px;
+}
+
+.commentsArea{
+    border: #b8b8b8 1px solid;
+    border-radius:10px;
+}
