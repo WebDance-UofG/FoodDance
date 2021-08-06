@@ -22,7 +22,7 @@
 
 
     {% if alert_message  %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div id="alert_message" class="alert alert-warning alert-dismissible fade show" role="alert">
               <strong>{{ alert_message }}</strong>
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -62,7 +62,7 @@
             <div class="col-3"></div>
             <div class="col-1"><img src="{% static 'images/slogan.png' %}" alt="Slogan" width="400px"/></div>
         </div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid row justify-content-end">
                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -86,21 +86,44 @@
                 </div>
             </div>
             </nav>
-        </div>
+    </div>
 
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <!-- main content should display in this div -->
-                <div class="col-lg-8 col-md-10 col-sm-12 mainArea shadow-lg" >
-                        {% block body_block %}
-                        {% endblock %}
-               </div>
-            </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <!-- main content should display in this div -->
+            <div  id="mainbox" class="col-lg-8 col-md-10 col-sm-12 mainArea shadow-lg" >
+                    {% block body_block %}
+                    {% endblock %}
+           </div>
         </div>
-<div class="tail-block">
-    <a href="https://www.facebook.com">Facebook</a>
-    <a href="https://www.facebook.com">Twitter</a>
-</div>
+    </div>
+
+    <div id="footerbox" class="container-fluid">
+        <div id="footerrow" class="row justify-content-center">
+               <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">© 2021 WedDance@UofG</p>
+
+                <a  href="{% url 'fooddance:index' %}" class="col-md-2 d-flex align-items-center justify-content-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                 <img  id="footer_logo" width="40" height="40" src="{% static "images/logo_pink.png" %}">
+                </a>
+
+                <a href="https://github.com/WebDance-UofG/FoodDance" class="col-md-2 d-flex align-items-center justify-content-start mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                     <img width="40" height="40" src="{% static "images/GitHub-Mark-32px.png" %}">
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="{% url 'fooddance:index' %}" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'fooddance:all_recipes' %}" class="nav-link px-2 text-muted">All Recipes</a></li>
+                   {% if user.is_authenticated %}
+                       <li class="nav-item"><a href="{%  url 'fooddance:logout' %}" class="nav-link px-2 text-muted">Login</a></li>
+                   {% else %}
+                       <li class="nav-item"><a href="{%  url 'fooddance:user_login' %}" class="nav-link px-2 text-muted">Login</a></li>
+                         <li class="nav-item"><a href="{% url 'fooddance:user_register' %}" class="nav-link px-2 text-muted">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+          </footer>
+        </div>
+    </div>
 
 </body>
 </html>

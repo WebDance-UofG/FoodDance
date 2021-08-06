@@ -6,3 +6,29 @@ body{
     background-color: white;
     /*box-shadow: 10px 10px 5px #888888;*/
 }
+
+#footerbox{
+    position: relative;
+    background-color: white;
+    margin: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#footerrow{
+    max-height: 90px;
+}
+
+footer{
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+#alert_message{
+    margin-bottom: 0;
+}
+
+#footer_logo{
+    margin-right: 20px;
+}
