@@ -76,8 +76,23 @@ class UserProfile(models.Model):
 
     collections = models.ManyToManyField(Recipe, related_name="user_collections")
 
+    has_confirmed = models.BooleanField(default=False)
+
     def __str__(self):
         return self.user.username
+
+
+class ConfirmString(models.Model):
+    code = models.CharField(max_length=256)
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
+    creat_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username + ":   " + self.code
+
+    class Meta:
+        ordering = ["-creat_time"]
+        verbose_name = "Confirm code"
 
 
 class Comment(models.Model):
