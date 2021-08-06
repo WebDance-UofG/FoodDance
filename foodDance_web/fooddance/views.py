@@ -17,11 +17,10 @@ import hashlib
 # Create your views here.
 
 def index(request):
+    """
+    The home page.
+    """
     recipes = []
-
-    def takeAverage(ele):
-        return ele.avg
-
     for recipe in Recipe.objects.all():
         recipes.append(
             dict2obj({
@@ -34,6 +33,10 @@ def index(request):
                 "slug": recipe.slug,
             })
         )
+
+    def takeAverage(ele):
+        return ele.avg
+    # sort the list by avg
     recipes.sort(key=takeAverage)
 
     recipes.reverse()
@@ -45,6 +48,9 @@ def index(request):
 
 
 def category_allrecipes(request):
+    """
+    A view show all recipes
+    """
     recipes = []
 
     def takeAverage(ele):

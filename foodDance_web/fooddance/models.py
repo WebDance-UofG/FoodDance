@@ -8,6 +8,9 @@ from django.template.defaultfilters import slugify
 
 
 class Recipe(models.Model):
+    """
+    The main content of recipes.
+    """
     TITLE_MAX_LENGTH = 50
     OVERVIEW_MAX_LENGTH = 500
 
@@ -36,6 +39,9 @@ class Recipe(models.Model):
 
 
 class Materials(models.Model):
+    """
+    The materials(ingredients) of recipes.
+    """
     INGREDIENT_MAX_LENGTH = 128
     WEIGHT_MAX_LENGTH = 128
 
@@ -48,6 +54,9 @@ class Materials(models.Model):
 
 
 class RecipeStep(models.Model):
+    """
+    The cool steps of recipes.
+    """
     CONTENT_MAX_LENGTH = 2000
 
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
@@ -62,6 +71,21 @@ class RecipeStep(models.Model):
 
     def __str__(self):
         return self.recipe.slug + "-" + str(self.index)
+
+
+class Comment(models.Model):
+    """
+    Comments of recipes
+    """
+    COMMENT_MAX_LENGTH = 500
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], default=0)
+    content = models.CharField(max_length=COMMENT_MAX_LENGTH, default="")
+    like = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username + " - rating:" + str(self.rating)
 
 
 class UserProfile(models.Model):
@@ -83,26 +107,19 @@ class UserProfile(models.Model):
 
 
 class ConfirmString(models.Model):
+    """
+    The confirmation code of a unconfirmed user
+    """
     code = models.CharField(max_length=256)
     user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     creat_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user.username + ":   " + self.code
+        return self.user.user.username + ":   " + self.code
 
     class Meta:
         ordering = ["-creat_time"]
         verbose_name = "Confirm code"
 
 
-class Comment(models.Model):
-    COMMENT_MAX_LENGTH = 500
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], default=0)
-    content = models.CharField(max_length=COMMENT_MAX_LENGTH, default="")
-    like = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.user.username + " - rating:" + str(self.rating)
 
