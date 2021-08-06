@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'fooddance/b5_base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    FoodDance - Confirm
+{% endblock %}
+
+
+{% block body_block %}
+	<section class="h-100" style="min-height:700px">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-8">
+					<div class="text-center my-5">
+						<img src="{% static 'images/logo_pink.png' %}" alt="logo" width="100">
+					</div>
+                <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
+                <p class="lead">
+                              {{ message }}
+                            </p>
+{#					<div class="card shadow-lg">#}
+{#						<div class="card-body p-5">#}
+{#							<h1 class="fs-4 card-title fw-bold mb-4">Register</h1>#}
+{#                            <p class="lead">#}
+{#                              {{ message }}#}
+{#                            </p>#}
+{#                        </div>#}
+{#					</div>#}
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2021 &mdash; WedDance@UofG
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    <script src="{% static 'js/login.js' %}"></script>
+
+{% endblock %}

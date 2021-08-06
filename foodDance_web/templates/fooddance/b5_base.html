@@ -31,7 +31,6 @@
     <div id="header" class="header-block ">
         <div class="row justify-content-end align-items-end">
            {% if user.is_authenticated %}
-{#                <div class="col-md-2 logout_grid login_text fs-6 text-center" >Welcome, {{ user.username }}</div>#}
                 <div class="col-md-2 dropdown">
                     <a class="btn dropdown-toggle login_text fs-6" href="{% url 'fooddance:index' %}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         Welcome, {{ user.username }} !
@@ -39,7 +38,6 @@
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="{% url 'fooddance:my_recipes' %}">My Recipe</a></li>
-                        <li><a class="dropdown-item" href="#">My Collection</a></li>
                         <li><a class="dropdown-item" href="../../admin/fooddance/recipe/add/">Add Recipe</a></li>
                     </ul>
                 </div>
@@ -65,7 +63,7 @@
             {% endif %}
         </div>
         <div>
-            <div class="col-md-8"><img src="{% static 'images/logo_white.png' %}" alt="Logo" class="header-img"/></div>
+            <div class="col-md-6"><img src="{% static 'images/logo_white.png' %}" alt="Logo" class="header-img"/></div>
         </div>
         <div class="row justify-content-start">
             <div class="col-3"></div>

@@ -19,7 +19,9 @@ urlpatterns = [
     path('like/', views.like, name="like"),
     path('collect/', views.collect, name="collect"),
     path('share/', views.share, name="share"),
+    path('confirm/', views.user_confirm, name="confirm"),
     path('myrecipe/',views.myrecipes, name="my_recipes"),
     # path('mycollection/',name="my_collection")
+
 
 ]

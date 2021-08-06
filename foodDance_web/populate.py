@@ -905,6 +905,7 @@ def add_user(username, password, email, image=None):
 
     user.save()
     userprofile = UserProfile.objects.get_or_create(user=user)[0]
+    userprofile.has_confirmed = True
     if image:
         userprofile.image = os.path.join(image)
         print(f'- add image {image}')
