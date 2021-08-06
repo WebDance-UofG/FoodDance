@@ -25,6 +25,8 @@ SECRET_KEY = '(sjrl2%6mj-+ovae!wt!_48e=www=^livy#sz$tz9h!ob7m0y^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+WEB_URL = 'http://127.0.0.1:8000'
+
 ALLOWED_HOSTS = []
 
 
@@ -37,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fooddance'
+    'fooddance',
 ]
 
 MIDDLEWARE = [

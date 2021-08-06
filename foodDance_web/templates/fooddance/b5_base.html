@@ -20,6 +20,9 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    {% block extra_script %}
+    {% endblock %}
+
 
     {% if alert_message  %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -33,13 +36,14 @@
         <div class="header-block">
             <div class="row">
                 {% if user.is_authenticated %}
-                    <div class="col-md-2 col-md-offset-7 logout_grid login_text" >Welcome, Author</div>
+                    <div class="col-md-2 col-md-offset-7 logout_grid login_text" >Welcome, {{ user.username }}</div>
                     <div class="col-md-1 logout_grid"><a href="" class="login_text">My Profile</a></div>
                     <div class="col-md-1 logout_grid"><a href="" class="login_text">Add Recipe</a></div>
-                    <div class="col-md-1" style="margin-top: 10px"><a href="" class="login_text">Log Out</a></div>
+                    <div class="col-md-1" style="margin-top: 10px"><a href="{% url 'fooddance:logout' %}" class="login_text">Log Out</a></div>
+
                 {% else %}
-                    <div class="col-md-1 col-md-offset-10 login_grid"><a href="" class="login_text">Login</a></div>
-                    <div class="col-md-1" style="margin-top: 10px"><a href="" class="login_text">Sign Up</a></div>
+                    <div class="col-md-1 col-md-offset-10 login_grid"><a href="{% url 'fooddance:user_login' %}" class="login_text">Login</a></div>
+                    <div class="col-md-1" style="margin-top: 10px"><a href="{% url 'fooddance:user_register' %}"  class="login_text">Sign Up</a></div>
                 {% endif %}
             </div>
             <div class="row">
