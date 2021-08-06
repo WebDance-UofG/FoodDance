@@ -173,8 +173,8 @@ def detail(request, recipe_title_slug):
             if comment and int(comment.rating) > 0:
                 showRating = False
 
-        context_dict['showComment'] = showComment
-        context_dict['showRating'] = showRating
+            context_dict['showComment'] = showComment
+            context_dict['showRating'] = showRating
 
 
     except Recipe.DoesNotExist:
