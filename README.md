@@ -7,6 +7,10 @@ On the one hand,FoodDanceprovides a free community environment for users to sear
 
 In this project, we use sqlite 3 as database, use Django to implement the back-end service, and use html5, CSS, javascript, bootstrap 5 to process front-end render.
 
+# Project Structure
+
+![filestructure](https://user-images.githubusercontent.com/87979527/128578832-a08f7b0c-5a3c-4c3a-a39f-fe1c7091c962.png)
+
 # Environment Requirement
 This project uses python and django
  - Python 3.7.5
@@ -47,24 +51,35 @@ if you want to use demo, run population script to Import test data
 and then run:
 
     python manage.py runserver
+
+# Test
+Go to file fooddance_web, run the test commend.
+
+    python  manage.py test fooddance
+   
 # Web Page
 
-Index Page: /
+## Index Page: /
  - [ ] **Today's Top** Show today's most views recipes.
  - [ ] **Recommendation** Show the top-9-comment recipes, click recipes can visit the detail of every recipe.
  - [ ] **Header** if user login, he can add recipes.
 ![index](https://user-images.githubusercontent.com/87979527/128576864-59744934-52f5-4800-8aa3-815c667b25d0.png)
 
-All Recipes Page: /addrecipes
+## All Recipes Page: 
+/addrecipes
  **Show all recipes**
-![allrecipes](https://user-images.githubusercontent.com/87979527/128577549-9fd47373-fc2a-4a3e-9b4c-bfb87b6fe5e8.png)
+![allrecipes](https://user-images.githubusercontent.com/87979527/128578990-127d7d9b-188b-41f6-bead-f84106d84a67.png)
 
-Search Result: /search/?search=egg
-![search](https://user-images.githubusercontent.com/87979527/128577646-0f3949e1-86c4-47dd-97c4-cee5b97a0bfd.png)
+## Search Result: 
+/search/?search=egg
+![search](https://user-images.githubusercontent.com/87979527/128579015-84c7693c-50b0-43b7-ba69-a63d7ef4142c.png)
 
-Login: /login
-![login](https://user-images.githubusercontent.com/87979527/128577701-88e1531a-d8b3-490a-a106-0fb08883b3b9.png)
+## Login: 
+/login
+![login](https://user-images.githubusercontent.com/87979527/128579025-77f5e60a-8635-4e4e-affe-09f0425e5404.png)
 
+## Sign Up: 
+/
 
 # System Architecture
 ![未命名文件](https://user-images.githubusercontent.com/87979527/128576380-1edf78d9-b56a-4d64-a815-d3e97a6c7e37.png)
