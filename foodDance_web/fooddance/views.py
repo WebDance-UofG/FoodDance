@@ -207,3 +207,7 @@ def get_message_session_handler(request):
 def update_message_session_handler(request, message):
     request.session['message'] = message
     print(f'- add message session {message}')
+
+def myRecipes(request):
+    if request.method == 'POST':
+        pass

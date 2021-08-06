@@ -1,21 +1,13 @@
 .login_text{
     font-size: 14px;
     color: #ffffff;
-}
-.login_text:hover{
-    color: #ffffff;
     font-weight:bold;
     text-decoration: none;
 }
-.login_grid{
-    padding-right: 0px;
-    padding-left: 50px;
-    margin-top: 10px;
-}
-.logout_grid{
-    padding-right: 0px;
-    padding-left: 10px;
-    margin-top: 10px;
+.login_text:hover{
+    color: #7F7F7F;
+    font-weight:bold;
+    text-decoration: none;
 }
 .header-block{
     /*background-image: url("../images/header_background.jpg");*/
@@ -24,7 +16,7 @@
     /*margin-right: auto;*/
     /*width: 100%;*/
     /*height: auto;*/
-    background-color: #180E09;
+    background-color: #212529;
     width: 100%;
 }
 .search{
@@ -59,12 +51,6 @@
     padding: 10px 0px;
     float: left;
 }
-.button-category:hover{
-    background-color: white;
-    color: #180E09;
-    font-weight:bold;
-    text-decoration: none;
-}
 
 .tail-block{
     /*background-image: url("../images/header_background.jpg");*/
@@ -73,7 +59,7 @@
     /*margin-right: auto;*/
     /*width: 100%;*/
     /*height: auto;*/
-    background-color: #180E09;
-    height: 300px;
+    background-color: #212529;
+    height: 200px;
 }
 

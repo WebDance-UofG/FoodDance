@@ -1,0 +1,44 @@
+<!doctype html>
+{% extends 'fooddance/b5_base.html' %}
+{% load staticfiles  %}
+
+{% block title_block %}
+    Search Results
+{% endblock %}
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/myrecipes.css' %}">
+{% endblock %}
+
+{% block body_block %}
+    <p class="search-result">Search Result</p>
+    {% if recipes %}
+        {% for recipe in recipes %}
+            <div class="row justify-content-center">
+                <a href="{% url 'fooddance:detail' recipe.slug %}" class="row align-items-center search-detail-bg">
+                    <div class="col-md-3 col-sm-12">
+                        <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="img-fluid"/>
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                        <p class="row search-detail-title">{{ recipe.title }}</p>
+                        <p class="row search-detail-overview">{{ recipe.overview }}</p>
+                        <div class="search-detail-score">
+                            <p class="search-detail-score-text">Rate: {{ recipe.avg }}</p>
+                            <p class="search-detail-score-text">Comments: {{ recipe.comments }}</p>
+                            <p class="search-detail-score-text">Likes: {{ recipe.likes }}</p>
+                            <p class="search-detail-score-text">Views: {{ recipe.views }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12">
+                        {% if author_profile.image  %}
+                            <img id="avatar" class="search-author-img align-middle" src="{{ MEDIA_URL }}{{ author_profile.image }}" alt="Avatar image">
+                        {% else %}
+                            <img id="avatar" class="search-author-img align-middle" src="{{ MEDIA_URL }}avatars/default.png" alt="Avatar image">
+                        {% endif %}
+                        <p class="search-author-text">{{ recipe.author }}</p>
+                    </div>
+                </a>
+            </div>
+
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -880,6 +880,9 @@ def populate():
 def add_user(username, password, email, image=None):
     user = User.objects.get_or_create(username=username, email=email)[0]
     user.set_password(password)
+    user.is_staff = True;
+    user.is_superuser = True;
+
 
     user.save()
     userprofile = UserProfile.objects.get_or_create(user=user)[0]

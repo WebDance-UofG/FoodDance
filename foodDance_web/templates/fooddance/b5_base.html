@@ -31,34 +31,55 @@
     <div class="container-fluid">
 
         <div class="header-block">
-            <div class="row">
+            <div class="row justify-content-end">
                 {% if user.is_authenticated %}
-                    <div class="col-md-2 col-md-offset-7 logout_grid login_text" >Welcome, Author</div>
-                    <div class="col-md-1 logout_grid"><a href="" class="login_text">My Profile</a></div>
-                    <div class="col-md-1 logout_grid"><a href="" class="login_text">Add Recipe</a></div>
-                    <div class="col-md-1" style="margin-top: 10px"><a href="" class="login_text">Log Out</a></div>
+                    <div class="col-2 login_text" >Welcome, {{ user.username }}</div>
+                    <div class="col-1 login_text"><a href="" class="login_text">My Profile</a></div>
+                    <div class="col-1 login_text"><a href="" class="login_text">Add Recipe</a></div>
+                    <div class="col-1 login_text"><a href="" class="login_text">Log Out</a></div>
                 {% else %}
-                    <div class="col-md-1 col-md-offset-10 login_grid"><a href="" class="login_text">Login</a></div>
-                    <div class="col-md-1" style="margin-top: 10px"><a href="" class="login_text">Sign Up</a></div>
+                    <div class="col-1"><a href="" class="login_text">Login</a></div>
+                    <div class="col-1"><a href="" class="login_text">Sign Up</a></div>
                 {% endif %}
             </div>
             <div class="row">
-                <div class="col-md-4 col-md-offset-1"><img src="{% static 'images/logo_white.png' %}" alt="Logo" width="600" style="margin: 5px 0px"/><br/></div>
+                <div class="col-md-4 col-md-offset-1"><img src="{% static 'images/logo_white.png' %}" alt="Logo" width="600"/><br/></div>
             </div>
-            <div class="row">
-                <div class="col-md-3 col-md-offset-3"><h4><b style="color:#ffffff">COOK WITH WORLD</b></h4></div>
-                <div class="col-md-5 col-md-offset-1">
-                    <form method="get" action="{% url 'fooddance:search' %}">
-                        {% csrf_token%}
-                        <input type="text" name="search" class="search">
-                        <input type="submit" name="searchbutton" value="search" class="button-search">
+{#            <div class="row">#}
+{#                <div class="col-md-3 col-md-offset-3"><h4><b style="color:#ffffff">COOK WITH WORLD</b></h4></div>#}
+{#                <div class="col-md-5 col-md-offset-1">#}
+{#                    <form method="get" action="{% url 'fooddance:search' %}">#}
+{#                        {% csrf_token%}#}
+{#                        <input type="text" name="search" class="search">#}
+{#                        <input type="submit" name="searchbutton" value="search" class="button-search">#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                <div class="col-md-2 col-md-offset-1"><a href="{% url 'fooddance:index' %}" class="button-category">Home</a></div>#}
+{#                <div class="col-md-2"><a href="{% url 'fooddance:all_recipes' %}" class="button-category">All Recipe</a></div>#}
+{#            </div>#}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'fooddance:index' %}">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'fooddance:all_recipes' %}">ALL RECIPES</a>
+                        </li>
+                    </ul>
+                    </div>
+                    <form class="d-flex" method="get" action="{% url 'fooddance:search' %}">
+                        <input class="form-control me-3 px-4" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light me-3" type="submit">Search</button>
                     </form>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 col-md-offset-1"><a href="{% url 'fooddance:index' %}" class="button-category">Home</a></div>
-                <div class="col-md-2"><a href="{% url 'fooddance:all_recipes' %}" class="button-category">All Recipe</a></div>
-            </div>
+            </nav>
         </div>
 
         <div class="container-fluid">
@@ -71,7 +92,6 @@
                </div>
             </div>
         </div>
-<hr>
 <div class="tail-block">
     <a href="https://www.facebook.com">Facebook</a>
     <a href="https://www.facebook.com">Twitter</a>
