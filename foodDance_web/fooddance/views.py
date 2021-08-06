@@ -326,3 +326,37 @@ def wrapMessage(request, context_dict):
     if message:
         context_dict['alert_message'] = message
 
+def myrecipes(request):
+    recipes = []
+
+    def takeAverage(ele):
+        return ele.avg
+
+    if request.user.is_authenticated:
+        for recipe in Recipe.objects.all():
+            username = request.user.username
+            if username == recipe.author.__str__():
+            # if recipe.author == username:
+                recipes.append(
+                    dict2obj({
+                        "title": recipe.title,
+                        "avg": "{:.1f}".format(
+                            Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                        "image": recipe.image,
+                        "author": recipe.author,
+                        "overview": recipe.overview,
+                        "comments": len(Comment.objects.filter(recipe__id=recipe.id)),
+                        "likes": Comment.objects.filter(recipe__id=recipe.id).count(),
+                        "views": recipe.views,
+                        "slug": recipe.slug,
+                        "author_profile": UserProfile.objects.get(user_id=recipe.author.id),
+                    })
+            )
+        context_dict = {'recipes': recipes}
+    return render(request, 'fooddance/myrecipes.html', context_dict)
+
+def mycollection(request):
+    recipes = []
+
+    pass
+

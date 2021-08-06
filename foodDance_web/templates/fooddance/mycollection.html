@@ -6,11 +6,11 @@
     Search Results
 {% endblock %}
 {% block css_block %}
-    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/myrecipes.css' %}">
 {% endblock %}
 
 {% block body_block %}
-    <p class="search-result">My Recipes</p>
+    <p class="search-result">My Collection</p>
     {% if recipes %}
         {% for recipe in recipes %}
             <div class="row justify-content-center">
