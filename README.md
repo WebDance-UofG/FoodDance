@@ -32,17 +32,21 @@ We recommend to use Anaconda Command Prompt.
    
 
      python manage.py migrate
-  **Using population script to Import test data:**
-  
 
-    python populate.py
-   **After importing all data, start up the project:**
+  **Start up the project:**
    
 
     python manage.py runserver
 
-**Project is disploy on the http://127.0.0.1:8000**
+**Project is disploy on the http://127.0.0.1:8000** (default port is 8000)
+# Demo
+if you want to use demo, run population script to Import test data
 
+    python populate.py
+
+and then run:
+
+    python manage.py runserver
 # Development Team
 
 |                |name                          |email|
@@ -54,3 +58,5 @@ We recommend to use Anaconda Command Prompt.
 
 
 # System Architecture
+![未命名文件](https://user-images.githubusercontent.com/87979527/128576380-1edf78d9-b56a-4d64-a815-d3e97a6c7e37.png)
+
