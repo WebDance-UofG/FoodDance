@@ -15,9 +15,32 @@
     padding: 0px 0px;
     text-decoration: none;
 }
+.search-detail-bg:hover{
+    width: 90%;
+    background-color: #ffffff;
+    height: 200px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #E6E6E6;
+    margin:5px 0px;
+    padding: 0px 0px;
+    text-decoration: none;
+    border-width:3px;
+    border-color: #F2F2F2;
+}
+.search-detail-bg:active{
+    width: 90%;
+    background-color: #E6E6E6;
+    height: 200px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #FFFFFF;
+    margin:5px 0px;
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
 .search-detail-image{
-    height: 80%;
-    width: auto;
+    width: 90%;
+    height:auto;
     max-width: 100%;
     max-height: 100%;
 }

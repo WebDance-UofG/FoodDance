@@ -342,13 +342,46 @@ def user_confirm(request):
         context_dict['message'] = 'Thank you for your confirmation. You can login now.'
         return render(request, 'fooddance/confirm.html', context_dict)
 
+def myrecipes(request):
+    recipes = []
 
-# some helper method
+    def takeAverage(ele):
+        return ele.avg
+
+    if request.user.is_authenticated:
+        for recipe in Recipe.objects.all():
+            username = request.user.username
+            if username == recipe.author.__str__():
+            # if recipe.author == username:
+                recipes.append(
+                    dict2obj({
+                        "title": recipe.title,
+                        "avg": "{:.1f}".format(
+                            Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                        "image": recipe.image,
+                        "author": recipe.author,
+                        "overview": recipe.overview,
+                        "comments": len(Comment.objects.filter(recipe__id=recipe.id)),
+                        "likes": Comment.objects.filter(recipe__id=recipe.id).count(),
+                        "views": recipe.views,
+                        "slug": recipe.slug,
+                        "author_profile": UserProfile.objects.get(user_id=recipe.author.id),
+                    })
+            )
+        context_dict = {'recipes': recipes}
+    return render(request, 'fooddance/myrecipes.html', context_dict)
+
+def mycollection(request):
+    recipes = []
+
+    pass
+
+
+# some helper methods
 def dict2obj(args):
     """
     transfer a dict to a obj
     """
-
     class obj(object):
         def __init__(self, d):
             for a, b in d.items():
@@ -386,8 +419,6 @@ def wrapMessage(request, context_dict):
     message = get_session_handler(request)
     if message:
         context_dict['alert_message'] = message
-
-
 
 
 def hash_code(s, salt='webdance'):
