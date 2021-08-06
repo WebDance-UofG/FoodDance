@@ -333,30 +333,35 @@ def myrecipes(request):
         return ele.avg
 
     if request.user.is_authenticated:
-        for recipe in Recipe.objects.all():
-            username = request.user.username
-            if username == recipe.author.__str__():
-            # if recipe.author == username:
-                recipes.append(
-                    dict2obj({
-                        "title": recipe.title,
-                        "avg": "{:.1f}".format(
-                            Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
-                        "image": recipe.image,
-                        "author": recipe.author,
-                        "overview": recipe.overview,
-                        "comments": len(Comment.objects.filter(recipe__id=recipe.id)),
-                        "likes": Comment.objects.filter(recipe__id=recipe.id).count(),
-                        "views": recipe.views,
-                        "slug": recipe.slug,
-                        "author_profile": UserProfile.objects.get(user_id=recipe.author.id),
-                    })
+        for recipe in Recipe.objects.filter(author_id=request.user.id):
+            recipes.append(
+                dict2obj({
+                    "title": recipe.title,
+                    "avg": "{:.1f}".format(
+                        Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                    "image": recipe.image,
+                    "author": recipe.author,
+                    "overview": recipe.overview,
+                    "comments": len(Comment.objects.filter(recipe__id=recipe.id)),
+                    "likes": Comment.objects.filter(recipe__id=recipe.id).count(),
+                    "views": recipe.views,
+                    "slug": recipe.slug,
+                })
             )
         context_dict = {'recipes': recipes}
+    else:
+        return render(request, 'fooddance/login.html')
+
     return render(request, 'fooddance/myrecipes.html', context_dict)
 
 def mycollection(request):
-    recipes = []
-
+    # recipes = []
+    # userid = request.user.id
+    # userprofiles = UserProfile.objects.fileter(user_id=userid)
+    #
+    # print(type(userprofiles))
+    # pass
+    # def takeAverage(ele):
+    #     return ele.avg
     pass
 
