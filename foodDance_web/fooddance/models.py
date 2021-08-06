@@ -23,7 +23,6 @@ class Recipe(models.Model):
     slug = models.SlugField(unique=True)
 
     views = models.IntegerField(default=0)
-    likes = models.IntegerField(default=0)
     shares = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
@@ -85,8 +84,9 @@ class Comment(models.Model):
     COMMENT_MAX_LENGTH = 500
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
-    content = models.CharField(max_length=COMMENT_MAX_LENGTH)
+    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], default=0)
+    content = models.CharField(max_length=COMMENT_MAX_LENGTH, default="")
+    like = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username + " - rating:" + str(self.rating)

@@ -2,6 +2,8 @@
 {% extends 'fooddance/b5_base.html' %}
 {% load staticfiles %}
 
+{% load setting_tag %}
+
 {% block title_block %}
     FoodDance - {{ recipe.title }}
 {% endblock %}
@@ -10,11 +12,19 @@
     <link rel="stylesheet" href="{% static 'css/detail.css' %}">
 {% endblock %}
 
-{% block body_block %}
+{% block extra_script %}
+<script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=954783455088335&autoLogAppEvents=1" nonce="FGxtFXrQ"></script>
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+{% endblock %}
 
+
+{% block body_block %}
 <div class="row" id="topSmallRow">
     <div class="col-md-7 col-sm-12 ">
-        <img  src="{{ MEDIA_URL }}{{ recipe.image }}" class="img-fluid" alt="main picture of recipe">
+        <img src="{{ MEDIA_URL }}{{ recipe.image }}" class="img-fluid bigImg" alt="main picture of recipe">
     </div>
     <div class="col-md-5 col-sm-12 ">
 
@@ -93,19 +103,60 @@
                 <p class="area3Text">{{ recipe.views }}</p>
             </div>
             <div class="col">
-                <img class="area3Icon" src="{% static 'images/likes.svg' %}">
+                 {% if user.is_authenticated %}
+                     {% if hasLike %}
+                         <img id="likeIcon" onclick="likeIt({{ recipe.id }}, {{ user.id }})" class="area3Icon" src="{% static 'images/like.svg' %}">
+                      {% else %}
+                           <img id="likeIcon" onclick="likeIt({{ recipe.id }}, {{ user.id }})" class="area3Icon" src="{% static 'images/dislike.svg' %}">
+                      {% endif %}
+                 {% else %}
+                           <img id="likeIcon" onclick="login()" class="area3Icon" src="{% static 'images/like.svg' %}">
+                 {% endif %}
                 <p class="area3Text ">Likes</p>
-                <p class="area3Text">{{ recipe.likes }}</p>
+                <p id="likeAmount" class="area3Text">{{ likes }}</p>
             </div>
             <div class="col">
-                <img class="area3Icon" src="{% static 'images/collect.svg' %}">
+                {% if user.is_authenticated %}
+                    {% if hasCollect %}
+                          <img id="collectIcon"  class="area3Icon" onclick="collectIt({{ recipe.id }}, {{ user.id }})"  src="{% static 'images/collect.svg' %}">
+                    {% else %}
+                          <img id="collectIcon"  class="area3Icon" onclick="collectIt({{ recipe.id }}, {{ user.id }})"  src="{% static 'images/discollect.svg' %}">
+                    {% endif %}
+                 {% else %}
+                    {% if hasCollect %}
+                          <img id="collectIcon" class="area3Icon" onclick="login()"  src="{% static 'images/collect.svg' %}">
+                    {% else %}
+                          <img id="collectIcon" class="area3Icon" onclick="login()"  src="{% static 'images/discollect.svg' %}">
+                    {% endif %}
+                {% endif %}
                 <p class="area3Text ">Collect</p>
-                <p class="area3Text">{{ collect }}</p>
+                <p id="collectAmount"  class="area3Text">{{ collect }}</p>
             </div>
            <div class="col">
-                <img class="area3Icon" src="{% static 'images/share.svg' %}">
+                <img data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="area3Icon" src="{% static 'images/share.svg' %}">
+
+               <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Select a platform to share</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body"">
+                            <a target="view_window" class="twitter-share-button" onclick="share({{ recipe.id }})"
+                              href="https://twitter.com/intent/tweet?text={% setting_tag 'WEB_URL' %}/detail/{{ recipe.slug }}"
+                              data-size="large">
+                            Tweet</a>
+                          <div onclick="share({{ recipe.id }})" class="fb-share-button" data-href="http://127.0.0.1:8000/detail/sponge-pudding/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fdetail%2F{{ recipe.slug }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Facebook</a></div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <p class="area3Text ">Share</p>
-                <p class="area3Text">{{ recipe.shares }}</p>
+                <p id="shareAmount" class="area3Text">{{ recipe.shares }}</p>
             </div>
         </div>
 
@@ -148,23 +199,50 @@
     {% endfor %}
 </div>
 <hr />
-{% if user.is_authenticated %}
-{% endif %}
+
 <div class="row align-items-center">
     <p class="h4">Write your comment</p>
-    {#                TODO!!!!#}
-    <form id="submit_comment" method="post" action="">
+    <form id="submit_comment" method="POST" action="{% url 'fooddance:detail' recipe.slug  %}">
         {% csrf_token %}
-        {% for field in form.visible_fields %}
-            {{ field.errors }}
-            {{ field.help_text }}
-            {{ field }}
-        {% endfor %}
-    <br/>
 
-    <input class="btn btn-primary" type="submit" name="submit" value="Comment!" />
+        {% if showRating %}
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ratingRadioOptions" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ratingRadioOptions" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ratingRadioOptions" id="inlineRadio3" value="3">
+                  <label class="form-check-label" for="inlineRadio3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ratingRadioOptions" id="inlineRadio4" value="4">
+                  <label class="form-check-label" for="inlineRadio3">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ratingRadioOptions" id="inlineRadio5" value="5">
+                  <label class="form-check-label" for="inlineRadio3">5</label>
+            </div>
+        {% endif %}
+
+        {% if showComment %}
+              <label for="content" class="form-label">Comment:</label>
+              <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+        {% endif %}
+        <br/>
+        {% if showComment or showRating %}
+        <input class="btn btn-primary" type="submit" name="submit" value="Comment!" />
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+                Your had submitted the rating and comment.
+            </div>
+        {% endif %}
     </form>
 </div>
+
 <hr />
 <div class="row align-items-center ">
     {% if comments %}
@@ -184,7 +262,7 @@
         {% endfor %}
     {% endif %}
 </div>
-
+    <script src="{% static 'js/detail.js' %}"></script>
 
 
 {% endblock %}

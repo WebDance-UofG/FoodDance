@@ -14,7 +14,7 @@ class recipeStepInline(admin.TabularInline):
 
 class recipe(admin.ModelAdmin):
     list_display = ('title','image','author')
-    readonly_fields = ('author','pub_date','slug','views','likes','shares')
+    readonly_fields = ('author','pub_date','slug','views','shares')
     inlines = [materialsInline, recipeStepInline]
     fieldsets = ((None,{'fields':('title','image','overview','duration','budget','difficulty')}),)
 

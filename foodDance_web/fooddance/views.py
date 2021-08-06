@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.http import JsonResponse, HttpResponse
+
 
 # Create your views here.
 
@@ -21,6 +23,7 @@ def dict2obj(args):
                     setattr(self, a, [obj(x) if isinstance(x, dict) else x for x in b])
                 else:
                     setattr(self, a, obj(b) if isinstance(b, dict) else b)
+
     return obj(args)
 
 
@@ -57,7 +60,8 @@ def index(request, message=None):
         recipes.append(
             dict2obj({
                 "title": recipe.title,
-                "avg": "{:.1f}".format(Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                "avg": "{:.1f}".format(
+                    Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
                 "image": recipe.image,
                 "during": recipe.duration,
                 "author": recipe.author,
@@ -65,9 +69,10 @@ def index(request, message=None):
             })
         )
     recipes.sort(key=takeAverage)
+
     recipes.reverse()
     context_dict = {'recipes': recipes[:9]}
-    message = get_message_session_handler(request)
+    message = get_session_handler(request)
     if message:
         context_dict['alert_message'] = message
     return render(request, 'fooddance/index.html', context_dict)
@@ -95,48 +100,85 @@ def search(request):
                         "author": recipe.author,
                         "overview": recipe.overview,
                         "comments": len(Comment.objects.filter(recipe__id=recipe.id)),
-                        "likes": recipe.likes,
+                        "likes": Comment.objects.filter(recipe__id=recipe.id).count(),
                         "views": recipe.views,
                         "slug": recipe.slug,
                         "author_profile": UserProfile.objects.get(user_id=recipe.author.id),
                     })
                 )
     context_dict = {'recipes': recipes}
-    return render(request, 'fooddance/search.html',context_dict)
+    return render(request, 'fooddance/search.html', context_dict)
 
 
-def detail(request, recipe_title_slug, message=None):
+def detail(request, recipe_title_slug):
+
+    if request.method == 'POST':
+        recipe = Recipe.objects.get(slug=recipe_title_slug)
+        rating = request.POST.get('ratingRadioOptions')
+        content = request.POST.get('content')
+
+        comment = Comment.objects.get_or_create(user=request.user, recipe=recipe)[0]
+
+        if content:
+            comment.content = content
+
+        if rating:
+            comment.rating = rating
+
+        comment.save()
+        return redirect(reverse('fooddance:detail', kwargs={'recipe_title_slug': recipe_title_slug}))
+
     context_dict = {}
+
+    showComment = False
+    showRating = False
+
 
     try:
         recipe = Recipe.objects.get(slug=recipe_title_slug)
         recipe.views = recipe.views + 1
         recipe.save()
+
+        relating_comments = Comment.objects.filter(recipe__id=recipe.id)
+
         context_dict['recipe'] = recipe
+        context_dict['likes'] = relating_comments.filter(like=True).count()
         context_dict['author_profile'] = UserProfile.objects.get(user_id=recipe.author.id)
-        context_dict['avg'] = int(Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg'])
+        context_dict['avg'] = int(relating_comments.aggregate(Avg('rating'))['rating__avg'])
         context_dict['collect'] = UserProfile.objects.filter(collections__slug=recipe.slug).count()
         context_dict['steps'] = RecipeStep.objects.filter(recipe_id=recipe.id)
-        context_dict['comments'] = Comment.objects.filter(recipe__id=recipe.id)
+        context_dict['comments'] =  relating_comments
         context_dict['materials'] = Materials.objects.filter(recipe__id=recipe.id)
 
+        if request.user.is_authenticated:
+            context_dict['hasCollect'] = UserProfile.objects.get(user=request.user).\
+                                             collections.filter(slug=recipe_title_slug).count() > 0
+            try:
+                comment = Comment.objects.get(recipe=recipe, user=request.user)
+                context_dict['hasLike'] = comment.like
+            except Comment.DoesNotExist:
+                context_dict['hasLike'] = False
+
+            showComment = True
+            showRating = True
+
+            try:
+                comment = Comment.objects.get(recipe__slug=recipe_title_slug, user__id=request.user.id)
+            except Comment.DoesNotExist:
+                comment = None
+
+            if comment and len(comment.content) != 0:
+                showComment = False
+
+            if comment and int(comment.rating) > 0:
+                showRating = False
+
+        context_dict['showComment'] = showComment
+        context_dict['showRating'] = showRating
+
+
     except Recipe.DoesNotExist:
-        context_dict['recipe'] = None
-
-    form = CommentForm()
-
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-
-        if form.is_valid():
-            form.save(commit=True)
-            return redirect('/index/')
-        else:
-            print(form.errors)
-
-    context_dict['form'] = form
-    if message:
-        context_dict['alert_message'] = message
+        return HttpResponse('recipe does not exist')
 
     return render(request, 'fooddance/detail.html', context=context_dict)
 
@@ -150,7 +192,6 @@ def user_register(request):
         email = request.POST.get('email')
 
         userTuple = User.objects.get_or_create(username=username)
-        print(userTuple)
         if not userTuple[1]:
             context_dict['error'] = 'The user is already exist!'
         else:
@@ -158,10 +199,14 @@ def user_register(request):
             user.set_password(password)
             user.email = email
             user.save()
-            update_message_session_handler(request,'successfully register!')
+            update_session_handler(request, 'successfully register!')
+
+            up = UserProfile.objects.get_or_create(user=user)[0]
+            up.save()
+
             return redirect(reverse('fooddance:index'))
 
-    return render(request, 'fooddance/register.html',context_dict)
+    return render(request, 'fooddance/register.html', context_dict)
 
 
 def user_login(request):
@@ -171,19 +216,18 @@ def user_login(request):
     context_dict = {}
 
     if request.user.is_authenticated:
-        update_message_session_handler(request, "You are logged in.")
+        update_session_handler(request, "You are logged in.")
         return redirect(reverse("fooddance:index"))
 
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        print(password)
         user = authenticate(username=username, password=password)
 
         if user:
             if user.is_active:
-                update_message_session_handler(request, "successful login")
+                update_session_handler(request, "successful login")
                 login(request, user)
                 return redirect(reverse('fooddance:index'))
             else:
@@ -194,20 +238,75 @@ def user_login(request):
     return render(request, 'fooddance/login.html', context=context_dict)
 
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect(reverse('fooddance:index'))
+
+
+def like(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user')
+        recipe_id = request.POST.get('recipe')
+
+        comment = Comment.objects.get_or_create(user=User.objects.get(id=user_id), recipe=Recipe.objects.get(id=recipe_id))[0]
+
+        if comment and comment.like:
+            comment.like = False
+            response = JsonResponse({'result': 'dislike'})
+        else:
+            comment.like = True
+            response = JsonResponse({'result': 'like'})
+        comment.save()
+        return response
+
+
+def collect(request):
+    if request.method == 'POST':
+        user = int(request.POST.get('user'))
+        recipe = int(request.POST.get('recipe'))
+
+        up = UserProfile.objects.get(user_id=user)
+
+        if up.collections.filter(id=recipe).count() == 0:
+            up.collections.add(Recipe.objects.get(id=recipe))
+            response = JsonResponse({'result': 'collect'})
+
+        else:
+            up.collections.remove(Recipe.objects.get(id=recipe))
+            response = JsonResponse({'result': 'discollect'})
+
+        up.save()
+
+        return response
+
+
+def share(request):
+    if request.method == 'POST':
+        recipe = int(request.POST.get('recipe'))
+
+        try:
+            recipe = Recipe.objects.get(id=recipe)
+            recipe.shares = recipe.shares + 1
+            recipe.save()
+            response = JsonResponse({'result': 'success'})
+        except Recipe.DoesNotExist:
+            response = JsonResponse({'result': 'failed'})
+
+        return response
+
+
 # get message from server session
-def get_message_session_handler(request):
-    message = request.session.get('message')
+def get_session_handler(request, cookie='message'):
+    message = request.session.get(cookie)
     if message:
-        del request.session['message']
+        del request.session[cookie]
         return message
     return None
 
 
 # update message in server session
-def update_message_session_handler(request, message):
-    request.session['message'] = message
+def update_session_handler(request, message, cookie='message'):
+    request.session[cookie] = message
     print(f'- add message session {message}')
 
-def myRecipes(request):
-    if request.method == 'POST':
-        pass

@@ -32,33 +32,22 @@
 
         <div class="header-block">
             <div class="row justify-content-end">
-                {% if user.is_authenticated %}
-                    <div class="col-2 login_text" >Welcome, {{ user.username }}</div>
-                    <div class="col-1 login_text"><a href="" class="login_text">My Profile</a></div>
-                    <div class="col-1 login_text"><a href="" class="login_text">Add Recipe</a></div>
-                    <div class="col-1 login_text"><a href="" class="login_text">Log Out</a></div>
+               {% if user.is_authenticated %}
+                    <div class="col-md-2 col-md-offset-7 logout_grid login_text" >Welcome, {{ user.username }}</div>
+                    <div class="col-md-1 logout_grid"><a href="" class="login_text">My Profile</a></div>
+                    <div class="col-md-1 logout_grid"><a href="" class="login_text">Add Recipe</a></div>
+                    <div class="col-md-1" style="margin-top: 10px"><a href="{% url 'fooddance:logout' %}" class="login_text">Log Out</a></div>
+
                 {% else %}
-                    <div class="col-1"><a href="" class="login_text">Login</a></div>
-                    <div class="col-1"><a href="" class="login_text">Sign Up</a></div>
+                    <div class="col-md-1 col-md-offset-10 login_grid"><a href="{% url 'fooddance:user_login' %}" class="login_text">Login</a></div>
+                    <div class="col-md-1" style="margin-top: 10px"><a href="{% url 'fooddance:user_register' %}"  class="login_text">Sign Up</a></div>
+
                 {% endif %}
             </div>
             <div class="row">
                 <div class="col-md-4 col-md-offset-1"><img src="{% static 'images/logo_white.png' %}" alt="Logo" width="600"/><br/></div>
             </div>
-{#            <div class="row">#}
-{#                <div class="col-md-3 col-md-offset-3"><h4><b style="color:#ffffff">COOK WITH WORLD</b></h4></div>#}
-{#                <div class="col-md-5 col-md-offset-1">#}
-{#                    <form method="get" action="{% url 'fooddance:search' %}">#}
-{#                        {% csrf_token%}#}
-{#                        <input type="text" name="search" class="search">#}
-{#                        <input type="submit" name="searchbutton" value="search" class="button-search">#}
-{#                    </form>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row">#}
-{#                <div class="col-md-2 col-md-offset-1"><a href="{% url 'fooddance:index' %}" class="button-category">Home</a></div>#}
-{#                <div class="col-md-2"><a href="{% url 'fooddance:all_recipes' %}" class="button-category">All Recipe</a></div>#}
-{#            </div>#}
+
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
