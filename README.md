@@ -8,52 +8,53 @@ On the one hand,FoodDanceprovides a free community environment for users to sear
 In this project, we use sqlite 3 as database, use Django to implement the back-end service, and use html5, CSS, javascript, bootstrap 5 to process front-end render.
 
 # Project Structure
+└─ foodDance_web </br>
+    ├─ fooddance </br>
+    │  └─ templatetags </br>
+    ├─ foodDance_web </br>
+    ├─ media </br>
+    │  ├─ avatars </br>
+    │  └─ recipes </br>
+    ├─ static </br>
+    │  ├─ css </br>
+    │  ├─ images </br>
+    │  └─ js </br>
+    └─ templates </br>
+        └─ fooddance </br>
 
-![filestructure](https://user-images.githubusercontent.com/87979527/128578832-a08f7b0c-5a3c-4c3a-a39f-fe1c7091c962.png)
 
 # Environment Requirement
 This project uses python and django
  - Python 3.7.5
  - Django 2.1.5
  
-We recommend to use Anaconda Command Prompt.
+**We recommend to use Anaconda Command Prompt.
 
     conda create -n fooddance python=3.7.5    
     conda activate fooddance
-    conda install django==2.1.5
-    conda install pillow
+
 # Install
- **Enter file: FoodDance/FoodDanceWeb, open cmd.**
+Open project, and run cmd, execute the following command:
 
- 
+    pip install -r requirements.txt
+    cd foodDance_web
 
-**Load virtual environment:**
+ Creating and migrating the database:
 
-    conda activate fooddance
+    python manage.py makemigrations fooddance
+    python manage.py migrate
 
- 
- **Creating and migrating the Database:**
-   
+Import test data, run population script to do that, execute command:
 
-     python manage.py migrate
-
-  **Start up the project:**
-   
+    python population_script.py
+Start up the server:
 
     python manage.py runserver
 
-**Project is disploy on the http://127.0.0.1:8000** (default port is 8000)
-# Demo
-if you want to use demo, run population script to Import test data
-
-    python populate.py
-
-and then run:
-
-    python manage.py runserver
+Project is disploy on the http://127.0.0.1:8000 (default port is 8000)
 
 # Test
-Go to file fooddance_web, run the test commend.
+In fooddance_web file, run test command.
 
     python  manage.py test fooddance
    
@@ -62,24 +63,24 @@ Go to file fooddance_web, run the test commend.
 ## Index Page: /
  - [ ] **Today's Top** Show today's most views recipes.
  - [ ] **Recommendation** Show the top-9-comment recipes, click recipes can visit the detail of every recipe.
- - [ ] **Header** if user login, he can add recipes.
 ![index](https://user-images.githubusercontent.com/87979527/128576864-59744934-52f5-4800-8aa3-815c667b25d0.png)
 
-## All Recipes Page: 
-/addrecipes
+## All Recipes Page: addrecipes/
  **Show all recipes**
 ![allrecipes](https://user-images.githubusercontent.com/87979527/128578990-127d7d9b-188b-41f6-bead-f84106d84a67.png)
 
-## Search Result: 
-/search/?search=egg
+## Search Result: search/?search=key
 ![search](https://user-images.githubusercontent.com/87979527/128579015-84c7693c-50b0-43b7-ba69-a63d7ef4142c.png)
 
-## Login: 
-/login
+## Login: login/
 ![login](https://user-images.githubusercontent.com/87979527/128579025-77f5e60a-8635-4e4e-affe-09f0425e5404.png)
 
-## Sign Up: 
-/
+## Sign Up: register/
+![signup](https://user-images.githubusercontent.com/87979527/128580761-f28ade6b-c30f-474c-b067-12d4c0ce494e.png)
+
+## My recipes: myrecipe/
+Check my recipe
+![myrecipes](https://user-images.githubusercontent.com/87979527/128580853-b4a1b040-b8db-4d6e-8629-11a6fa67827d.png)
 
 # System Architecture
 ![未命名文件](https://user-images.githubusercontent.com/87979527/128576380-1edf78d9-b56a-4d64-a815-d3e97a6c7e37.png)
