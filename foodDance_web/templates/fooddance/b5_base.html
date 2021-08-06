@@ -44,14 +44,22 @@
                 </div>
 {#                <div class="col-md-1 col-sm-2 logout_grid"><a href="" class="login_text fs-6 text-center">My Profile</a></div>#}
 {#                <div class="col-md-1 col-sm-2 logout_grid"><a href="admin/fooddance/recipe/add/" class="login_text fs-6 text-center">Add Recipe</a></div>#}
-                <div class="col-md-2"><a href="{% url 'fooddance:logout' %}" class="btn login_text">
-                    Log Out</a><img src={% static 'images/logout.svg' %}/></div>
+                <div class="col-md-1 btn">
+                    <img src={% static 'images/logout.svg' %}/>
+                    <a href="{% url 'fooddance:logout' %}" class="login_text">Log-Out</a>
+                </div>
+                <div class="col-md-1"></div>
 
             {% else %}
-                <div class="col-md-2 "><img src={% static 'images/login.svg' %}/>
-                    <a href="{% url 'fooddance:user_login' %}" class="btn login_text">Login</a></div>
-                <div class="col-md-2"><img src={% static 'images/signup.svg' %}/>
-                    <a href="{% url 'fooddance:user_register' %}"  class="btn login_text">Sign Up</a></div>
+                <div class="col-md-1 btn">
+                    <a href="{% url 'fooddance:user_login' %}" class="login_text">Login</a>
+                    <img src={% static 'images/login.svg' %}/>
+                </div>
+                <div class="col-md-1 btn">
+                    <a href="{% url 'fooddance:user_register' %}"  class="login_text">Sign-Up</a>
+                    <img src={% static 'images/signup.svg' %}/>
+                </div>
+                <div class="col-md-1"></div>
 
             {% endif %}
         </div>
