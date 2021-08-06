@@ -11,11 +11,11 @@
 
 {% block body_block %}
     <p class="all-recipes">All Recipes</p>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
         {% if recipes %}
             {% for recipe in recipes %}
-                <div class="col-4">
+                <div class="col-md-4 col-sm-6 col-none-12">
                     <a href="{% url 'fooddance:detail' recipe.slug %}" class="card recipe-bg">
                         <div class="card recipe-block1">
                             <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="card-img-center recipe-pic" alt="recipe-img"/>
@@ -25,15 +25,15 @@
                         </div>
                         <div class="recipe-block3">
                             <div class="row justify-content-center">
-                                <div class="col-md-4 col-sm-12">
+                                <div class="col-3">
                                     <img src="{% static 'images/riFill-star-fill.svg' %}" class="recipe-icon" alt="rate-icon"/>
                                     <p class="recipe-text">{{ recipe.avg }}</p>
                                 </div>
-                                <div class="col-md-4 col-sm-12">
+                                <div class="col-4">
                                     <img src="{% static 'images/md-access_time.svg' %}" class="recipe-icon" alt="time-icon"/>
                                     <p class="recipe-text">{{ recipe.during }} min</p>
                                 </div>
-                                <div class="col-md-4 col-sm-12">
+                                <div class="col-5">
                                     <img src="{% static 'images/user-icon.svg' %}" class="recipe-icon" alt="user-icon"/>
                                     <p class="recipe-text">{{ recipe.author }}</p>
                                 </div>

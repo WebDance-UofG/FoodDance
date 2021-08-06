@@ -11,14 +11,15 @@
 
 {% block body_block %}
     <p class="search-result">Search Result</p>
+    <div class="container-fluid">
     {% if recipes %}
         {% for recipe in recipes %}
             <div class="row justify-content-center">
                 <a href="{% url 'fooddance:detail' recipe.slug %}" class="row align-items-center search-detail-bg">
-                    <div class="col-md-3 col-sm-12">
-                        <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="img-fluid"/>
+                    <div class="col-3">
+                        <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="img-fluid search-detail-image"/>
                     </div>
-                    <div class="col-md-7 col-sm-12">
+                    <div class="col-7">
                         <p class="row search-detail-title">{{ recipe.title }}</p>
                         <p class="row search-detail-overview">{{ recipe.overview }}</p>
                         <div class="search-detail-score">
@@ -28,7 +29,7 @@
                             <p class="search-detail-score-text">Views: {{ recipe.views }}</p>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-12">
+                    <div class="col-2">
                         {% if author_profile.image  %}
                             <img id="avatar" class="search-author-img align-middle" src="{{ MEDIA_URL }}{{ author_profile.image }}" alt="Avatar image">
                         {% else %}
@@ -41,4 +42,5 @@
 
         {% endfor %}
     {% endif %}
+    </div>
 {% endblock %}
