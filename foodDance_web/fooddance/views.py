@@ -9,22 +9,35 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponse
 
-
 # Create your views here.
 
-def dict2obj(args):
-    """
-    transfer a dict to a obj
-    """
-    class obj(object):
-        def __init__(self, d):
-            for a, b in d.items():
-                if isinstance(b, (list, tuple)):
-                    setattr(self, a, [obj(x) if isinstance(x, dict) else x for x in b])
-                else:
-                    setattr(self, a, obj(b) if isinstance(b, dict) else b)
 
-    return obj(args)
+def index(request):
+    recipes = []
+
+    def takeAverage(ele):
+        return ele.avg
+
+    for recipe in Recipe.objects.all():
+        recipes.append(
+            dict2obj({
+                "title": recipe.title,
+                "avg": "{:.1f}".format(
+                    Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                "image": recipe.image,
+                "during": recipe.duration,
+                "author": recipe.author,
+                "slug": recipe.slug,
+            })
+        )
+    recipes.sort(key=takeAverage)
+
+    recipes.reverse()
+    context_dict = {'recipes': recipes[:9]}
+
+    wrapMessage(request,context_dict)
+
+    return render(request, 'fooddance/index.html', context_dict)
 
 
 def category_allrecipes(request):
@@ -47,35 +60,8 @@ def category_allrecipes(request):
         )
     recipes.sort(key=takeAverage)
     context_dict = {'recipes': recipes}
+
     return render(request, 'fooddance/category_allrecipes.html', context_dict)
-
-
-def index(request, message=None):
-    recipes = []
-
-    def takeAverage(ele):
-        return ele.avg
-
-    for recipe in Recipe.objects.all():
-        recipes.append(
-            dict2obj({
-                "title": recipe.title,
-                "avg": "{:.1f}".format(
-                    Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
-                "image": recipe.image,
-                "during": recipe.duration,
-                "author": recipe.author,
-                "slug": recipe.slug,
-            })
-        )
-    recipes.sort(key=takeAverage)
-
-    recipes.reverse()
-    context_dict = {'recipes': recipes[:9]}
-    message = get_session_handler(request)
-    if message:
-        context_dict['alert_message'] = message
-    return render(request, 'fooddance/index.html', context_dict)
 
 
 def search(request):
@@ -206,7 +192,7 @@ def user_register(request):
             up = UserProfile.objects.get_or_create(user=user)[0]
             up.save()
 
-            return redirect(reverse('fooddance:index'))
+            return redirect(reverse('fooddance:user_login'))
 
     return render(request, 'fooddance/register.html', context_dict)
 
@@ -237,12 +223,15 @@ def user_login(request):
         else:
             context_dict['login_error'] = "Check your username or password."
 
+    wrapMessage(request, context_dict)
+
     return render(request, 'fooddance/login.html', context=context_dict)
 
 
 @login_required
 def user_logout(request):
     logout(request)
+    update_session_handler(request, 'successfully log out')
     return redirect(reverse('fooddance:index'))
 
 
@@ -298,17 +287,42 @@ def share(request):
         return response
 
 
-# get message from server session
+def dict2obj(args):
+    """
+    transfer a dict to a obj
+    """
+    class obj(object):
+        def __init__(self, d):
+            for a, b in d.items():
+                if isinstance(b, (list, tuple)):
+                    setattr(self, a, [obj(x) if isinstance(x, dict) else x for x in b])
+                else:
+                    setattr(self, a, obj(b) if isinstance(b, dict) else b)
+
+    return obj(args)
+
+def update_session_handler(request, message, cookie='message'):
+    """
+      update message in server session
+    """
+    request.session[cookie] = message
+    print(f'- add message session {message}')
+
 def get_session_handler(request, cookie='message'):
+    """
+       get message from server session
+    """
     message = request.session.get(cookie)
     if message:
         del request.session[cookie]
         return message
     return None
 
-
-# update message in server session
-def update_session_handler(request, message, cookie='message'):
-    request.session[cookie] = message
-    print(f'- add message session {message}')
+def wrapMessage(request, context_dict):
+    """
+        wrap the message in session into context dict
+    """
+    message = get_session_handler(request)
+    if message:
+        context_dict['alert_message'] = message
 
