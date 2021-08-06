@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 {% block body_block %}
-
+    
     <p class="todays-top">Today's Top</p>
     <div class="row justify-content-center">
         <div class="row align-items-center top-recipe-background">
@@ -17,74 +17,67 @@
                 <p class="top-recipe-title">Scrambled Egg with Tomato</p>
                 <p class="top-recipe-author">@Author</p>
                 <div>
-                    <img src="{% static 'images/ze-comment-o.svg' %}" class="top-recipe-comment-icon"/>
-                    <img src="{% static 'images/comment_stars.png' %}" class="top-recipe-comment-star"/>
+                    <img src="{% static 'images/ze-comment-o.svg' %}" class="top-recipe-comment-icon" alt="comment-icon"/>
+                    <img src="{% static 'images/comment_stars.png' %}" class="top-recipe-comment-star" alt="comment-star"/>
                     <p class="top-recipe-comment">"Very tasty and easy to cook !! I love this recipe !!"</p>
                 </div>
                 <div class="top-recipe-detail-div">
-                    <img src="{% static 'images/md-access_time.svg' %}" class="top-recipe-icon"/>
+                    <img src="{% static 'images/md-access_time.svg' %}" class="top-recipe-icon" alt="time-icon"/>
                     <p class="top-recipe-text">Duration</p>
                     <p class="top-recipe-text">45mins</p>
 
                 </div>
                 <div class="top-recipe-detail-div">
-                    <img src="{% static 'images/stLine-cup-l Copy.svg' %}" class="top-recipe-icon"/>
+                    <img src="{% static 'images/stLine-cup-l Copy.svg' %}" class="top-recipe-icon" alt="diff-icon"/>
                     <p class="top-recipe-text">Difficulty</p>
                     <p class="top-recipe-text">Easy</p>
                 </div>
                 <div class="top-recipe-detail-div">
-                    <img src="{% static 'images/ze-notes-o.svg' %}" class="top-recipe-icon"/>
+                    <img src="{% static 'images/ze-notes-o.svg' %}" class="top-recipe-icon" alt="overview-icon"/>
                     <p class="top-recipe-text">Overview</p>
                     <p class="top-recipe-text">A kind of classic recipes</p>
                 </div>
             </div>
             <div class="col-md-5 col-sm-12">
-                <img src="{% static 'images/top_recipe_cover_1.png' %}" class="img-fluid"/>
+                <img src="{% static 'images/top_recipe_cover_1.png' %}" class="img-fluid" alt="top-img"/>
             </div>
         </div>
     </div>
-    <div class="row">
-        <hr>
-        <div class="col-md-6"><p class="todays-top">Recommendation</p></div>
-    </div>
+    <hr>
+    <p class="todays-top">Recommendation</p>
     <div class="container">
         <div class="row">
         {% if recipes %}
             {% for recipe in recipes %}
-                <div class="col-3 justify-content-center">
-                    <div class="card recom-recipe-bg">
-                        <div class="recom-recipe-block1 align-items-center ">
-                            <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="img-fluid"/>
+                <div class="col-4">
+                    <a href="{% url 'fooddance:detail' recipe.slug %}" class="card recom-recipe-bg">
+                        <div class="card recom-recipe-block1">
+                            <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="card-img-center recom-recipe-pic" alt="recipe-img"/>
                         </div>
-{#                        <img src="{{ MEDIA_URL }}/{{ recipe.image }}" class="card-img-top img-fluid"/>#}
-                        <div class="card-body">
+                        <div class="recom-recipe-block2">
                             <p class="text-center recom-recipe-title">{{ recipe.title }}</p>
-                            <a href="{% url 'fooddance:detail' recipe.slug %}" class="btn btn-primary">Detail</a>
                         </div>
-                    </div>
-{#                    <div class="caption">#}
-{#                        <p class="recom-recipe-title">{{ recipe.title }}</p>#}
-{#                        <div class="row recom-recipe-row">#}
-{#                            <div class="col-md-3 recom-recipe-block">#}
-{#                                <span class="glyphicon glyphicon-star recom-recipe-icon-yellow"></span>#}
-{#                                <b class="recom-recipe-det">{{ recipe.avg }} / 5</b>#}
-{#                            </div>#}
-{#                            <div class="col-md-3 recom-recipe-block">#}
-{#                                <span class="glyphicon glyphicon-time recom-recipe-icon-red"></span>#}
-{#                                <b class="recom-recipe-det">{{ recipe.during }}min</b>#}
-{#                            </div>#}
-{#                            <div class="col-md-5 recom-recipe-block">#}
-{#                                <span class="glyphicon glyphicon-user recom-recipe-icon-blue"></span>#}
-{#                                <b class="recom-recipe-det">{{ recipe.author }}</b>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                        <div class="recom-recipe-block3">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 col-sm-12">
+                                    <img src="{% static 'images/riFill-star-fill.svg' %}" class="recom-recipe-icon" alt="rate-icon"/>
+                                    <p class="recom-recipe-text">{{ recipe.avg }}</p>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <img src="{% static 'images/md-access_time.svg' %}" class="recom-recipe-icon" alt="time-icon"/>
+                                    <p class="recom-recipe-text">{{ recipe.during }} min</p>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <img src="{% static 'images/user-icon.svg' %}" class="recom-recipe-icon" alt="user-icon"/>
+                                    <p class="recom-recipe-text">{{ recipe.author }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
         {% endif %}
         </div>
     </div>
-    <div class="container">
-        <div class="col-md-10 col-md-offset-1"> <a class="btn btn-default others-findall" href="{% url 'fooddance:all_recipes' %}" role="button">Click Here, Find More Recipes!</a></div>
-    </div>
+    <div class="col-12"> <a class="btn btn-outline-secondary others-findall" href="{% url 'fooddance:all_recipes' %}" role="button">Click Here, Find More Recipes!</a></div>
 {% endblock %}
