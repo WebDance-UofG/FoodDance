@@ -198,6 +198,8 @@ def user_register(request):
             user = userTuple[0]
             user.set_password(password)
             user.email = email
+            user.is_staff = True;
+            user.is_superuser = True;
             user.save()
             update_session_handler(request, 'successfully register!')
 

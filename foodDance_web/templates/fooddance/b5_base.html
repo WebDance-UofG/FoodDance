@@ -40,8 +40,10 @@
                         <img src={% static 'images/logout.svg' %}/></a></div>
 
                 {% else %}
-                    <div class="col-md-1 col-md-offset-10 login_grid"><a href="{% url 'fooddance:user_login' %}" class="login_text">Login</a></div>
-                    <div class="col-md-1"><a href="{% url 'fooddance:user_register' %}"  class="login_text">Sign Up</a></div>
+                    <div class="col-md-1 col-md-offset-10 login_grid"><a href="{% url 'fooddance:user_login' %}" class="login_text"><img src={% static 'images/login.svg' %}/>
+                        Login</a></div>
+                    <div class="col-md-1"><a href="{% url 'fooddance:user_register' %}"  class="login_text"><img src={% static 'images/signup.svg' %}/>
+                        Sign Up</a></div>
 
                 {% endif %}
             </div>
