@@ -16,6 +16,11 @@ import hashlib
 
 # Create your views here.
 
+def getAvg(recipe_id):
+    avg = Comment.objects.filter(recipe__id=recipe_id).aggregate(Avg('rating'))['rating__avg']
+    return int(avg) if avg else 0
+
+
 def index(request):
     """
     The home page.
@@ -25,8 +30,7 @@ def index(request):
         recipes.append(
             dict2obj({
                 "title": recipe.title,
-                "avg": "{:.1f}".format(
-                    Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                "avg": getAvg(recipe.id),
                 "image": recipe.image,
                 "during": recipe.duration,
                 "author": recipe.author,
@@ -60,8 +64,7 @@ def category_allrecipes(request):
         recipes.append(
             dict2obj({
                 "title": recipe.title,
-                "avg": "{:.1f}".format(
-                    Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                "avg": getAvg(recipe.id),
                 "image": recipe.image,
                 "during": recipe.duration,
                 "author": recipe.author,
@@ -86,12 +89,12 @@ def search(request):
         for recipe in Recipe.objects.all():
             titleList = recipe.title.lower().split(" ")
             # titleList = titleLower.split(" ")
+
             if keyword in titleList:
                 recipes.append(
                     dict2obj({
                         "title": recipe.title,
-                        "avg": "{:.1f}".format(
-                            Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                        "avg": getAvg(recipe.id),
                         "image": recipe.image,
                         "author": recipe.author,
                         "overview": recipe.overview,
@@ -138,7 +141,8 @@ def detail(request, recipe_title_slug):
         context_dict['recipe'] = recipe
         context_dict['likes'] = relating_comments.filter(like=True).count()
         context_dict['author_profile'] = UserProfile.objects.get(user_id=recipe.author.id)
-        context_dict['avg'] = int(relating_comments.aggregate(Avg('rating'))['rating__avg'])
+        avg = relating_comments.aggregate(Avg('rating'))['rating__avg']
+        context_dict['avg'] = avg if avg else 0
         context_dict['collect'] = UserProfile.objects.filter(collections__slug=recipe.slug).count()
         context_dict['steps'] = RecipeStep.objects.filter(recipe_id=recipe.id)
         context_dict['comments'] = relating_comments
@@ -196,7 +200,6 @@ def user_register(request):
                 User.objects.get(email=email)
             except User.DoesNotExist:
                 email_check = True
-
 
         if not email_check and not username_check:
             context_dict['error'] = 'The email and username has already been used!'
@@ -359,8 +362,7 @@ def myrecipes(request):
             recipes.append(
                 dict2obj({
                     "title": recipe.title,
-                    "avg": "{:.1f}".format(
-                        Comment.objects.filter(recipe__id=recipe.id).aggregate(Avg('rating'))['rating__avg']),
+                    "avg": getAvg(recipe.id),
                     "image": recipe.image,
                     "author": recipe.author,
                     "overview": recipe.overview,
