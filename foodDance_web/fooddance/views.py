@@ -142,7 +142,7 @@ def detail(request, recipe_title_slug):
         context_dict['likes'] = relating_comments.filter(like=True).count()
         context_dict['author_profile'] = UserProfile.objects.get(user_id=recipe.author.id)
         avg = relating_comments.aggregate(Avg('rating'))['rating__avg']
-        context_dict['avg'] = avg if avg else 0
+        context_dict['avg'] = int(avg) if avg else 0
         context_dict['collect'] = UserProfile.objects.filter(collections__slug=recipe.slug).count()
         context_dict['steps'] = RecipeStep.objects.filter(recipe_id=recipe.id)
         context_dict['comments'] = relating_comments
